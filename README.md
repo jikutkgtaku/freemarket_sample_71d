@@ -126,11 +126,11 @@
 ## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|reviewer_id|reference|null: false, foreign_key: true|
-|reciever_id|reference|null: false, foreign_key: true|
-|rating|reference|null: false, foreign_key: true|
+|reviewer_id|references|null: false, foreign_key: true|
+|reciever_id|references|null: false, foreign_key: true|
+|rating|references|null: false, foreign_key: true|
 |review|text||
-|item_id|reference|null: false, foreign_key: true|
+|item_id|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
