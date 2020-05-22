@@ -1,9 +1,9 @@
 # DB設計
 
 ## usersテーブル
-|Colum|Type|Option|
+|Column|Type|Option|
 |-------|----|-------|
-|nickname|string|null: false, unique: true, index: true|
+|nickname|string|null: false, unique: true|
 |email|string|null: false, unique: true|
 |password|string|null: false|
 |family_name|string|null: false|
@@ -128,7 +128,7 @@
 |------|----|-------|
 |reviewer_id|references|null: false, foreign_key: true|
 |reciever_id|references|null: false, foreign_key: true|
-|rating|references|null: false, foreign_key: true|
+|rating_id|references|null: false, foreign_key: true|
 |review|text||
 |item_id|references|null: false, foreign_key: true|
 
