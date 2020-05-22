@@ -128,7 +128,7 @@
 |------|----|-------|
 |reviewer_id|references|null: false, foreign_key: true|
 |reciever_id|references|null: false, foreign_key: true|
-|rating|references|null: false, foreign_key: true|
+|rating_id|references|null: false, foreign_key: true|
 |review|text||
 |item_id|references|null: false, foreign_key: true|
 
