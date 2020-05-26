@@ -30,5 +30,4 @@ class CreditcardsController < ApplicationController
 
   def buy
   end
-
 end
