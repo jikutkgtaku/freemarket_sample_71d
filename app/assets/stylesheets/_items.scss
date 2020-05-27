@@ -1,7 +1,6 @@
 // ヘッダー
 header {
-  height: 100px;
-  width: 100%;
+  padding: 0 60px;
 
 // ヘッダーコンテンツ部分
   .header__contents {
@@ -9,49 +8,50 @@ header {
     max-width: 1040px;
     margin: 0 auto;
     padding-top: 15px;
+    min-height: 82px;
     
     &__main {
-      height: 50px;
       display: flex;
       align-items: center;
 
       &__main-title {
         margin-right: 30px;
-        height: 50px;
+        padding-bottom: 10px;
 
         .icon {
           width: 140px;
+          display: block;
         }
       }
 
       &__search_box {
-        width: 100%;
+        background-color: blue;
+        height: 36px;
+        margin-left: auto;
         margin-bottom: 5px;
-
-        &__form {
-          align-items: center;
-          width: 100%;
-          height: 36px;
-          display: flex;
-          background-color: blue;
+        width: 100%;
           
           .input-box {
-            display: inline-block;
-            width: calc(100% - 40px);
+            width: calc(100% - 45px);
             padding: 0 0 0 5px;
-            height: 100%;
+            height: 33px;
+            position: relative;
           }
           
           .search-btn {
-            display: inline-block;
-            width: 20px;
             background-color: #3CCACE;
-            padding: 10px 10px;
+            width: 36px;
+            border: 0;
+            padding: 8px;
+            position: absolute;
+            cursor: pointer;
+
+            .image {
+              width: 100%;
+              vertical-align: bottom;
+            }
           }
       }
-
-      }
-
     }
 
 // ヘッダーナビゲーションバー
@@ -78,6 +78,7 @@ header {
         right: 0;
         display: flex;
         line-height: 34px;
+
         &__login-btn {
           margin-right: 20px;
         }
@@ -121,15 +122,25 @@ header {
 
   // FURIMAが選ばれる3つの理由
   &__introduction {
-    width: 100%;
     padding: 60px 20px;
 
     &__title {
       font-size: 26px;
       font-weight: bold;
-      text-align: center;
+      text-align: left;
       padding-bottom: 15px;
       margin-bottom: 25px;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 47%;
+      }
     }
 
     &__lists {
@@ -137,6 +148,7 @@ header {
       max-width: 1040px;
       margin: 0 auto;
       display: flex;
+
       
       &__content {
         flex-direction: column;
@@ -212,24 +224,218 @@ header {
 
   // FURIMAの特徴
   &__app-feature {
-    height: 730px;
-    width: 100%;
-    background-color: whitesmoke;
+    padding: 60px 100px;
+    background-color: #fff;
 
+    &__title {
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding-bottom: 15px;
+      margin-bottom: 25px;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 70px;
+        height: 4px;
+        background-color: #3CCACE;
+        position: absolute;
+        bottom: 0;
+        left: 47%;
+      }
+    }
+
+    &__lists {
+      max-width: calc(1040px + 20px);
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+
+      &__content {
+        display: flex;
+        flex-direction: column;
+        width: calc(1 / 3 * 100%);
+        padding: 0 20px;
+        text-align: center;
+
+        &__image {
+          width: 70%;
+          margin: 0 auto;
+
+          .list-image {
+            width: 100%;
+          }
+        }
+        &__title {
+          font-size: 19px;
+          font-weight: bold;
+          margin: 38px 0 10px;
+        }
+        &__text {
+          font-size: 17px;
+          font-weight: 200;
+          margin: 0 0 40px;
+          text-align: left;
+        }
+      }
+    }
   }
+
 // ピックアップカテゴリー
   &__pickup-category {
-    height: 430px;
-    width: 100%;
-    background-color: yellow;
+    height: 100%;
+    padding: 80px 0 20px;
+    background-color: #f8f8f8;
 
+    &__title {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.4;
+      text-align: center;
+    }
+    &__contents {
+      
+      &__title {
+        text-align: center;
+        .pickup-category-title {
+          text-decoration: none;
+          font-size: 24px;
+          font-weight: bold;
+          color: #3CCACE;
+        }
+      }
+      &__items-list {
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+        &__item {
+          width: 220px;
+          display: inline-block;
+          float: left;
+          &__image {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            .pickup-category-item {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          &__info {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+            }
+            &__detail {
+              font-size: 16px;
+              ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              p {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
+
 // ピックアップブランド
   &__pickup-brand {
-    height: 500px;
     width: 100%;
-    background-color: yellowgreen;
+    padding: 80px 0;
+    background-color: #f8f8f8;
+    &__title {
+      font-size: 28px;
+      font-weight: bold;
+      line-height: 1.4;
+      text-align: center;
+    }
+    &__contents {
+      &__title {
+        text-align: center;
 
+        .pickup-category-title {
+          text-decoration: none;
+          font-size: 24px;
+          font-weight: bold;
+          color: #3CCACE;
+        }
+      }
+      &__items-list {
+        width: 780px;
+        margin: 26px auto;
+        display: flex;
+        justify-content: space-around;
+
+        &__item {
+          width: 220px;
+          display: inline-block;
+          float: left;
+        
+          &__image {
+            width: 220px;
+            height: 150px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            z-index: auto;
+            .pickup-category-item {
+              position: absolute;
+              top: 0;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              width: 100%;
+              z-index: auto;
+              height: 150px;
+              object-fit: cover;
+            }
+          }
+          &__info {
+            background-color: white;
+            color: #333;
+            padding: 16px;
+            .name {
+              overflow: hidden;
+              line-height: 1.5;
+              font-size: 16px;
+              text-align: left;
+            }
+            &__detail {
+              font-size: 16px;
+              ul {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              p {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
 // サードビュー
@@ -305,4 +511,26 @@ footer {
     }
    }
   }
+}
+
+.purchaseBtn {
+  width: 90px;
+  position: fixed;
+  padding: 15px;
+  bottom: 32px;
+  right: 32px;
+  background-color: #3CCACE;
+  border-radius: 4%;
+  text-align: center;
+  color: #fff;
+  .purchaseBtn__text {
+    font-size: 18px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    display: block;
+  }
+  .purchaseBtn__icon{
+    width: 54px;
+  }
+
 }

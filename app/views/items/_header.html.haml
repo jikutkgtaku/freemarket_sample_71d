@@ -3,10 +3,10 @@
     .header__contents__main__main-title
       = link_to image_tag("material/logo/logo.png", class:"icon"), "/" 
     .header__contents__main__search_box
-      .header__contents__main__search_box__form
-        %form{:action => "#", :method => "get"}
-        %input.input-box{:name => "search", :placeholder => "キーワードから探す",:type => "search"}
-        %input.search-btn{:type => "image", :src => "/assets/icon-search1.png", :alt =>"検索ボタン"}
+      = form_with url: "#", method: :get, local: true do |f|
+        = f.text_field :search, class: "input-box", placeholder:"キーワードから探す"
+        %button{type: "submit", class:"search-btn"} 
+          = image_tag '/assets/icon-search1.png',class: "image"
 
   .header__contents__navbar
     %ul.list-left
