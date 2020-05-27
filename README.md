@@ -53,16 +53,16 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
+|introduction|text||
+|price|integer|null: false, index: true|
 |category_id|references|null: false, foreign_key: true|
 |brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
-|introduction|text||
 |condition_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, fereign_key: true|
 |shipping_fee_id|references|null: false, fereign_key: true|
 |prefecture_id|references|null: false, fereign_key: true|
 |shipping_period_id|references|null: false, fereign_key: true|
-|price|integer|null: false, index: true|
 |shipping_way_id|references|null: false, fereign_key: true|
 |status_id|references|null: false, foreign_key: true|
 |buyer_id|references|foreign_key: true|
