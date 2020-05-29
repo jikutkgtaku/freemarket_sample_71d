@@ -1,123 +1,90 @@
-// ヘッダー
-header {
-  padding: 0 60px;
+// 変数の設定
+// 1.影付きフォント
+@mixin text_shadow {
+  text-shadow:0 0 5px #333;
+  color: white;
+}
 
-// ヘッダーコンテンツ部分
-  .header__contents {
-    width: 100%;
-    max-width: 1040px;
-    margin: 0 auto;
-    padding-top: 15px;
-    min-height: 82px;
-    
-    &__main {
-      display: flex;
-      align-items: center;
+// 2.強調色
+$emphasis_color: #3CCACE;
 
-      &__main-title {
-        margin-right: 30px;
-        padding-bottom: 10px;
+// 3.ピックアップカテゴリー＆ピックアップブランドのタイトル
+@mixin pickup_title {
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 1.4;
+  text-align: center;
+}
 
-        .icon {
-          width: 140px;
-          display: block;
-        }
-      }
+// 4.ピックアップカテゴリー＆ピックアップブランドのサブタイトル
+@mixin pickup_subtitle {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: $emphasis_color;
+}
+// 5.FURIMAが選ばれる3つの理由,FURIMAの特徴のタイトル(擬似要素含む)
+@mixin basic_title {
+  font-size: 26px;
+  font-weight: bold;
+  text-align: center;
+  padding-bottom: 15px;
+  margin-bottom: 25px;
+  position: relative;
 
-      &__search_box {
-        background-color: blue;
-        height: 36px;
-        margin-left: auto;
-        margin-bottom: 5px;
-        width: 100%;
-          
-          .input-box {
-            width: calc(100% - 45px);
-            padding: 0 0 0 5px;
-            height: 33px;
-            position: relative;
-          }
-          
-          .search-btn {
-            background-color: #3CCACE;
-            width: 36px;
-            border: 0;
-            padding: 8px;
-            position: absolute;
-            cursor: pointer;
-
-            .image {
-              width: 100%;
-              vertical-align: bottom;
-            }
-          }
-      }
-    }
-
-// ヘッダーナビゲーションバー
-    &__navbar {
-      height: 34px;
-      font-size: 14px;
-      margin-bottom: 10px;
-      display: flex;
-      color: #333;
-      position: relative;
-
-      .list-left {
-        display: flex;
-        list-style: none;
-        line-height: 34px;
-
-        &__category-btn {
-          margin-right: 35px;
-        }
-      }
-
-      .list-right {
-        position: absolute;
-        right: 0;
-        display: flex;
-        line-height: 34px;
-
-        &__login-btn {
-          margin-right: 20px;
-        }
-        &__registration-btn {
-        }
-      }
-      .list-btn {
-        text-decoration: none;
-        color: black;
-      }
-    }
+  &::after {
+    content: "";
+    width: 70px;
+    height: 4px;
+    background-color: $emphasis_color;
+    position: absolute;
+    bottom: 0;
+    left: 47%;
   }
-} 
+}
+
+// 6.AppStore＆Googleplayのバッチ
+@mixin display_btn {
+  display: flex;
+  .btn_a {
+    width: 175px;
+  }
+  .btn_g {
+    width: 215px;  
+  }
+}
 
 
 
+// 以下、実装
 // ファーストビュー
 .main {
-  &__fv-section {
+  &__fv_section {
     height: 560px;
     background-image: url(material/pict/bg-mainVisual-pict_pc.jpg);
     background-size: cover;
 
     &__title {
-      color: white;
+      @include text_shadow;
+      color: #ffffff;
       font-size: 60px;
       padding-top: 200px;
       padding-left: 65px;
-      text-shadow: 0 0 5px#333;
     }
 
     &__text {
+      @include text_shadow;
       color: white;
-      text-shadow: 0 0 5px#333;
       padding-top: 20px;
       padding-left: 65px;
       display: flex;
+      line-height: 1.9;
     }
-
+    &__btn {
+      @include display_btn;
+      margin-top: 14px;
+      padding-left: 65px;
+    }
   }
 
   // FURIMAが選ばれる3つの理由
@@ -125,25 +92,10 @@ header {
     padding: 60px 20px;
 
     &__title {
-      font-size: 26px;
-      font-weight: bold;
-      text-align: left;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      position: relative;
-
-      &::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 47%;
-      }
+      @include basic_title
     }
 
-    &__lists {
+    &__contents {
       width: 100%;
       max-width: 1040px;
       margin: 0 auto;
@@ -164,7 +116,7 @@ header {
             left: 0;
             padding: 5px 17px;
             color: white;
-            background-color: #3CCACE;
+            background-color: $emphasis_color;
             font-size: 25px;
             font-weight: bold;
           }
@@ -179,7 +131,7 @@ header {
           line-height: 50px;
 
           .span {
-            color: #3CCACE;
+            color: $emphasis_color;
           }
         }
         &__text  {
@@ -188,12 +140,16 @@ header {
           margin: 16px 0 0;
         }
       }
+      &__content--last {
+        flex-direction: column;
+        margin-top: 16px;
+        text-align: center;
+      }
     }
-
   }
 
   // セカンドビュー
-  &__middle-section {
+  &__middle_section {
     height: 400px;
     background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
     background-size: cover;
@@ -202,11 +158,11 @@ header {
     align-items: center;
 
     &__content {
+      @include text_shadow;
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
       color: white;
-      text-shadow: 0 0 5px#333;
 
       &__subtitle {
         font-size: 27px;
@@ -216,34 +172,22 @@ header {
       
       &__text {
         font-size: 18px;
-        margin: 20px 0 30px;
+        margin: 20px 0 20px;
+      }
+
+      &__btn {
+        @include display_btn;
       }
     }
-
   }
 
   // FURIMAの特徴
-  &__app-feature {
+  &__app_feature {
     padding: 60px 100px;
     background-color: #fff;
 
     &__title {
-      font-size: 26px;
-      font-weight: bold;
-      text-align: center;
-      padding-bottom: 15px;
-      margin-bottom: 25px;
-      position: relative;
-
-      &::after {
-        content: "";
-        width: 70px;
-        height: 4px;
-        background-color: #3CCACE;
-        position: absolute;
-        bottom: 0;
-        left: 47%;
-      }
+      @include basic_title
     }
 
     &__lists {
@@ -273,7 +217,7 @@ header {
           margin: 38px 0 10px;
         }
         &__text {
-          font-size: 17px;
+          font-size: 16px;
           font-weight: 200;
           margin: 0 0 40px;
           text-align: left;
@@ -283,29 +227,26 @@ header {
   }
 
 // ピックアップカテゴリー
-  &__pickup-category {
+  &__pickup_category {
     height: 100%;
     padding: 80px 0 20px;
     background-color: #f8f8f8;
 
     &__title {
-      font-size: 28px;
-      font-weight: bold;
-      line-height: 1.4;
-      text-align: center;
+      @include pickup_title;
     }
-    &__contents {
-      
+
+    &__contents {  
       &__title {
+        
         text-align: center;
+
         .pickup-category-title {
-          text-decoration: none;
-          font-size: 24px;
-          font-weight: bold;
-          color: #3CCACE;
+          @include pickup_subtitle
         }
       }
-      &__items-list {
+
+      &__items {
         width: 780px;
         margin: 26px auto;
         display: flex;
@@ -333,17 +274,18 @@ header {
               object-fit: cover;
             }
           }
+          
           &__info {
             background-color: white;
-            color: #333;
+            color: #333333;
             padding: 16px;
             .name {
               overflow: hidden;
               line-height: 1.5;
-              font-size: 16px;
+              font-size: 14px;
             }
             &__detail {
-              font-size: 16px;
+              font-size: 14px;
               ul {
                 display: flex;
                 justify-content: space-between;
@@ -360,28 +302,22 @@ header {
   }
 
 // ピックアップブランド
-  &__pickup-brand {
+  &__pickup_brand {
     width: 100%;
     padding: 80px 0;
     background-color: #f8f8f8;
     &__title {
-      font-size: 28px;
-      font-weight: bold;
-      line-height: 1.4;
-      text-align: center;
+      @include pickup_title
     }
     &__contents {
       &__title {
         text-align: center;
 
-        .pickup-category-title {
-          text-decoration: none;
-          font-size: 24px;
-          font-weight: bold;
-          color: #3CCACE;
+        .pickup_brand_title {
+          @include pickup_subtitle
         }
       }
-      &__items-list {
+      &__items {
         width: 780px;
         margin: 26px auto;
         display: flex;
@@ -399,7 +335,7 @@ header {
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            .pickup-category-item {
+            .pickup_brand_item {
               position: absolute;
               top: 0;
               left: 0;
@@ -413,16 +349,16 @@ header {
           }
           &__info {
             background-color: white;
-            color: #333;
+            color: #333333;
             padding: 16px;
             .name {
               overflow: hidden;
               line-height: 1.5;
-              font-size: 16px;
+              font-size: 14px;
               text-align: left;
             }
             &__detail {
-              font-size: 16px;
+              font-size: 14px;
               ul {
                 display: flex;
                 justify-content: space-between;
@@ -430,6 +366,7 @@ header {
               }
               p {
                 font-size: 10px;
+                text-align: left;
               }
             }
           }
@@ -447,90 +384,46 @@ header {
     
     &__content {
       text-align: center;
-      color: #fff;
 
       &__sub-message {
+        @include text_shadow;
         font-size: 24px;
         font-weight: bold;
         line-height: 1.4;
-        text-shadow: 0 0 5px #333;
       }
       &__main-message {
+        @include text_shadow;
         font-size: 35px;
-        text-shadow: 0 0 5px #333;
+      }
 
+      &__btn {
+        @include display_btn;
+        width: 100%;
+        justify-content: center;
       }
     }
   }
 }
 
-// フッター
-footer {
-  background-color: #272727;
-  color: #fff;
-  padding: 60px 0;
-  text-align: center;
-
-  .contents {
-    max-width: 840px;
-    margin: 0 auto;
-    display: flex;
-
-    .content{
-      display: flex;
-      flex-direction: column;
-      width: calc(1/3 * 100%);
-      .list {
-        list-style: none;
-
-        .title {
-          margin-bottom: 20px;
-          font-size: 16px;
-          font-weight: bold;
-        }
-
-        .text {
-          font-size: 12px;
-          line-height: 32px;
-          .footer-content{
-            text-decoration: none;
-            color: white;
-          }
-        }
-      }
-    }
-  }
-  .logo {
-    .footer-logo {
-      max-width: 160px;
-      width: 100%;
-      margin: 0 auto;
-      color: white;
-      font-size: 14px;      
-    .sign{
-    }
-   }
-  }
-}
-
+// 画面右下の固定アイコン
 .purchaseBtn {
   width: 90px;
   position: fixed;
   padding: 15px;
   bottom: 32px;
   right: 32px;
-  background-color: #3CCACE;
+  background-color: $emphasis_color;
   border-radius: 4%;
   text-align: center;
   color: #fff;
+  
   .purchaseBtn__text {
     font-size: 18px;
     margin-bottom: 5px;
     text-decoration: none;
     display: block;
   }
-  .purchaseBtn__icon{
+  .purchaseBtn_icon{
     width: 54px;
   }
-
 }

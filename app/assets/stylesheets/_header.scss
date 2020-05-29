@@ -1,0 +1,93 @@
+// ヘッダー全体
+header {
+  padding: 0 60px;
+
+// ヘッダーコンテンツ部分
+  .header__contents {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 15px;
+    min-height: 82px;
+    
+    &__main {
+      display: flex;
+      align-items: center;
+
+      &__main-title {
+        margin-right: 30px;
+        padding-bottom: 10px;
+
+        .icon {
+          width: 140px;
+          display: block;
+        }
+      }
+
+      &__search_box {
+        background-color: blue;
+        height: 36px;
+        margin-left: auto;
+        margin-bottom: 5px;
+        width: 100%;
+          
+          .input-box {
+            width: calc(100% - 45px);
+            padding: 0 0 0 5px;
+            height: 33px;
+            position: relative;
+          }
+          
+          .search-btn {
+            background-color: #3CCACE;
+            width: 36px;
+            border: 0;
+            padding: 8px;
+            position: absolute;
+            cursor: pointer;
+
+            .image {
+              width: 100%;
+              vertical-align: bottom;
+            }
+          }
+      }
+    }
+
+// ヘッダーナビゲーションバー
+    &__navbar {
+      height: 34px;
+      font-size: 13px;
+      margin-bottom: 10px;
+      display: flex;
+      position: relative;
+      
+      .list-left {
+        display: flex;
+        list-style: none;
+        line-height: 34px;
+        
+        &__category-btn {
+          margin-right: 45px;
+        }
+      }
+      
+      .list-right {
+        position: absolute;
+        right: 0;
+        display: flex;
+        line-height: 34px;
+
+        &__login-btn {
+          margin-right: 20px;
+        }
+        &__registration-btn {
+        }
+      }
+      .list-btn {
+        text-decoration: none;
+        color: #333333;
+      }
+    }
+  }
+}

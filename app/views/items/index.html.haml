@@ -1,187 +1,210 @@
-.main__fv-section
-  %h1.main__fv-section__title 人生を変えるフリマアプリ
-  %p.main__fv-section__text FURIMAは誰でも簡単に出品・購入できる
-  %p.main__fv-section__text フリマアプリです
+-# ファーストビュー
+.main__fv_section
+  %h1.main__fv_section__title 人生を変えるフリマアプリ
+  %p.main__fv_section__text 
+    FURIMAはだれでもかんたんに出品・購入できる
+    %br
+    フリマアプリです
+  .main__fv_section__btn
+    = image_tag "material/logo/app_store_badge_US-UK_RGB_blk_092917.svg", class: "btn_a"
+    = image_tag "material/logo/google-play-badge.png", class: "btn_g"
+
 
 -# FURIMAが選ばれる3つの理由
 .main__introduction
   .main__introduction__title
     FURIMAが選ばれる3つの理由
-  %ul.main__introduction__lists
-    %li.main__introduction__lists__content
-      .main__introduction__lists__content__image
+  %ul.main__introduction__contents
+    %li.main__introduction__contents__content
+      .main__introduction__contents__content__image
         = image_tag "material/pict/pict-reason-01.jpg", class:"list-image"
-        .main__introduction__lists__content__image__number 1
-      .main__introduction__lists__content__title 
+        .main__introduction__contents__content__image__number 1
+      .main__introduction__contents__content__title 
         %span.span 3分
         ですぐに出品
-      .main__introduction__lists__content__text 
+      .main__introduction__contents__content__text 
         スマホで入力するだけで簡単に出品できる！
 
-    %li.main__introduction__lists__content
-      .main__introduction__lists__content__image
+    %li.main__introduction__contents__content
+      .main__introduction__contents__content__image
         = image_tag "material/pict/pict-reason-02.jpg", class:"list-image"
-        .main__introduction__lists__content__image__number 2
-      .main__introduction__lists__content__title 
+        .main__introduction__contents__content__image__number 2
+      .main__introduction__contents__content__title 
         %span.span シンプル
         で使いやすい
-      .main__introduction__lists__content__text 
+      .main__introduction__contents__content__text 
         めんどくさい入力は必要なく、検索も購入もスムーズ！
 
-    %li.main__introduction__lists__content
-      .main__introduction__lists__content__image
-        = image_tag "material/pict/pict-reason-02.jpg", class:"list-image"
-        .main__introduction__lists__content__image__number 3
-      .main__introduction__lists__content__title 
+    %li.main__introduction__contents__content--last
+      .main__introduction__contents__content__image
+        = image_tag "material/pict/pict-reason-03.jpg", class:"list-image"
+        .main__introduction__contents__content__image__number 3
+      .main__introduction__contents__content__title 
         手数料
         %span.span 業界最安
-      .main__introduction__lists__content__text 
+      .main__introduction__contents__content__text 
         最大3%でお得に出品＆購入！
 
+
 -# セカンドビュー
-.main__middle-section
-  .main__middle-section__content
-    .main__middle-section__content__subtitle
+.main__middle_section
+  .main__middle_section__content
+    .main__middle_section__content__subtitle
       会員数日本一位
-    .main__middle-section__content__text
+    .main__middle_section__content__text
       FURIMAは、フリマアプリで最も人気。
       %br
       出品・購入回数も業界最多です！
       %br
       欲しかったあの商品に出会えるかもしれません。
+    .main__middle_section__content__btn
+      = image_tag "material/logo/app_store_badge_US-UK_RGB_blk_092917.svg", class: "btn_a"
+      = image_tag "material/logo/google-play-badge.png", class: "btn_g"
+
 
 -# FURIMAの特徴
-.main__app-feature
-  .main__app-feature__title
+.main__app_feature
+  .main__app_feature__title
     FURIMAの特徴
-  %ul.main__app-feature__lists
-    %li.main__app-feature__lists__content
-      .main__app-feature__lists__content__image
+  %ul.main__app_feature__lists
+    -# 特徴その1
+    %li.main__app_feature__lists__content
+      .main__app_feature__lists__content__image
         = image_tag "material/icon/icon-01.png", class:"list-image"
-      .main__app-feature__lists__content__title
+      .main__app_feature__lists__content__title
         簡単に売り買いできる
-      .main__app-feature__lists__content__text
+      .main__app_feature__lists__content__text
         スマホひとつで、いつでもどこでも簡単に出品・購入が可能！
-
-    %li.main__app-feature__lists__content
-      .main__app-feature__lists__content__image
+    -# 特徴その2
+    %li.main__app_feature__lists__content
+      .main__app_feature__lists__content__image
         = image_tag "material/icon/icon-03.png", class:"list-image"
-      .main__app-feature__lists__content__title
+      .main__app_feature__lists__content__title
         売上金は即日振込みに対応
-      .main__app-feature__lists__content__text
+      .main__app_feature__lists__content__text
         午前9時までに振込を依頼いただければ、翌日に指定の口座に入金いたします！
-
-    %li.main__app-feature__lists__content
-      .main__app-feature__lists__content__image
+    -# 特徴その3
+    %li.main__app_feature__lists__content
+      .main__app_feature__lists__content__image
         = image_tag "material/icon/icon-04.png", class:"list-image"
-      .main__app-feature__lists__content__title
+      .main__app_feature__lists__content__title
         様々な支払いに対応
-      .main__app-feature__lists__content__text
+      .main__app_feature__lists__content__text
         お支払いは、クレジットカードだけでなく、ポイントや売上金など多彩な方法があります。
 
+
 -# ピックアップカテゴリー
-.main__pickup-category
-  .main__pickup-category__title
+.main__pickup_category
+  .main__pickup_category__title
     ピックアップカテゴリー
-  .main__pickup-category__contents
-    .main__pickup-category__contents__title
+  .main__pickup_category__contents
+    .main__pickup_category__contents__title
       =link_to "新規投稿商品","/",class:"pickup-category-title"
-    .main__pickup-category__contents__items-list
-      -# #の部分をitem/idへのリンクに変更する
+    .main__pickup_category__contents__items
+      -# 以下、item1
+      -# 以下の#部分をitem/idに変更する予定
       =link_to "#" do
-        .main__pickup-category__contents__items-list__item
-          .main__pickup-category__contents__items-list__item__image
+        .main__pickup_category__contents__items__item
+          .main__pickup_category__contents__items__item__image
             = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-category__contents__items-list__item__info
+          .main__pickup_category__contents__items__item__info
             %h3.name item1
-            .main__pickup-category__contents__items-list__item__info__detail
+            .main__pickup_category__contents__items__item__info__detail
               %ul
                 %li 30000円
-                %li ☆0
+                %li
+                  = icon('fa', 'star')
+                  0
               %p (税込)
-
+      -# item2
       =link_to "#" do
-        .main__pickup-category__contents__items-list__item
-          .main__pickup-category__contents__items-list__item__image
+        .main__pickup_category__contents__items__item
+          .main__pickup_category__contents__items__item__image
             = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-category__contents__items-list__item__info
-            %h3.name item1
-            .main__pickup-category__contents__items-list__item__info__detail
+          .main__pickup_category__contents__items__item__info
+            %h3.name item2
+            .main__pickup_category__contents__items__item__info__detail
               %ul
-                %li 30000円
-                %li ☆0
+                %li 20000円
+                %li
+                  = icon('fa', 'star')
+                  0
               %p (税込)
-
+      -# item3
       =link_to "#" do
-        .main__pickup-category__contents__items-list__item
-          .main__pickup-category__contents__items-list__item__image
+        .main__pickup_category__contents__items__item
+          .main__pickup_category__contents__items__item__image
             = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-category__contents__items-list__item__info
-            %h3.name item1
-            .main__pickup-category__contents__items-list__item__info__detail
+          .main__pickup_category__contents__items__item__info
+            %h3.name item3
+            .main__pickup_category__contents__items__item__info__detail
               %ul
-                %li 30000円
-                %li ☆0
+                %li 10000円
+                %li
+                  = icon('fa', 'star')
+                  0
               %p (税込)
-
 
             
 -# ピックアップブランド
-.main__pickup-brand
-  .main__pickup-brand__title
+.main__pickup_brand
+  .main__pickup_brand__title
     ピックアップブランド
-  .main__pickup-brand__contents
-    .main__pickup-brand__contents__title
-      =link_to "アーカイバ","/",class:"pickup-category-title"
-    .main__pickup-brand__contents__items-list
-      = link_to "#" do
-        .main__pickup-brand__contents__items-list__item
-          .main__pickup-brand__contents__items-list__item__image
-            = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-brand__contents__items-list__item__info
-            %h3.name item1
-            .main__pickup-brand__contents__items-list__item__info__detail
-              %ul
-                %li 30000円
-                %li ☆0
-              %p (税込)
-
-      = link_to "#" do
-        .main__pickup-brand__contents__items-list__item
-          .main__pickup-brand__contents__items-list__item__image
-            = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-brand__contents__items-list__item__info
-            %h3.name item1
-            .main__pickup-brand__contents__items-list__item__info__detail
-              %ul
-                %li 30000円
-                %li ☆0
-              %p (税込)
-
-      = link_to "#" do
-        .main__pickup-brand__contents__items-list__item
-          .main__pickup-brand__contents__items-list__item__image
-            = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-          .main__pickup-brand__contents__items-list__item__info
-            %h3.name item1
-            .main__pickup-brand__contents__items-list__item__info__detail
-              %ul
-                %li 30000円
-                %li ☆0
-              %p (税込)
+  .main__pickup_brand__contents
+    .main__pickup_brand__contents__title
+      -# 以下の#部分をitem/idに変更する予定
+      = link_to "アーカイバ","/",class:"pickup_brand_title"
+      .main__pickup_brand__contents__items
+        -# 以下、item1
+        = link_to "#" do
+          .main__pickup_brand__contents__items__item
+            .main__pickup_brand__contents__items__item__image
+              = image_tag "material/icon/icon-04.png", class:"pickup_brand_item"
+            .main__pickup_brand__contents__items__item__info
+              %h3.name item1
+              .main__pickup_brand__contents__items__item__info__detail
+                %ul
+                  %li 30000円
+                  %li
+                    = icon('fa', 'star')
+                    0
+                %p (税込)
+        -# item2
+        = link_to "#" do
+          .main__pickup_brand__contents__items__item
+            .main__pickup_brand__contents__items__item__image
+              = image_tag "material/icon/icon-04.png", class:"pickup_brand_item"
+            .main__pickup_brand__contents__items__item__info
+              %h3.name item2
+              .main__pickup_brand__contents__items__item__info__detail
+                %ul
+                  %li 20000円
+                  %li
+                    = icon('fa', 'star')
+                    0
+                %p (税込)
+        -# item3
+        = link_to "#" do
+          .main__pickup_brand__contents__items__item
+            .main__pickup_brand__contents__items__item__image
+              = image_tag "material/icon/icon-04.png", class:"pickup_brand_item"
+            .main__pickup_brand__contents__items__item__info
+              %h3.name item3
+              .main__pickup_brand__contents__items__item__info__detail
+                %ul
+                  %li 10000円
+                  %li
+                    = icon('fa', 'star')
+                    0
+                %p (税込)
 
 
 -# サードビュー
 .main__third-section
-  .main__third-section__content
-    .main__third-section__content__sub-message
-      だれでもかんたん、人生を変えるフリマアプリ
-    .main__third-section__content__main-message
-      今すぐ無料ダウンロード！
+  = render 'third-view'
 
 -# 画面右下の固定アイコン
 =link_to "#" do
   .purchaseBtn
     %span.purchaseBtn__text 出品する
-    = image_tag "/assets/icon-search1.png", class: "purchaseBtn__icon"
-    -# = image_tag "material/icon/icon-04.png", class:purchaseBtn__icon
+    = image_tag "/assets/camera.png", class: "purchaseBtn_icon"
