@@ -1,0 +1,237 @@
+$linkGreen: #3ccace;
+$boxWidth: 700px;
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+ul {
+  list-style: none;
+}
+body {
+  font-family: Source Sans Pro, Helvetica, Arial, 遊ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
+}
+// 上部のカテゴリ階層表示
+.hierarchy {
+  width: 100%;
+  box-shadow: 0 30px 30px 0 rgba(0, 0, 0, 0.16);
+  border-top: 1px solid #eee;
+  display: block;
+  ul {
+    display: flex;
+    margin: 0 60px;
+    padding: 15px 0;
+    li {
+      margin-right: 8px;
+      font-size: 14px;
+      text-align: -webkit-match-parent;
+      .fa {
+        -webkit-font-smoothing:antialiased;
+        -webkit-text-stroke-color: 1px #fff;
+      }
+    }
+  }
+  &__current {
+    font-weight: bold;
+  }
+}
+
+.itemWrapper {
+  width: 100%;
+  background-color: #f8f8f8;
+  padding: 40px 0;
+  overflow: scroll;
+}
+
+.itemBox {
+  width: $boxWidth;
+  margin: 0 auto;
+  padding: 20px 40px;
+  align-items: center;
+  background-color: #fff;
+  // 商品名
+  &__name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  // 画像
+  &__image {
+    width: 80%;
+    margin: 0 auto;
+    img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+    ul {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      li {
+        text-align: center;
+      }
+    }
+    &--main {
+      width: 100%;
+    }
+    &--sub {
+      li {
+        width: 25%;
+        margin:10px 5px 0 5px;
+      }
+    }
+  }
+  // 価格
+  &__price {
+    font-size: 46px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 24px;
+    margin-top: 24px;
+    &__detail{
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+  // 商品説明
+  &__introduction {
+    width: 100%;
+    font-size: 18px;
+    word-wrap: break-word; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  // 商品情報
+  &__table {
+    table {
+      height: 400px;
+      width: 100%;
+      border-collapse: collapse;
+      tr {
+        border-spacing: 2px;
+        th {
+          width: 20%;
+          text-align: center;
+          border: 1px solid #dedede;
+          font-size: 14px;
+          padding: 8px;
+          background-color: #eee;
+        }
+        td {
+          width: 60%;
+          vertical-align: inherit;
+          border: 1px solid #dedede;
+          padding: 15px;
+          font-size: 14px;
+          a {
+            color: $linkGreen;
+          }
+        }
+      }
+    }
+  }
+  // お気に入り・通報
+  .optionBox{
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    &__favorite {
+      color: $linkGreen;
+      border-radius: 27px;
+      border: 1px solid #ffb340;
+      padding: 5px 10px;
+    }
+    &__report {
+      border: 1px solid;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+    }
+  }
+}
+// コメント部分
+.commentBox {
+  width: $boxWidth;
+  padding: 20px;
+  margin: 10px auto;
+  text-align: center;
+  background-color: #fff;
+  .commentForm {
+    align-items: center;
+    &__content {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+    }
+    &__note {
+      width: 100%;
+      font-size: 14px;
+      padding: 5px;
+      margin-top: 10px;
+      text-align: left;
+      background-color: #f8f8f8;
+    }
+    &__button {
+      width: 60%;
+      background-color: $linkGreen;
+      color: white;
+      border: 1px solid;
+      line-height: 50px;
+      border-radius: 60px;
+      font-size: 18px;
+      font-family: Arial;
+      margin: 30px 0 0;
+      cursor: pointer;
+      .bubble {
+        color: white;
+      }
+    }
+  }
+}
+// 下部のリンク
+.links {
+  width: 700px;
+  margin: 0 auto;
+  text-align: center;
+  ul {
+    display: flex;
+    justify-content: space-between;
+    li {
+      color: aquamarine;
+    }
+  }
+  &__kategory {
+    display: block;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    color: aquamarine;
+    padding-top: 20px;
+  }
+}
+// 購入ボタン
+.purchase {
+  width: 120px;
+  padding: 15px;
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  background-color: rgba(255, 0, 0, 0.856);
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+  img {
+    width: 60%;
+    margin: 5px;
+  }
+}
+
+
+
