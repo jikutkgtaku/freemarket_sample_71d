@@ -28,17 +28,15 @@
 |Column|Type|Options|
 |------|----|-------|
 |user_id|references|null: false, foreign_key: true|
-|first_name|string|null: false|
-|family_name|string|null: false|
 |postal_code|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |block_number|string|null: false|
 |apartment_name|string||
-|phone_number|string||
+
 
 ### Association
-- belongs_to :user
+- belongs_to :user, optional: true
 
 ## creditcardsテーブル
 |Column|Type|Options|
