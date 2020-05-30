@@ -1,0 +1,20 @@
+.header__contents
+  .header__contents__main
+    .header__contents__main__main-title
+      = link_to image_tag("material/logo/logo.png", class:"icon"), "/" 
+    .header__contents__main__search_box
+      = form_with url: "#", method: :get, local: true do |f|
+        = f.text_field :search, class: "input-box", placeholder:"キーワードから探す"
+        %button{type: "submit", class:"search-btn"} 
+          = image_tag '/assets/icon-search1.png',class: "image"
+  .header__contents__navbar
+    %ul.list-left
+      %li.list-left__category-btn 
+        = link_to "カテゴリー", "/", class: "list-btn"
+      %li.list-left__brand-btn
+        = link_to "ブランド", "/", class: "list-btn"
+      %ul.list-right
+        %li.list-right__login-btn 
+          = link_to "ログイン", "/", class: "list-btn"
+        %li.list-right__registration-btn
+          = link_to "新規会員登録", "/", class: "list-btn"
