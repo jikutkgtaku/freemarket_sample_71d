@@ -1,6 +1,15 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "header";
-@import "items";
-@import "footer";
+@import "modules/header";
+@import "modules/footer";
+
+// トップページ（注意：変数のimportを上に記述する）
+@import "mixin/toppage/text-shadow";
+@import "mixin/toppage/emphasis-color";
+@import "mixin/toppage/pickup-title";
+@import "mixin/toppage/pickup-subtitle";
+@import "mixin/toppage/basic-title";
+@import "mixin/toppage/display-btn";
+
+@import "pages/toppage_items_index";

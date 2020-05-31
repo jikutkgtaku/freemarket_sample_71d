@@ -1,71 +1,12 @@
-// 変数の設定
-// 1.影付きフォント
-@mixin text_shadow {
-  text-shadow:0 0 5px #333;
-  color: white;
-}
-
-// 2.強調色
-$emphasis_color: #3CCACE;
-
-// 3.ピックアップカテゴリー＆ピックアップブランドのタイトル
-@mixin pickup_title {
-  font-size: 28px;
-  font-weight: bold;
-  line-height: 1.4;
-  text-align: center;
-}
-
-// 4.ピックアップカテゴリー＆ピックアップブランドのサブタイトル
-@mixin pickup_subtitle {
-  text-decoration: none;
-  font-size: 24px;
-  font-weight: bold;
-  color: $emphasis_color;
-}
-// 5.FURIMAが選ばれる3つの理由,FURIMAの特徴のタイトル(擬似要素含む)
-@mixin basic_title {
-  font-size: 26px;
-  font-weight: bold;
-  text-align: center;
-  padding-bottom: 15px;
-  margin-bottom: 25px;
-  position: relative;
-
-  &::after {
-    content: "";
-    width: 70px;
-    height: 4px;
-    background-color: $emphasis_color;
-    position: absolute;
-    bottom: 0;
-    left: 47%;
-  }
-}
-
-// 6.AppStore＆Googleplayのバッチ
-@mixin display_btn {
-  display: flex;
-  .btn_a {
-    width: 175px;
-  }
-  .btn_g {
-    width: 215px;  
-  }
-}
-
-
-
-// 以下、実装
 // ファーストビュー
 .main {
-  &__fv_section {
+  &__fv-section {
     height: 560px;
     background-image: url(material/pict/bg-mainVisual-pict_pc.jpg);
     background-size: cover;
 
     &__title {
-      @include text_shadow;
+      @include text-shadow;
       color: #ffffff;
       font-size: 60px;
       padding-top: 200px;
@@ -73,7 +14,7 @@ $emphasis_color: #3CCACE;
     }
 
     &__text {
-      @include text_shadow;
+      @include text-shadow;
       color: white;
       padding-top: 20px;
       padding-left: 65px;
@@ -81,7 +22,7 @@ $emphasis_color: #3CCACE;
       line-height: 1.9;
     }
     &__btn {
-      @include display_btn;
+      @include display-btn;
       margin-top: 14px;
       padding-left: 65px;
     }
@@ -92,7 +33,7 @@ $emphasis_color: #3CCACE;
     padding: 60px 20px;
 
     &__title {
-      @include basic_title
+      @include basic-title
     }
 
     &__contents {
@@ -116,7 +57,7 @@ $emphasis_color: #3CCACE;
             left: 0;
             padding: 5px 17px;
             color: white;
-            background-color: $emphasis_color;
+            background-color: $emphasis-color;
             font-size: 25px;
             font-weight: bold;
           }
@@ -131,7 +72,7 @@ $emphasis_color: #3CCACE;
           line-height: 50px;
 
           .span {
-            color: $emphasis_color;
+            color: $emphasis-color;
           }
         }
         &__text  {
@@ -149,7 +90,7 @@ $emphasis_color: #3CCACE;
   }
 
   // セカンドビュー
-  &__middle_section {
+  &__middle-section {
     height: 400px;
     background-image: url(material/pict/bg-topMiddleDl-pict.jpg);
     background-size: cover;
@@ -158,7 +99,7 @@ $emphasis_color: #3CCACE;
     align-items: center;
 
     &__content {
-      @include text_shadow;
+      @include text-shadow;
       max-width: 1040px;
       width: 100%;
       margin: 0 auto;
@@ -176,18 +117,18 @@ $emphasis_color: #3CCACE;
       }
 
       &__btn {
-        @include display_btn;
+        @include display-btn;
       }
     }
   }
 
   // FURIMAの特徴
-  &__app_feature {
+  &__app-feature {
     padding: 60px 100px;
     background-color: #fff;
 
     &__title {
-      @include basic_title
+      @include basic-title
     }
 
     &__lists {
@@ -227,13 +168,13 @@ $emphasis_color: #3CCACE;
   }
 
 // ピックアップカテゴリー
-  &__pickup_category {
+  &__pickup-category {
     height: 100%;
     padding: 80px 0 20px;
     background-color: #f8f8f8;
 
     &__title {
-      @include pickup_title;
+      @include pickup-title;
     }
 
     &__contents {  
@@ -242,7 +183,7 @@ $emphasis_color: #3CCACE;
         text-align: center;
 
         .pickup-category-title {
-          @include pickup_subtitle
+          @include pickup-subtitle
         }
       }
 
@@ -302,19 +243,19 @@ $emphasis_color: #3CCACE;
   }
 
 // ピックアップブランド
-  &__pickup_brand {
+  &__pickup-brand {
     width: 100%;
     padding: 80px 0;
     background-color: #f8f8f8;
     &__title {
-      @include pickup_title
+      @include pickup-title
     }
     &__contents {
       &__title {
         text-align: center;
 
-        .pickup_brand_title {
-          @include pickup_subtitle
+        .pickup-brand-title {
+          @include pickup-subtitle
         }
       }
       &__items {
@@ -335,7 +276,7 @@ $emphasis_color: #3CCACE;
             overflow: hidden;
             margin: 0;
             z-index: auto;
-            .pickup_brand_item {
+            .pickup-brand-item {
               position: absolute;
               top: 0;
               left: 0;
@@ -386,18 +327,18 @@ $emphasis_color: #3CCACE;
       text-align: center;
 
       &__sub-message {
-        @include text_shadow;
+        @include text-shadow;
         font-size: 24px;
         font-weight: bold;
         line-height: 1.4;
       }
       &__main-message {
-        @include text_shadow;
+        @include text-shadow;
         font-size: 35px;
       }
 
       &__btn {
-        @include display_btn;
+        @include display-btn;
         width: 100%;
         justify-content: center;
       }
@@ -412,7 +353,7 @@ $emphasis_color: #3CCACE;
   padding: 15px;
   bottom: 32px;
   right: 32px;
-  background-color: $emphasis_color;
+  background-color: $emphasis-color;
   border-radius: 4%;
   text-align: center;
   color: #fff;
@@ -423,7 +364,7 @@ $emphasis_color: #3CCACE;
     text-decoration: none;
     display: block;
   }
-  .purchaseBtn_icon{
+  .purchaseBtn-icon{
     width: 54px;
   }
 }

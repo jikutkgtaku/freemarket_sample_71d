@@ -1,0 +1,10 @@
+// AppStore＆Googleplayのバッチ
+@mixin display-btn {
+  display: flex;
+  .btn_a {
+    width: 175px;
+  }
+  .btn_g {
+    width: 215px;  
+  }
+}
