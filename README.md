@@ -4,19 +4,19 @@
 |Column|Type|Option|
 |-------|----|-------|
 |nickname|string|null: false, unique: true|
-|email|string|null: false, unique: true|
-|password|string|null: false|
-|family_name|string|null: false|
 |first_name|string|null: false|
-|family_name_kana|string|null: false|
+|last_name|string|null: false|
 |first_name_kana|string|null: false|
+|last_name_kana|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
-|phone_number|string|null: false, unique: true|
+|tel_number|string|null: false, unique: true|
+|email|string|null: false, unique: true|
+|encrypted_password|string|null: false|
 
 ## Associations
-- has_many :items
+- has_many :items, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_many :favorites, dependent::destroy
 - has_many :evaluations, dependent::destroy
@@ -27,13 +27,15 @@
 ### addresses テーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|postal_code|string|null: false|
+|user|references|null: false, foreign_key: true|
+|post_number|string|null: false|
+|lastname|string|null: false|
+|firstname|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
-|block_number|string|null: false|
-|apartment_name|string||
-
+|address|string|null: false|
+|apartment|string||
+|tel_number|string|
 
 ### Association
 - belongs_to :user, optional: true
@@ -54,7 +56,7 @@
 |introduction|text||
 |price|integer|null: false, index: true|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true|
+|brand_id|references|foreign_key: true, optional: true|
 |seller_id|references|null: false, foreign_key: true|
 |condition_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, fereign_key: true|

@@ -1,8 +1,7 @@
-
 class DeviseCreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string   :nickname          , null: false
+      t.string   :nickname          , null: false, unique: true
       t.string   :firstname         , null: false
       t.string   :lastname          , null: false
       t.string   :firstname_kana    , null: false
@@ -10,7 +9,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.integer  :birth_year        , null: false
       t.integer  :birth_month       , null: false
       t.integer  :birth_day         , null: false
-      t.string   :tel_number        , null: false
+      t.string   :tel_number        , null: false, unique: true
       t.string   :email             , null: false, default: "", unique: true
       t.string   :encrypted_password, null: false, default: ""
 
