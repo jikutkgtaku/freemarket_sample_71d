@@ -35,7 +35,7 @@
 |city|string|null: false|
 |address|string|null: false|
 |apartment|string||
-|tel_number|string|
+|tel_number|string||
 
 ### Association
 - belongs_to :user, optional: true
@@ -56,7 +56,7 @@
 |introduction|text||
 |price|integer|null: false, index: true|
 |category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true, optional: true|
+|brand_id|references|foreign_key: true|
 |seller_id|references|null: false, foreign_key: true|
 |condition_id|references|null: false, foreign_key: true|
 |size_id|references|null: false, fereign_key: true|
@@ -72,7 +72,7 @@
 - belongs_to :seller, class_name: "User"
 - has_many :images, dependent::destroy
 - belongs_to :category
-- belongs_to :brand
+- belongs_to :brand, optional: true
 - belongs_to :buyer, class_name: "User"
 - has_many :favorites, dependent::destroy
 - has_many :evaluations
@@ -91,7 +91,7 @@
 |ancestry|string||
 
 ### Association
-- belongs_to :item
+- has_many :items
 
 ## imagesテーブル
 |Column|Type|Options|
