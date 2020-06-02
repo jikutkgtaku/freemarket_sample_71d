@@ -4,7 +4,7 @@
 @import "modules/header";
 @import "modules/footer";
 
-// トップページ（注意：変数のimportを上に記述する）
+// トップページの変数（注意：変数のimportを上に記述する）
 @import "mixin/toppage/text-shadow";
 @import "mixin/toppage/emphasis-color";
 @import "mixin/toppage/pickup-title";
@@ -13,3 +13,4 @@
 @import "mixin/toppage/display-btn";
 
 @import "pages/toppage_items_index";
+@import "modules/third-section";
