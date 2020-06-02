@@ -1,7 +1,7 @@
 class Address < ApplicationRecord
   belongs_to :user, optional: true
 
-  validates :user, :post_number, :lastname, :firstname, :prefecture, :city, :address, presence: true
+  validates :user, :post_number, :firstname, :lastname, :prefecture, :city, :address, presence: true
   
   validates :firstname     , format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :lastname      , format: {with: /\A[ぁ-んァ-ン一-龥]/}

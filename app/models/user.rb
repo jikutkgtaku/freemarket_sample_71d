@@ -1,17 +1,16 @@
 class User < ApplicationRecord
   has_many   :items      , dependent: :destroy
   has_many   :addresses  , dependent: :destroy
-  # has_many   :creditcards, dependent: :destroy
-  # has_many   :evaluations, dependent: :destroy
-  # has_many   :favorites  , dependent: :destroy
   # has_many   :comments   , dependent: :destroy
-
+  # has_many   :favorites  , dependent: :destroy
+  # has_many   :evaluations, dependent: :destroy
+  # has_many   :creditcards, dependent: :destroy
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   validates :nickname, :firstname , :lastname, :firstname_kana, :lastname_kana, :nickname, :birth_year, :birth_month, :birth_day, :tel_number, presence: true
-  validates :tel_number, uniqueness: true
+  validates :nickname, :tel_number, uniqueness: true
 
   validates :firstname     , format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :lastname      , format: {with: /\A[ぁ-んァ-ン一-龥]/}

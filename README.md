@@ -4,10 +4,10 @@
 |Column|Type|Option|
 |-------|----|-------|
 |nickname|string|null: false, unique: true|
-|first_name|string|null: false|
-|last_name|string|null: false|
-|first_name_kana|string|null: false|
-|last_name_kana|string|null: false|
+|firstname|string|null: false|
+|lastname|string|null: false|
+|firstname_kana|string|null: false|
+|lastname_kana|string|null: false|
 |birth_year|integer|null: false|
 |birth_month|integer|null: false|
 |birth_day|integer|null: false|
@@ -17,10 +17,10 @@
 
 ## Associations
 - has_many :items, dependent::destroy
+- has_many :addresses, dependent::destroy
 - has_many :comments, dependent::destroy
 - has_many :favorites, dependent::destroy
 - has_many :evaluations, dependent::destroy
-- has_many :addresses, dependent::destroy
 - has_many :creditcards, dependent::destroy
 
 
@@ -29,8 +29,8 @@
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
 |post_number|string|null: false|
-|lastname|string|null: false|
 |firstname|string|null: false|
+|lastname|string|null: false|
 |prefecture|string|null: false|
 |city|string|null: false|
 |address|string|null: false|
@@ -55,17 +55,17 @@
 |name|string|null: false, index: true|
 |introduction|text||
 |price|integer|null: false, index: true|
-|category_id|references|null: false, foreign_key: true|
-|brand_id|references|foreign_key: true|
-|seller_id|references|null: false, foreign_key: true|
-|condition_id|references|null: false, foreign_key: true|
-|size_id|references|null: false, fereign_key: true|
-|shipping_fee_id|references|null: false, fereign_key: true|
-|prefecture_id|references|null: false, fereign_key: true|
-|shipping_period_id|references|null: false, fereign_key: true|
-|shipping_way_id|references|null: false, fereign_key: true|
-|status_id|references|null: false, foreign_key: true|
-|buyer_id|references|foreign_key: true|
+|category|references|null: false, foreign_key: true|
+|brand|references|foreign_key: true|
+|seller|references|null: false, foreign_key: true|
+|condition|references|null: false, foreign_key: true|
+|size|references|null: false, fereign_key: true|
+|shipping_fee|references|null: false, fereign_key: true|
+|prefecture|references|null: false, fereign_key: true|
+|shipping_period|references|null: false, fereign_key: true|
+|shipping_way|references|null: false, fereign_key: true|
+|status|references|null: false, foreign_key: true|
+|buyer|references|foreign_key: true|
 |closed_at|datetime||
 
 ### Association
@@ -97,7 +97,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |image|text|null: false|
-|item_id|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
