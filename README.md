@@ -78,7 +78,7 @@
 - has_many :evaluations
 - has_many :comments, dependent::destroy
 - belongs_to_active_hash :condition
-- belongs_to_active_hash :shipping_cost
+- belongs_to_active_hash :shipping_fee
 - belongs_to_active_hash :prefecture
 - belongs_to_active_hash :shipping_period
 - belongs_to_active_hash :shipping_way

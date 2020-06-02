@@ -1,10 +1,10 @@
 class User < ApplicationRecord
   has_many   :items      , dependent: :destroy
   has_many   :addresses  , dependent: :destroy
-  has_many   :creditcards, dependent: :destroy
-  has_many   :evaluations, dependent: :destroy
-  has_many   :favorites  , dependent: :destroy
-  has_many   :comments   , dependent: :destroy
+  # has_many   :creditcards, dependent: :destroy
+  # has_many   :evaluations, dependent: :destroy
+  # has_many   :favorites  , dependent: :destroy
+  # has_many   :comments   , dependent: :destroy
 
 
   devise :database_authenticatable, :registerable,
