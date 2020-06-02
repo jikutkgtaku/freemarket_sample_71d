@@ -1,22 +1,22 @@
-%nav.hierarchy
-  = render partial: 'hierarchy'
-.itemWrapper
-  .itemBox
+%nav.kategory-hierarchy
+  = render partial: 'kategory-hierarchy'
+.item-wrapper
+  .item-box
     = render partial: 'item-detail'
-    .optionBox
-      =link_to '#', class: 'optionBox__favorite' do
+    .option-box
+      =link_to '#', class: 'option-box__favorite' do
         ★お気に入り 0
-      =link_to '#', class: 'optionBox__report' do
+      =link_to '#', class: 'option-box__report' do
         = icon('fas', 'flag')
         不適切な商品の通報
-  .commentBox
-    %form.commentForm
-      %textarea.commentForm__content
-      .commentForm__note
+  .comment-box
+    %form.comment-form
+      %textarea.comment-form__content
+      .comment-form__note
         %span 相手のことを考え丁寧なコメントを心がけましょう。
         %br
         %span 不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      %button.commentForm__button 
+      %button.comment-form__button 
         = icon('fas', 'comment')
         コメントする
   .links

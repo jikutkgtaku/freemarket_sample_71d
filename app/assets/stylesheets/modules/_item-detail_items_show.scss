@@ -11,28 +11,7 @@ body {
   overflow: scroll;
   font-family: Source Sans Pro, Helvetica, Arial, 遊ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
 }
-// 上部のカテゴリ階層表示
-.hierarchy {
-  width: 100%;
-  box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
-  border-top: 1px solid #eee;
-  position: relative;
-  display: block;
-  ul {
-    display: flex;
-    margin: 0 60px;
-    padding: 15px 0;
-    li {
-      margin-right: 8px;
-      font-size: 14px;
-    }
-  }
-  &__current {
-    font-weight: bold;
-  }
-}
-
-.itemWrapper {
+.item-wrapper {
   width: 100%;
   background-color: #f8f8f8;
   padding: 40px 0;
@@ -41,7 +20,7 @@ body {
   }
 }
 
-.itemBox {
+.item-box {
   width: $boxWidth;
   margin: 0 auto;
   padding: 20px 40px;
@@ -58,7 +37,7 @@ body {
   &__image {
     width: 80%;
     margin: 0 auto;
-      img {
+    img {
       width: auto;
       height: auto;
       max-width: 100%;
@@ -132,7 +111,7 @@ body {
     }
   }
   // お気に入り・通報
-  .optionBox{
+  .option-box{
     width: 100%;
     margin: 30px 0;
     display: flex;
@@ -152,13 +131,13 @@ body {
   }
 }
 // コメント部分
-.commentBox {
+.comment-box {
   width: $boxWidth;
   padding: 20px;
   margin: 10px auto;
   text-align: center;
   background-color: #fff;
-  .commentForm {
+  .comment-form {
     align-items: center;
     &__content {
       width: 100%;
