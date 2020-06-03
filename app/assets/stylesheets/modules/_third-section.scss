@@ -1,0 +1,28 @@
+// サードビュー
+.third-section {
+  background-image: url(material/pict/bg-appBanner-pict.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 100px 40px;
+  
+  &__content {
+    text-align: center;
+
+    &__sub-message {
+      @include text-shadow;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 1.4;
+    }
+    &__main-message {
+      @include text-shadow;
+      font-size: 35px;
+    }
+
+    &__btn {
+      @include display-btn;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}
