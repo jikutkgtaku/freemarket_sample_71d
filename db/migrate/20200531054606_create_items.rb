@@ -15,7 +15,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.references  :shipping_way         , null: false, foreign_key: true
       t.references  :status               , null: false, foreign_key: true
       t.references  :buyer                , foreign_key: true
-      t.datatime    :closed_at
+      t.datetime    :closed_at
       t.timestamps
     end
     add_index :items, [:name, :price]
