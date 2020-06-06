@@ -43,7 +43,7 @@
 ## creditcardsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
 |payjp_id|string|null: false|
 
 ### Association
@@ -55,16 +55,16 @@
 |name|string|null: false, index: true|
 |introduction|text||
 |price|integer|null: false, index: true|
-|category|references|null: false, foreign_key: true|
-|brand|references|foreign_key: true|
+|category_id|integer|null: false, foreign_key: true|
+|brand_id|integer|foreign_key: true|
 |seller|references|null: false, foreign_key: true|
-|condition|references|null: false, foreign_key: true|
-|size|references|null: false, fereign_key: true|
-|shipping_fee|references|null: false, fereign_key: true|
-|prefecture|references|null: false, fereign_key: true|
-|shipping_period|references|null: false, fereign_key: true|
-|shipping_way|references|null: false, fereign_key: true|
-|status|references|null: false, foreign_key: true|
+|condition_id|integer|null: false|
+|size_id|integer|null: false|
+|shipping_fee_id|integer|null: false|
+|prefecture_id|integer|null: false|
+|shipping_period_id|integer|null: false|
+|shipping_way_id|integer|null: false|
+|status_id|integer|null: false|
 |buyer|references|foreign_key: true|
 |closed_at|datetime||
 
@@ -83,6 +83,8 @@
 - belongs_to_active_hash :shipping_period
 - belongs_to_active_hash :shipping_way
 - belongs_to_active_hash :size
+- belongs_to_active_hash :status
+
 
 ## categoriesテーブル
 |Column|Type|Options|
@@ -105,8 +107,8 @@
 ## favoritesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -116,8 +118,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |comment|text|null: false|
-|user_id|references|null: false, foreign_key: true|
-|item_id|references|null: false, foreign_key: true|
+|user|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :user
@@ -126,11 +128,11 @@
 ## evaluationsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|reviewer_id|references|null: false, foreign_key: true|
-|reciever_id|references|null: false, foreign_key: true|
-|rating_id|references|null: false, foreign_key: true|
+|reviewer|references|null: false, foreign_key: true|
+|reciever|references|null: false, foreign_key: true|
+|rating|references|null: false, foreign_key: true|
 |review|text||
-|item_id|references|null: false, foreign_key: true|
+|item|references|null: false, foreign_key: true|
 
 ### Association
 - belongs_to :item
@@ -145,6 +147,7 @@
 
 ### Association
 - has_many :items
+
 
 
 
