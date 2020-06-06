@@ -10,7 +10,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, :firstname , :lastname, :firstname_kana, :lastname_kana, :nickname, :birth_year, :birth_month, :birth_day, :tel_number, presence: true
-  validates :nickname, :tel_number, uniqueness: true
+  validates :nickname, :tel_number, :email, uniqueness: true
 
   validates :firstname     , format: {with: /\A[ぁ-んァ-ン一-龥]/}
   validates :lastname      , format: {with: /\A[ぁ-んァ-ン一-龥]/}
