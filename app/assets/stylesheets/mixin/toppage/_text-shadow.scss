@@ -1,0 +1,5 @@
+// 影付きフォント
+@mixin text-shadow {
+  text-shadow:0 0 5px #333;
+  color: white;
+}
