@@ -129,7 +129,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |reviewer|references|null: false, foreign_key: true|
-|reciever|references|null: false, foreign_key: true|
+|receiver|references|null: false, foreign_key: true|
 |rating|references|null: false, foreign_key: true|
 |review|text||
 |item|references|null: false, foreign_key: true|
