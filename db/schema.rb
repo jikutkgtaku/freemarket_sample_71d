@@ -57,21 +57,23 @@ ActiveRecord::Schema.define(version: 2020_05_31_315025) do
     t.integer "brand_id"
     t.bigint "seller_id", null: false
     t.integer "condition_id", null: false
-    t.integer "size_id", null: false
+    t.integer "size_id", default: 99, null: false
     t.integer "shipping_fee_id", null: false
     t.integer "prefecture_id", null: false
     t.integer "shipping_period_id", null: false
     t.integer "shipping_way_id", null: false
-    t.integer "status_id", null: false
+    t.integer "status_id", default: 1, null: false
     t.bigint "buyer_id"
     t.datetime "closed_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["brand_id"], name: "fk_rails_36708b3aa6"
+    t.index ["buyer_id"], name: "index_items_on_buyer_id"
     t.index ["category_id"], name: "fk_rails_89fb86dc8b"
     t.index ["name", "price"], name: "index_items_on_name_and_price"
     t.index ["name"], name: "index_items_on_name"
     t.index ["price"], name: "index_items_on_price"
+    t.index ["seller_id"], name: "index_items_on_seller_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -99,4 +101,6 @@ ActiveRecord::Schema.define(version: 2020_05_31_315025) do
   add_foreign_key "images", "items"
   add_foreign_key "items", "brands"
   add_foreign_key "items", "categories"
+  add_foreign_key "items", "users", column: "buyer_id"
+  add_foreign_key "items", "users", column: "seller_id"
 end
