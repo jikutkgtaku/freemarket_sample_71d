@@ -1,0 +1,7 @@
+// ピックアップカテゴリー＆ピックアップブランドのサブタイトル
+@mixin pickup-subtitle {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: $emphasis-color;
+}
