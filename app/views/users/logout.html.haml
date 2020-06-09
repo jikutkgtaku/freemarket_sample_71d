@@ -1,0 +1,9 @@
+.content
+  = render 'sidebar'
+  .content__main
+    .content__main__box
+      = form_with url: "#", class: "logout-form", method: "POST" do |f|
+        .logout-form__box
+          = f.submit "ログアウト", class: "logout-btn" 
+.banner
+  バナー領域

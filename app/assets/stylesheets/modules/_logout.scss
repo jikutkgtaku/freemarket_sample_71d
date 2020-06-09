@@ -1,0 +1,11 @@
+.logout-form {
+  padding:  64px;
+  &__box {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+}
+
+.logout-btn {
+  @include default-btn;
+  }

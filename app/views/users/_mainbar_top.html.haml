@@ -1,0 +1,40 @@
+.content__main
+  %section.content__main__user-info
+    = link_to users_profile_path do
+      %figure
+        = image_tag 'default-statue.jpeg', alt: 'default-statue.jpeg', height: '60px', width: '60px'
+      %h2.content__main__user-info__name テストさん
+      .content__main__user-info__data
+        %div
+          評価数
+          %span.evaluation
+            1000000
+        %div
+          出品数
+          %span.product-number
+            3000000
+  %section.content__main__notice-todo
+    %ul.content__main__notice-todo__tabs
+      %li
+        = link_to "お知らせ", "#"
+        = link_to "やることリスト", "#"
+    .content__main__notice-todo__tab-content
+      %ul.content__main__notice-todo__tab-content__notice
+        %li
+          = link_to "お知らせ1", "#", class: "notice-link"
+          = link_to "お知らせ2", "#", class: "notice-link"
+          = link_to "お知らせ3", "#", class: "notice-link"
+          = link_to "一覧を見る", "#", class: "list-link" 
+  %section.content__main__history
+    %h1.content__main__history__header 購入した商品
+    %ul.content__main__history__tabs
+      %li
+        = link_to "取引中", "#"
+        = link_to "過去の取引", "#"
+    .content__main__history__tab-content
+    %ul.content__main__history__tab-content__pane
+      %li
+        = link_to "お知らせ5", "#", class: "content__main__history__tab-content__pane__link" 
+        = link_to "お知らせ6", "#", class: "content__main__history__tab-content__pane__link"
+        = link_to "お知らせ7", "#", class: "content__main__history__tab-content__pane__link"
+        = link_to "一覧を見る", "#", class: "content__main__history__tab-content__pane__list" 

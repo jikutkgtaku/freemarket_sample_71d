@@ -1,0 +1,11 @@
+@mixin default-btn {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 16px;
+  background: #3ccace;
+  border: 1px solid #3ccace;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+}

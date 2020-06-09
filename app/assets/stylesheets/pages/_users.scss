@@ -2,51 +2,44 @@
   box-sizing: border-box;
 }
 
-.wrapper {
-  width: 100vw;
+.main {
   background-color: #f5f5f5;
 
-  .header {
-    height: 148.53px;
-    background-color: skyblue;
-  }
-
-// マイページ中央
+// マイページ中央部
   .content {
     display: flex;
     width: 1020px;
-    height: 1300px;
-    margin: 40px  auto;
+    margin: 0 auto;
+    padding: 40px 0 40px;
     justify-content: space-between;
-    // マイページ左メニュー
+
+  // マイページ中央左メニュー
     &__side {
       width: 280px;
       float: left;
-      &__nav {
-        &__list {
-          &__item {
-            a {
-              display: block;
-              height: 48px;
-              font-size: 14px;
-              padding: 16px;
-              text-decoration: none;
-              background-color: white;
-              color: black;
-              border-top: 1px solid #eeeeee;
-            }
-          }
-          &__header {
-          margin: 40px 0 0;
-          font-weight: bold;
-          }
+      a {
+        display: block;
+        height: 48px;
+        font-size: 14px;
+        padding: 16px;
+        text-decoration: none;
+        background-color: #ffffff;
+        color: black;
+        border-top: 1px solid #eeeeee;
         }
+      h1 {
+        display: block;
+        margin: 40px 0 0;
+        font-weight: bold;
       }
     }
-    // マイページ右メニュー
+
+  // マイページ右メニュー
     &__main {
       float: right;
       width: 700px;
+      
+    // マイページ右ユーザー情報
       &__user-info {
         position: relative;
         background-image: url(default-background.jpg);
@@ -69,24 +62,25 @@
           height: 60px;
           border-radius: 50%;
         }
-        &__user-name {
+        &__name {
           font-size: 14px;
           margin: 8px 0 0;
           font-weight: bold;
           color: black;
         }
-        &__user-data {
+        &__data {
           margin: 8px 0 0;
           color: black;
           div {
             display: inline-block;
             font-size: 14px;
-            span {
-              font-weight: bold;
-            }
+            span { font-weight: bold; }
           }
         }
       }
+
+  // やることリスト、お知らせ
+    // 切り替えタブ
       &__notice-todo {
         &__tabs{
           li {
@@ -103,35 +97,34 @@
             }
           }
         }
-        &__tab-content {
-          &__notice {
-            &__link {
-              display: block;
-              min-height: 80px;
-              padding: 16px;
-              line-height: 48px;
-              font-size: 14px;
-              background-color: white;
-              text-decoration: none;
-              color: black;
-              border-top: 1px solid #eeeeee;
-            }
-          &__list {
-            display: block;
-            height: 60px;
-            padding: 16px;
-            line-height: 28px;
-            font-size: 16px;
-            background-color: white;
-            text-align: center;
-            text-decoration: none;
-            color: black;
-            border-top: 1px solid #eeeeee;
-            margin: 0 auto;
-            }
+    // やることリスト、お知らせ一覧
+        .notice-link {
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          line-height: 48px;
+          font-size: 14px;
+          background-color: white;
+          text-decoration: none;
+          color: black;
+          border-top: 1px solid #eeeeee;
           }
-        }
+        .list-link {
+          display: block;
+          height: 60px;
+          padding: 16px;
+          line-height: 28px;
+          font-size: 16px;
+          background-color: white;
+          text-align: center;
+          text-decoration: none;
+          color: black;
+          border-top: 1px solid #eeeeee;
+          margin: 0 auto;
+          }
       }
+  // 取引履歴、購入履歴
+    // 切り替えタブ
       &__history {
         margin: 40px 0 0;
         &__header {
@@ -187,17 +180,8 @@
       }
     }
 }
-
   .banner {
     background-color: lightyellow;
     height: 260px;
   }
-
-  .footer {
-    height: 421px;
-    background-color:rgb(33, 33, 33);
-    font-family: Arial, 游ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-    color: rgb(255, 255, 255);
-  }
-
 }
