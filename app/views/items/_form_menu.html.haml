@@ -1,0 +1,122 @@
+.form-body
+  .form-items
+    = form_with model: @item do |f|
+      .photos
+        .photos--title
+          %h3
+            出品画像
+            %span.form-required 必須
+          %p.photos--title__comments
+            最大10枚までアップロードできます
+        .photos--drops
+          %i.fas.fa-camera
+          .photos--drops__comment
+            %p
+              ドラッグアンドドロップ
+              %br
+              またはクリックしてファイルをアップロード
+
+      .items
+        .items--name
+          %h3
+            商品名
+            %span.form-required 必須
+          = f.text_field :name, { class: 'items--name__field', placeholder: '40文字まで' }
+        .items--text
+          %h3
+            商品の説明
+            %span.form-required 必須
+          = f.text_area :introduction, { class: 'items--text__field', placeholder: '商品の説明（必須 1,000文字以内）（色、素材、重さ、定価、注意点など）例）2010年頃に1万円で購入したジャケットです。ライトグレーで傷はありません。あわせやすいのでおすすめです。入力してください', rows: '5' }
+          %p.items--text__count 0/1000
+
+      .items-date
+        .items-date--details
+          %h3
+            商品の詳細
+            %span.form-required 必須
+        .items-date--category
+          %h3
+            カテゴリー
+            %span.form-required 必須
+          = f.select :condition_id, [["選択してください",""],["レディース", 1], ["メンズ", 2], ["ベビーキッズ", 3],],{},{class: "select-box"}
+        .items-date--size.contents-hight
+          %h3
+            サイズ
+            %span.form-required 必須
+          = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
+        .items-date--barand
+          %h3
+            ブランド
+            %span.form-any 任意
+          = f.text_field :brand, { class: 'select-box', placeholder: '例）シャネル' }
+        .items-date--status.contents-hight
+          %h3
+            商品の状態
+            %span.form-required 必須
+          = f.select :condition_id, [["選択してください",""],["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4], ["傷や汚れあり", 5],["全体的に状態が悪い", 6],],{},{class: "select-box"}
+          
+      .delivery
+        .delivery--title
+          %p.p-title 配送について
+          = link_to "#", class: "delivery--title__question", target: '_blank' do
+            ? 
+        .delivery--charges.contents-hight
+          %h3
+            配送料の負担
+            %span.form-required 必須
+          = f.select :shipping_method, [["選択してください",""],["送料込み(出品者負担)", 1], ["着払い(購入者負担)", 2]],{},{class: "select-box"}
+        .delivery--way.contents-hight
+          %h3
+            配送の方法
+            %span.form-required 必須
+          = f.select :shipping_way, [["選択してください",""],["未定", 1], ["メルカリ便", 2]],{},{class: "select-box"}
+        .delivery--area.contents-hight
+          %h3
+            発送元の地域
+            %span.form-required 必須
+          = f.select :region, ["選択してください","北海道","青森県","岩手県","宮城県","秋田県","山形県","福島県","茨城県","栃木県","群馬県","埼玉県","千葉県","東京都","神奈川県","新潟県","富山県","石川県","福井県","山梨県","長野県","岐阜県","静岡県","愛知県","三重県","滋賀県","京都府","大阪府","兵庫県","奈良県","和歌山県","鳥取県","島根県","岡山県","広島県","山口県","徳島県","香川県","愛媛県","高知県","福岡県","佐賀県","長崎県","熊本県","大分県","宮崎県","鹿児島県","沖縄県"],{},{class: "select-box"}
+        .delivery--day.contents-hight
+          %h3
+            発送までの日数
+            %span.form-required 必須
+          = f.select :shipping_days, [["選択してください",""],["1~2日で発送", 1], ["2~3日で発送", 2],["4~7日で発送", 3]],{},{class: "select-box"}
+
+      .cost
+        .cost--price
+          %p.p-title 価格（¥300〜9,999,999）
+          = link_to "#", class: "cost--price__question", target: '_blank' do
+            ?
+        .cost--selling
+          .cost--selling__price
+            %h3
+              販売価格
+              %span.form-required 必須
+          .cost--selling--number
+            %p ¥
+            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0',  value: '', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
+        .cost--commission
+          %p 販売手数料 (10%)
+          %span.gain -
+        .cost--profit
+          %p 販売利益
+          %span.gain -
+
+      .btns
+        = f.button '出品する', class: 'btns--display btn-design'
+        = f.button '下書きに保存', class: 'btns--draft btn-design'  
+        = link_to "#", class: "btns--return" do
+          もどる
+        
+      .notes
+        %p
+          禁止されている
+          = link_to '行為', '#', target: '_blank', class: 'notes--content'
+          および
+          = link_to '出品物', '#', target: '_blank', class: 'notes--content'
+          を必ずご確認ください。
+          = link_to '偽ブランド品', '#', target: '_blank', class: 'notes--content'
+          や
+          = link_to '盗品物', '#', target: '_blank', class: 'notes--content'
+          などの販売は犯罪であり、法律により処罰される可能性があります。また、出品をもちまして
+          = link_to '加盟店規約', '#', target: '_blank', class: 'notes--content'
+          に同意したことになります。

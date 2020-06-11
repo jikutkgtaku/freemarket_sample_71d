@@ -1,0 +1,9 @@
+@mixin title {
+  height: 19px;
+  width: 620px;
+  font-size: 14px;
+  color: $ashgrey;
+  margin-bottom: 24px;
+  display: flex;
+  position: relative;
+}

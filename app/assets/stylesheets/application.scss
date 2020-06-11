@@ -12,6 +12,15 @@
 @import "mixin/toppage/basic-title";
 @import "mixin/toppage/display-btn";
 
+@import "modules/_form_footer";
+@import "modules/_form_header";
+@import "mixin/formpage/_btn_design";
+@import "mixin/formpage/_form_required";
+@import "mixin/formpage/_p_title";
+@import "mixin/formpage/_select_box";
+
 @import "pages/toppage_items_index";
 @import "modules/third-section";
 @import "modules/purchasebtn";
+
+@import "pages/_newpage_items_new";
