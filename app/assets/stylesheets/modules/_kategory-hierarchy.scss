@@ -12,6 +12,9 @@
     li {
       margin-right: 8px;
       font-size: 14px;
+      i.fa {
+        -webkit-text-stroke: 1px white
+      }
     }
   }
   &__current {

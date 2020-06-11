@@ -1,27 +1,17 @@
-$linkGreen: #3ccace;
-$boxWidth: 700px;
-a {
-  text-decoration: none;
-  color: black;
-}
-ul {
-  list-style: none;
-}
-body {
-  overflow: scroll;
-  font-family: Source Sans Pro, Helvetica, Arial, 遊ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
-}
+$show-box-width: 700px;
+
 .item-wrapper {
   width: 100%;
-  background-color: #f8f8f8;
+  background-color: $scenery-color;
   padding: 40px 0;
+  font-family: Source Sans Pro, Helvetica, Arial, 遊ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   * {
     box-sizing: border-box;
   }
 }
 
 .item-box {
-  width: $boxWidth;
+  width: $show-box-width;
   margin: 0 auto;
   padding: 20px 40px;
   align-items: center;
@@ -92,7 +82,7 @@ body {
         th {
           width: 20%;
           text-align: center;
-          border: 1px solid #dedede;
+          border: 1px solid $border-color;
           font-size: 14px;
           padding: 8px;
           background-color: #eee;
@@ -100,11 +90,11 @@ body {
         td {
           width: 60%;
           vertical-align: inherit;
-          border: 1px solid #dedede;
+          border: 1px solid $border-color;
           padding: 15px;
           font-size: 14px;
           a {
-            color: $linkGreen;
+            color: $emphasis-color;
           }
         }
       }
@@ -117,10 +107,13 @@ body {
     display: flex;
     justify-content: space-between;
     &__favorite {
-      color: $linkGreen;
+      color: $emphasis-color;
       border-radius: 27px;
       border: 1px solid #ffb340;
       padding: 5px 10px;
+      i.fa {
+        font-size: 13px;
+      }
     }
     &__report {
       border: 1px solid;
@@ -132,7 +125,7 @@ body {
 }
 // コメント部分
 .comment-box {
-  width: $boxWidth;
+  width: $show-box-width;
   padding: 20px;
   margin: 10px auto;
   text-align: center;
@@ -150,58 +143,55 @@ body {
       padding: 5px;
       margin-top: 10px;
       text-align: left;
-      background-color: #f8f8f8;
+      background-color: $scenery-color;
     }
     &__button {
       width: 60%;
-      background-color: $linkGreen;
-      color: white;
+      background-color: $emphasis-color;
+      color: #fff;
       border: 1px solid;
       line-height: 50px;
       border-radius: 60px;
       font-size: 18px;
       margin-top: 30px;
       .bubble {
-        color: white;
+        color: #fff;
       }
     }
   }
 }
 // 下部のリンク
 .links {
-  width: 700px;
+  width: $show-box-width;
   margin: 0 auto;
   text-align: center;
+  &__kategory {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    a {
+      color: $emphasis-color;
+    }
+  }
   ul {
     display: flex;
     justify-content: space-between;
     li {
-      color: aquamarine;
+      a{
+        color: $emphasis-color;
+      }
+      i.fa {
+        -webkit-text-stroke: 1px $scenery-color
+      }
     }
-  }
-  &__kategory {
-    display: block;
-    text-align: left;
-    font-size: 20px;
-    font-weight: bold;
-    color: aquamarine;
-    padding-top: 20px;
   }
 }
 // 購入ボタン
-.purchase {
-  width: 120px;
-  padding: 15px;
-  position: fixed;
-  right: 40px;
-  bottom: 40px;
-  background-color: rgba(255, 0, 0, 0.856);
-  border-radius: 10px;
-  text-align: center;
-  color: #fff;
-  img {
-    width: 60%;
-    margin: 5px;
+.purchaseBtn {
+  &--red{
+    background-color: rgba(255, 0, 0, 0.856);
+    height: 90px;
   }
 }
 

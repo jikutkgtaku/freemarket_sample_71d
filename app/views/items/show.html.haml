@@ -1,11 +1,68 @@
-%nav.kategory-hierarchy
+%header
+  = render partial: 'header'
+.under-header
   = render partial: 'kategory-hierarchy'
 .item-wrapper
   .item-box
-    = render partial: 'item-detail'
+    %h1.item-box__name ああああ 
+    .item-box__image
+      %ul.item-box__image--main
+        %li
+          = image_tag "ramen.png"
+      %ul.item-box__image--sub
+        %li
+          = image_tag "ramen.png", width: "100px"
+        %li
+          = image_tag "ramen.png", width: "100px"
+        %li
+          = image_tag "ramen.png", width: "100px"
+    .item-box__price
+      %span ¥20000
+      %div.item-box__price__detail （税込）送料別
+    .item-box__introduction 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+    .item-box__table
+      %table
+        %tr
+          %th 出品者
+          %td ほげ
+        %tr
+          %th カテゴリー
+          %td 
+            =link_to '#' do
+              ほげ 
+            %br
+            =link_to '#' do
+              hoge
+            %br
+            =link_to '#' do
+              hoge
+        %tr
+          %th ブランド
+          %td
+        %tr
+          %th 商品のサイズ
+          %td
+        %tr
+          %th 商品の状態
+          %td ほげ
+        %tr
+          %th 配送料の負担
+          %td ほげ
+        %tr
+          %th 配送方法
+          %td ほげ
+        %tr
+          %th 発送元の地域
+          %td
+            =link_to '#' do
+              ほげ
+        %tr
+          %th 発送日の目安
+          %td ほげ
     .option-box
       =link_to '#', class: 'option-box__favorite' do
-        ★お気に入り 0
+        = icon('fa', 'star')
+        お気に入り 0
       =link_to '#', class: 'option-box__report' do
         = icon('fas', 'flag')
         不適切な商品の通報
@@ -23,13 +80,21 @@
     %ul
       %li
         =link_to '#' do
-          < 前の商品
+          = icon('fa', 'angle-left') 
+          前の商品
       %li
         =link_to '#' do
-          後ろの商品 >
-    =link_to '#', class: 'links__kategory' do
-      メンズをもっと見る
-  =link_to '#' do
-    .purchase
-      %span 購入する
-      =image_tag "icon_brand.png"
+          後ろの商品 
+          = icon('fa', 'angle-right')
+    .links__kategory
+      =link_to '#' do
+        メンズをもっと見る
+=link_to "#" do
+  .purchaseBtn.purchaseBtn--red
+    %span.purchaseBtn__text 購入する
+    =image_tag "icon_brand.png", class: "purchaseBtn-icon"
+.over-footer
+  = render partial: 'third-section'
+%footer
+  = render partial: 'items/footer'
+
