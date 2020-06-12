@@ -3,6 +3,8 @@
 @import "font-awesome";
 @import "modules/header";
 @import "modules/footer";
+// ログイン、新規登録ページ
+@import "users";
 
 // トップページの変数（注意：変数のimportを上に記述する）
 @import "mixin/toppage/text-shadow";
@@ -15,3 +17,7 @@
 @import "pages/toppage_items_index";
 @import "modules/third-section";
 @import "modules/purchasebtn";
+
+a{
+  text-decoration: none;
+}
