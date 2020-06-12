@@ -5,5 +5,10 @@
   color: $ashgrey;
   margin-bottom: 24px;
   display: flex;
-  position: relative;
+  &--question {
+    font-size: 13px;
+    margin-left: 4px;
+    color: $cyan;
+    text-decoration: none;
+  }
 }

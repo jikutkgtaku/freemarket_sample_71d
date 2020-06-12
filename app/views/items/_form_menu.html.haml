@@ -17,11 +17,11 @@
               またはクリックしてファイルをアップロード
 
       .items
-        .items--name
+        .items--name.contents-hight
           %h3
             商品名
             %span.form-required 必須
-          = f.text_field :name, { class: 'items--name__field', placeholder: '40文字まで' }
+          = f.text_field :name, { class: 'items-name-box', placeholder: '40文字まで' }
         .items--text
           %h3
             商品の説明
@@ -30,10 +30,8 @@
           %p.items--text__count 0/1000
 
       .items-date
-        .items-date--details
-          %h3
-            商品の詳細
-            %span.form-required 必須
+        %h3.items-date--details
+          商品の詳細
         .items-date--category
           %h3
             カテゴリー
@@ -48,7 +46,7 @@
           %h3
             ブランド
             %span.form-any 任意
-          = f.text_field :brand, { class: 'select-box', placeholder: '例）シャネル' }
+          = f.text_field :brand, { class: 'items-name-box', placeholder: '例）シャネル' }
         .items-date--status.contents-hight
           %h3
             商品の状態
@@ -56,10 +54,9 @@
           = f.select :condition_id, [["選択してください",""],["新品、未使用", 1], ["未使用に近い", 2], ["目立った傷や汚れなし", 3],["やや傷や汚れあり", 4], ["傷や汚れあり", 5],["全体的に状態が悪い", 6],],{},{class: "select-box"}
           
       .delivery
-        .delivery--title
-          %p.p-title 配送について
-          = link_to "#", class: "delivery--title__question", target: '_blank' do
-            ? 
+        %p.p-title
+          配送について
+          = link_to '?', '#', target: '_blank', class: 'p-title--question'
         .delivery--charges.contents-hight
           %h3
             配送料の負担
@@ -82,10 +79,9 @@
           = f.select :shipping_days, [["選択してください",""],["1~2日で発送", 1], ["2~3日で発送", 2],["4~7日で発送", 3]],{},{class: "select-box"}
 
       .cost
-        .cost--price
-          %p.p-title 価格（¥300〜9,999,999）
-          = link_to "#", class: "cost--price__question", target: '_blank' do
-            ?
+        %p.p-title
+          価格（¥300〜9,999,999）
+          = link_to '?', '#', target: '_blank', class: 'p-title--question'
         .cost--selling
           .cost--selling__price
             %h3
