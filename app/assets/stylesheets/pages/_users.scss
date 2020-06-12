@@ -1,0 +1,210 @@
+// 全体
+* {
+  font-family: $Default-font;
+}
+
+// パンくずリスト
+.bread-crumbs {
+  border-top: 1px solid $Transparent;
+  position: relative;
+  @include box-shadow
+}
+
+// マイページ中央部
+.main {
+  background-color: $Base-ground-color;
+  * {
+    box-sizing: border-box;
+    }
+  .content {
+    display: flex;
+    width: 1020px;
+    margin: 0 auto;
+    padding: 40px 0 40px;
+    justify-content: space-between;
+
+// ここから _sidebar.html.haml
+  // マイページ中央左メニュー
+    &__side {
+      width: 280px;
+      float: left;
+      a {
+        position: relative;
+        display: block;
+        height: 48px;
+        font-size: 14px;
+        padding: 16px;
+        text-decoration: none;
+        background-color: $White;
+        color: black;
+        border-top: 1px solid $Transparent;
+        }
+      h1 {
+        display: block;
+        margin: 40px 0 0;
+        font-weight: bold;
+      }
+      .arrow-right {
+        position: absolute;
+        top: 16px;
+        right: 10px;
+        color: $Dark-gray;
+      }
+    }
+
+// ここから _mainbar.html.haml
+  // マイページ右メニュー
+    &__main {
+      float: right;
+      width: 700px;
+      
+    // マイページ右ユーザー情報（%sectionタグ１番目）
+      &__user-info {
+        position: relative;
+        background-image: url('material/pict/default-background.jpg');
+        height: 200px;
+        padding: 20px;
+        text-align: center;
+        h2 {
+          font-size: 14px;
+          margin: 8px 0 0;
+          font-weight: bold;
+          color: black;
+        }
+        .user-data {
+          margin: 8px 0 0;
+          color: black;
+          div {
+            display: inline-block;
+            font-size: 14px;
+            span { font-weight: bold; }
+          }
+        }
+        a {
+          display: block;
+          position: absolute;
+          top: 40px;
+          left: 0;
+          right: 0;
+          text-decoration: none;
+        }
+        figure {
+          overflow: hidden;
+          margin: 0 auto;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+        }
+      }
+
+  // やることリスト、お知らせ（%sectionタグ２番目）
+    // 切り替えタブ
+      &__notice-todo {
+        .mypage-tabs {
+          display: flex;
+          li {
+            width: 50%;
+            text-align: center;
+            a {
+              display: block;
+              line-height: 72px;
+              text-decoration: none;
+              font-weight: bold;
+              color: black;
+            }
+          }
+        }
+    // 切り替えタブ下表示
+        .item-link {
+          position: relative;
+          display: block;
+          min-height: 80px;
+          padding: 16px;
+          font-size: 14px;
+          background-color: $White;
+          text-decoration: none;
+          color: black;
+          border-top: 1px solid $Transparent;
+          figure {
+            float: left;
+            height: 48px;
+            width: 48px;
+          }
+          &__body {
+            margin: 0 40px 0 68px;
+            &__text {
+              max-height: 50px;
+              line-height: 20px;
+            }
+          }
+          .arrow-right {
+            position: absolute;
+            top: 30px;
+            right: 16px;
+            }
+          .icon-clock {
+            display: inline-block;
+            margin: 0 8px 0 0;
+          }
+          }
+    // 一覧へのリンク
+        .list-link {
+          display: block;
+          height: 60px;
+          padding: 16px;
+          line-height: 28px;
+          font-size: 16px;
+          background-color: $White;
+          text-align: center;
+          text-decoration: none;
+          color: black;
+          border-top: 1px solid $Transparent;
+          margin: 0 auto;
+          }
+      }
+      
+  // 取引履歴、購入履歴（%sectionタグ３番目）
+    // 切り替えタブ
+      &__history {
+        margin: 40px 0 0;
+        &__header {
+          height: 72px;
+          line-height: 72px;
+          padding: 0 16px;
+          font-weight: bold;
+          background: $White;
+        }
+        .mypage-tabs {
+          display: flex;
+          li {
+            width: 50%;
+            text-align: center;
+            a {
+              display: block;
+              line-height: 72px;
+              text-decoration: none;
+              font-weight: bold;
+              color: black;
+            }
+          }
+        }
+        .tab-content {
+          &__list {
+            &__not-found {
+              padding: 160px 0 60px;
+              background-image: url('material/logo/logo.png');
+              background-size: 150px;
+              background-repeat: no-repeat;
+              background-position: center 40px;
+              background-color: $White;
+              text-align: center;
+              font-size: 16px;
+              font-weight: bold;
+              color: $Dark-gray;
+            }
+          }
+        }
+      }
+    }
+  }
+}

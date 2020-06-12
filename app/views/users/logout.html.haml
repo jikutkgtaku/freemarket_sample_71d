@@ -1,0 +1,18 @@
+-# ヘッダー
+%header
+  = render 'items/header'
+
+%nav.bread-crumbs パンくずリスト部分
+
+-# メイン部
+.main
+  .content
+    = render 'sidebar'
+    = render 'mainbar-logout'
+
+-# フッター
+%footer
+  = render 'items/footer'
+
+-# 画面右下の固定アイコン
+= render 'items/purchasebtn'

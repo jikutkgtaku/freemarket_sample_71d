@@ -1,6 +1,8 @@
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "config/colors";
+@import "config/fonts";
 @import "modules/header";
 @import "modules/footer";
 
@@ -12,6 +14,17 @@
 @import "mixin/toppage/basic-title";
 @import "mixin/toppage/display-btn";
 
+// マイページの変数
+@import "mixin/mypage/box-shadow";
+@import "mixin/mypage/default-btn";
+@import "mixin/mypage/remove-btn";
+
 @import "pages/toppage_items_index";
 @import "modules/third-section";
 @import "modules/purchasebtn";
+
+//  マイページで作成したimport
+@import "pages/users";
+@import "pages/cards";
+@import "pages/logout";
+@import "pages/card-create";
