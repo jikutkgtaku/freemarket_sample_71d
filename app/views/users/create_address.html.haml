@@ -5,5 +5,7 @@
   .single-container__main
     .single-container__main__head
       登録が完了しました
-    = link_to root_path, class: "single-container__main__head link-top" do
-      トップページに戻る
+    .single-container__main__head
+      .single-container__main__head__return  
+        =link_to "トップページに戻る", root_path(), class: "returnbtn"
+   

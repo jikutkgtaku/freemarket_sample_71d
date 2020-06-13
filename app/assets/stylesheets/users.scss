@@ -10,12 +10,12 @@
 a{
   text-decoration: none;
 }  
+
   &__header{
     height: 128px;
     width: 100%;
     margin: 0 auto;
     &__logo{
-     
       padding: 40px 0 0 0;
       margin: 0 auto;
       text-align: center;
@@ -37,6 +37,7 @@ a{
       font-size: 18px;
       font-weight: normal; 
     }
+  
     &__btn{
       width: 300px;
       height: 44px;
@@ -58,7 +59,6 @@ a{
       margin: 10px auto;
       padding: 3px 0;
       border: 1px solid #ccc;
-    
       padding-left: 10px;
     }
     .flexbox{
@@ -83,8 +83,7 @@ a{
       .any{
         padding: 3px;
         color: white;
-        font-size: 12px;
-        
+        font-size: 12px; 
         background-color: #ddd;
       }
     }
@@ -118,4 +117,7 @@ a{
       
   }
 
+}
+.returnbtn {
+ font-weight: bold;
 }
