@@ -1,10 +1,10 @@
-$white: #ffffff;
+$White: #ffffff;
 $WhiteSmoke: #f5f5f5;
-$cyan: #0095ee;
-$gray: #808080;
-$ashgrey: #888888;
-$safecolor :#333333;
-$Lightgrey :#cccccc; 
+$Cyan: #0095ee;
+$Gray: #808080;
+$AshGray: #888888;
+$Safecolor :#333333;
+$LightGray :#cccccc; 
 $Silver :#bfbfbf;
 
 .form-new {
@@ -23,7 +23,7 @@ h3 {
   height: calc(100% - 128px - 220px);
   width: 700px;
   margin: 0px auto;
-  background-color: $white;
+  background-color: $White;
   .form-required {
     background-color: $emphasis-color;
     @include form-required;
@@ -31,7 +31,7 @@ h3 {
   .select-box {
     @include select-box;
   }
-  .contents-hight {
+  .contents-height {
     height: 118px;
   }
   .items-name-box {
@@ -49,7 +49,7 @@ h3 {
       &--title {
         &__comments {
           margin-top: 16px;
-          color: $safecolor;
+          color: $Safecolor;
           font-size: 14px;          
         }  
       }
@@ -57,7 +57,7 @@ h3 {
         width: 620px;
         height: 150px;
         background-color: #eee; 
-        border: 1px dashed $Lightgrey; 
+        border: 1px dashed $LightGray; 
         display: flex; 
         justify-content: center;
         align-items: center;
@@ -92,7 +92,7 @@ h3 {
         &__field {
           height: 154px;
           width: 620px;
-          background-color: $white;
+          background-color: $White;
           margin-top: 16px;
           padding: 13px 16px;
           border: 2px solid $WhiteSmoke;
@@ -100,7 +100,7 @@ h3 {
         &__count {
           height: 16px;
           width: 620px;
-          color: $ashgrey;
+          color: $AshGray;
           margin-top: 16px;
           font-size: 12px;
           text-align: right;
@@ -108,7 +108,7 @@ h3 {
       }
     }
     
-    .items-date {
+    .items-data {
       height: 757px;
       padding: 40px;
       border-top: 3px solid $WhiteSmoke;
@@ -119,10 +119,11 @@ h3 {
         background-color: $Silver;
         @include form-required;
       }
-      &--details {
-        color: $ashgrey;
+      p {
+        color: $AshGray;
         height: 19px;
         margin-bottom: 24px;
+        font-size: 14px;
       }
     }
     
@@ -161,7 +162,7 @@ h3 {
             height: 48px;
             width: 285px;
             padding: 0 16px;
-            background-color: $white;
+            background-color: $White;
             border: 2px solid $WhiteSmoke;
           }
         }
@@ -177,7 +178,7 @@ h3 {
         text-align: center;
         font-size: 14px;
         span.gain {
-          color: $safecolor;
+          color: $Safecolor;
           font-size: 2em;
         }
       }
@@ -192,7 +193,7 @@ h3 {
         align-items: center;
         font-size: 14px;
         span.gain {
-          color: $safecolor;
+          color: $Safecolor;
           font-size: 2em;
         }
       }
@@ -208,17 +209,17 @@ h3 {
       &--display {
         padding: 0 30px;
         background-color: #ea352d;
-        color: $white;
+        color: $White;
         padding: 0 24px;
       }
       &--draft {
         padding: 0 24px;
         margin-top: 24px;
-        background-color: $Lightgrey;
+        background-color: $LightGray;
         color: #222;
       }
       &--return {
-        color: $cyan;
+        color: $Cyan;
         text-decoration: none;
         text-align: center;
         height: 20px;
@@ -235,7 +236,7 @@ h3 {
         margin: -5px;
       }
       &--content {
-        color: $cyan;
+        color: $Cyan;
         text-decoration: none;
       }
     }
