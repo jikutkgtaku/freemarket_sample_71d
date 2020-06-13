@@ -316,26 +316,3 @@
     }
   }
 }
-
-// 画面右下の固定アイコン
-.purchaseBtn {
-  width: 90px;
-  position: fixed;
-  padding: 15px;
-  bottom: 32px;
-  right: 32px;
-  background-color: $emphasis-color;
-  border-radius: 4%;
-  text-align: center;
-  color: #fff;
-  
-  .purchaseBtn__text {
-    font-size: 18px;
-    margin-bottom: 5px;
-    text-decoration: none;
-    display: block;
-  }
-  .purchaseBtn-icon{
-    width: 54px;
-  }
-}
