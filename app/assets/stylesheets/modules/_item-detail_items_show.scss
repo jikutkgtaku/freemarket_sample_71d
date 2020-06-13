@@ -186,9 +186,11 @@ $show-box-width: 700px;
 }
 // 購入ボタン
 .purchaseBtn {
-  &--red{
-    background-color: rgba(255, 0, 0, 0.856);
-    height: 90px;
+  &--buy {
+    padding:18px 15px;
+  }
+  &--icon-wallet{
+    font-size: 54px;
   }
 }
 

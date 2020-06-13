@@ -90,9 +90,9 @@
       =link_to '#', class:"links__kategory__link" do
         メンズをもっと見る
 =link_to "#" do
-  .purchaseBtn.purchaseBtn--red
+  .purchaseBtn.purchaseBtn--buy
     %span.purchaseBtn__text 購入する
-    =image_tag "icon_brand.png", class: "purchaseBtn-icon"
+    =icon('fas', 'wallet', class:"purchaseBtn--icon-wallet")
 .over-footer
   = render partial: 'third-section'
 %footer
