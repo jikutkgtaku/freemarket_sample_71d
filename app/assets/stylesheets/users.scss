@@ -3,6 +3,13 @@
   font-size: 14px;
   background-color: #eee;
   min-height: 100vh;
+* {
+    box-sizing: border-box;
+  }  
+
+a{
+  text-decoration: none;
+}  
   &__header{
     height: 128px;
     width: 100%;
@@ -57,6 +64,7 @@
     .flexbox{
       display: flex;
       align-items: center;
+      padding-bottom: 15px;
     }
     .text-half{
       width: 148px;
