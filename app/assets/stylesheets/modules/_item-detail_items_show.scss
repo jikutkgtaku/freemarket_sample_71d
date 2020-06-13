@@ -1,5 +1,12 @@
 $show-box-width: 700px;
 
+//画像が親より大きければ縮小。縦横比維持
+.resize {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
 .item-wrapper {
   width: 100%;
   background-color: $scenery-color;
@@ -27,27 +34,19 @@ $show-box-width: 700px;
   &__image {
     width: 80%;
     margin: 0 auto;
-    img {
-      width: auto;
-      height: auto;
-      max-width: 100%;
-      max-height: 100%;
-    }
-    ul {
-      margin: 0 auto;
-      display: flex;
-      justify-content: center;
-      li {
+    &__main {
+      @include item-place;
+      width: 100%;
+      &__pict {
         text-align: center;
       }
     }
-    &--main {
-      width: 100%;
-    }
-    &--sub {
-      li {
+    &__sub {
+      @include item-place;
+      &__pict {
         width: 25%;
         margin:10px 5px 0 5px;
+        text-align: center;
       }
     }
   }
@@ -93,11 +92,11 @@ $show-box-width: 700px;
           border: 1px solid $border-color;
           padding: 15px;
           font-size: 14px;
-          a {
-            color: $emphasis-color;
-          }
         }
       }
+    }
+    &__link {
+      color: $emphasis-color;
     }
   }
   // お気に入り・通報
@@ -111,7 +110,7 @@ $show-box-width: 700px;
       border-radius: 27px;
       border: 1px solid #ffb340;
       padding: 5px 10px;
-      i.fa {
+      &__icon {
         font-size: 13px;
       }
     }
@@ -120,6 +119,9 @@ $show-box-width: 700px;
       padding: 5px 10px;
       border-radius: 5px;
       font-size: 14px;
+      &__icon {
+        font-size: 13px;
+      }
     }
   }
 }
@@ -154,9 +156,6 @@ $show-box-width: 700px;
       border-radius: 60px;
       font-size: 18px;
       margin-top: 30px;
-      .bubble {
-        color: #fff;
-      }
     }
   }
 }
@@ -170,18 +169,16 @@ $show-box-width: 700px;
     font-size: 20px;
     font-weight: bold;
     margin-top: 20px;
-    a {
+    &__link {
       color: $emphasis-color;
     }
   }
-  ul {
+  &__around {
     display: flex;
     justify-content: space-between;
-    li {
-      a{
-        color: $emphasis-color;
-      }
-      i.fa {
+    &__link {
+      color: $emphasis-color;
+      &__icon {
         -webkit-text-stroke: 1px $scenery-color
       }
     }
