@@ -1,8 +1,12 @@
+$emphasis-color: #3CCACE;
+
 @import "reset";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "modules/header";
 @import "modules/footer";
+// ログイン、新規登録ページ
+@import "users";
 
 // トップページの変数（注意：変数のimportを上に記述する）
 @import "mixin/toppage/text-shadow";
