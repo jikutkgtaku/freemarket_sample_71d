@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#index"
-  resources :items
 
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
