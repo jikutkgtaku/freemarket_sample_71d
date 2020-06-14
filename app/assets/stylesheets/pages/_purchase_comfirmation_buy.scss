@@ -1,0 +1,67 @@
+* {
+  background-color: gray;
+}
+// ↑後に編集する
+
+.kari-hedder {
+  height: 128px;
+  width: 100%;
+  background-color: black;
+}
+
+.buy {
+  &__header{
+    width: 700px;
+    margin: 0 auto;
+    &__title {
+      font-size: 22px;
+      padding: 32px;
+      text-align: center;
+      background-color: white;
+      border: 1px solid gray;
+    }
+  }
+  &__item {
+    width: 666px;
+    height: 81px;
+    margin: 0 auto;
+    padding: 32px 16px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    &__info {
+      width: 343px;
+      height: 80px;
+      display: flex;
+      background-color: white;
+      &__image {
+        width: 80px;
+        height: 80px;
+        .item-image {
+          width: 80px;
+          height: 80px;
+        }
+      }
+      &__details {
+        width: 247px;
+        height: 80px;
+        margin-left: 16px;
+        background-color: white;
+        .item__name {
+          padding-bottom: 8px;
+          background-color: white;
+        }
+        .item__price {
+          background-color: white;
+          .price {
+            font-weight: 12px;
+            background-color: white;
+          }
+          .shipping__fee {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}

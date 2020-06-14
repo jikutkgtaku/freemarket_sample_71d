@@ -1,0 +1,16 @@
+.kari-hedder
+.buy
+  .buy__header
+    %h2.buy__header__title 購入内容の確認
+  .buy__item
+    .buy__item__info
+      .buy__item__info__image
+        = image_tag "cards/master.png", class:"item-image"
+        -# ↑imageタグで仮置きしているけど、今後、商品と連携する
+      .buy__item__info__details
+        .item__name 【美品】master card
+        %p.item__price
+          %span.price ¥10000
+          %span.shipping__fee （税込）送料込み
+  .buy__content
+    .buy__content__price

@@ -26,4 +26,9 @@ class CreditcardsController < ApplicationController
     end
   end
 
+  # 商品購入確認ページをbuyアクションと定義ぎて行う。
+
+  def buy
+  end
+
 end
