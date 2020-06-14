@@ -1,6 +1,8 @@
 $emphasis-color: #3CCACE;
 
 @import "reset";
+@import "config/colors";
+@import "config/fonts";
 @import "base";
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -11,7 +13,6 @@ $emphasis-color: #3CCACE;
 
 // トップページの変数（注意：変数のimportを上に記述する）
 @import "mixin/toppage/text-shadow";
-@import "mixin/toppage/emphasis-color";
 @import "mixin/toppage/pickup-title";
 @import "mixin/toppage/pickup-subtitle";
 @import "mixin/toppage/basic-title";
@@ -29,3 +30,10 @@ $emphasis-color: #3CCACE;
 @import "pages/_newpage_items_new";
 @import "modules/third-section";
 @import "modules/purchasebtn";
+
+//商品詳細
+@import "mixin/item-detail/item-place";
+
+@import "modules/item-detail_items_show";
+@import "modules/kategory-hierarchy";
+
