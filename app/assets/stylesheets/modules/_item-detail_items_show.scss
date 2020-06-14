@@ -9,9 +9,8 @@ $show-box-width: 700px;
 }
 .item-wrapper {
   width: 100%;
-  background-color: $scenery-color;
+  background-color: $base-ground-color;
   padding: 40px 0;
-  font-family: Source Sans Pro, Helvetica, Arial, 遊ゴシック体, YuGothic, メイリオ, Meiryo, sans-serif;
   * {
     box-sizing: border-box;
   }
@@ -22,7 +21,7 @@ $show-box-width: 700px;
   margin: 0 auto;
   padding: 20px 40px;
   align-items: center;
-  background-color: #fff;
+  background-color: $white;
   // 商品名
   &__name {
     text-align: center;
@@ -81,22 +80,22 @@ $show-box-width: 700px;
         th {
           width: 20%;
           text-align: center;
-          border: 1px solid $border-color;
+          border: 1px solid $dark-gray;
           font-size: 14px;
           padding: 8px;
-          background-color: #eee;
+          background-color: $transparent;
         }
         td {
           width: 60%;
           vertical-align: inherit;
-          border: 1px solid $border-color;
+          border: 1px solid $dark-gray;
           padding: 15px;
           font-size: 14px;
         }
       }
     }
     &__link {
-      color: $emphasis-color;
+      color: $base-color;
     }
   }
   // お気に入り・通報
@@ -106,9 +105,9 @@ $show-box-width: 700px;
     display: flex;
     justify-content: space-between;
     &__favorite {
-      color: $emphasis-color;
+      color: $base-color;
       border-radius: 27px;
-      border: 1px solid #ffb340;
+      border: 1px solid $orange;
       padding: 5px 10px;
       &__icon {
         font-size: 13px;
@@ -131,7 +130,7 @@ $show-box-width: 700px;
   padding: 20px;
   margin: 10px auto;
   text-align: center;
-  background-color: #fff;
+  background-color: $white;
   .comment-form {
     align-items: center;
     &__content {
@@ -145,12 +144,12 @@ $show-box-width: 700px;
       padding: 5px;
       margin-top: 10px;
       text-align: left;
-      background-color: $scenery-color;
+      background-color: $base-ground-color;
     }
     &__button {
       width: 60%;
-      background-color: $emphasis-color;
-      color: #fff;
+      background-color: $base-color;
+      color: $white;
       border: 1px solid;
       line-height: 50px;
       border-radius: 60px;
@@ -170,16 +169,16 @@ $show-box-width: 700px;
     font-weight: bold;
     margin-top: 20px;
     &__link {
-      color: $emphasis-color;
+      color: $base-color;
     }
   }
   &__around {
     display: flex;
     justify-content: space-between;
     &__link {
-      color: $emphasis-color;
+      color: $base-color;
       &__icon {
-        -webkit-text-stroke: 1px $scenery-color
+        -webkit-text-stroke: 1px $base-ground-color
       }
     }
   }
