@@ -57,7 +57,7 @@
             left: 0;
             padding: 5px 17px;
             color: white;
-            background-color: $emphasis-color;
+            background-color: $base-color;
             font-size: 25px;
             font-weight: bold;
           }
@@ -72,7 +72,7 @@
           line-height: 50px;
 
           .span {
-            color: $emphasis-color;
+            color: $base-color;
           }
         }
         &__text  {
