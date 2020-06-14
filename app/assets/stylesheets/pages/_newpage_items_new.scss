@@ -1,0 +1,246 @@
+$white: #ffffff;
+$white-smoke: #f5f5f5;
+$cyan: #0095ee;
+$gray: #808080;
+$ash-gray: #888888;
+$safe-color :#333333;
+$light-gray :#cccccc; 
+$silver :#bfbfbf;
+$rouge: #ea352d;
+
+.form-new {
+  background-color: $white-smoke;
+  height: 100%;
+  *{
+    box-sizing: border-box;
+  }
+}
+h3 {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.form-body {
+  height: calc(100% - 128px - 220px);
+  width: 700px;
+  margin: 0px auto;
+  background-color: $white;
+  .form-required {
+    background-color: $emphasis-color;
+    @include form-required;
+  }
+  .select-box {
+    @include select-box;
+  }
+  .contents-height {
+    height: 118px;
+  }
+  .items-name-box {
+    @include items-name-box
+  }
+
+  .form-items {
+    .photos {
+      height: 300px;
+      width: 700px;
+      padding: 40px;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      &--title {
+        &__comments {
+          margin-top: 16px;
+          color: $safe-color;
+          font-size: 14px;          
+        }  
+      }
+      &--drops {
+        width: 620px;
+        height: 150px;
+        background-color: #eee; 
+        border: 1px dashed $light-gray; 
+        display: flex; 
+        justify-content: center;
+        align-items: center;
+        font-size: 12px;
+        text-align: center;
+        position: relative;
+        &__comment {
+          position: absolute;
+          p {          
+            font-size: 12px;
+            padding-top: 20px;
+          } 
+        }
+        .fa-camera {
+          position: absolute;
+          top: 30%;
+          font-size: 24px;
+        }
+      }
+    }
+
+    .items {
+      height: 486px;
+      padding: 40px;
+      border-top: 3px solid $white-smoke;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      &--text {
+        height: 256px;
+        width: 620px;
+        &__field {
+          height: 154px;
+          width: 620px;
+          background-color: $white;
+          margin-top: 16px;
+          padding: 13px 16px;
+          border: 2px solid $white-smoke;
+        }
+        &__count {
+          height: 16px;
+          width: 620px;
+          color: $ash-gray;
+          margin-top: 16px;
+          font-size: 12px;
+          text-align: right;
+        }
+      }
+    }
+    
+    .items-data {
+      height: 757px;
+      padding: 40px;
+      border-top: 3px solid $white-smoke;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      .form-any {
+        background-color: $silver;
+        @include form-required;
+      }
+      p {
+        color: $ash-gray;
+        height: 19px;
+        margin-bottom: 24px;
+        font-size: 14px;
+      }
+    }
+    
+    .delivery {
+      height: 664px;
+      padding: 40px;
+      border-top: 3px solid $white-smoke;
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+      .p-title {
+        @include title;
+      }
+    }
+    
+    .cost {
+      height: 293px;
+      padding: 40px 40px 0 40px;
+      border-top: 3px solid $white-smoke;
+      .p-title {
+        @include title;
+      }
+      &--selling {
+        height: 58px;
+        width: 620px;
+        line-height: 58px;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 12px;
+        &--number {
+          display: flex;
+          p {
+            margin-right: 8px;
+          }
+          &__price {
+            height: 48px;
+            width: 285px;
+            padding: 0 16px;
+            background-color: $white;
+            border: 2px solid $white-smoke;
+          }
+        }
+      }
+      &--commission {
+        height: 70px;
+        line-height: 70px;
+        width: 620px;
+        padding: 12px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        font-size: 14px;
+        span.gain {
+          color: $safe-color;
+          font-size: 2em;
+        }
+      }
+      &--profit {
+        height: 58px;
+        line-height: 58px;
+        width: 620px;
+        padding-top: 12px;
+        border-top: 3px solid $white-smoke;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 14px;
+        span.gain {
+          color: $safe-color;
+          font-size: 2em;
+        }
+      }
+    }
+
+    .btns {
+      height: 164px;
+      text-align: center;
+      margin: 32px 170px;
+      .btn-design {
+        @include btn-design;
+      }
+      &--display {
+        padding: 0 30px;
+        background-color: $rouge;
+        color: $white;
+        padding: 0 24px;
+      }
+      &--draft {
+        padding: 0 24px;
+        margin-top: 24px;
+        background-color: $light-gray;
+        color: #222;
+      }
+      &--return {
+        color: $cyan;
+        text-decoration: none;
+        text-align: center;
+        height: 20px;
+        width: 360px;
+        display: block;
+        margin-top: 24px;
+      }
+    }
+    
+    .notes {
+      padding: 40px 40px 60px 40px;
+      font-size: 12px;
+      p {
+        margin: -5px;
+      }
+      &--content {
+        color: $cyan;
+        text-decoration: none;
+      }
+    }
+  }
+}
+

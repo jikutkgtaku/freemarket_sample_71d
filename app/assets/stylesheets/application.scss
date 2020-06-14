@@ -18,7 +18,16 @@ $emphasis-color: #3CCACE;
 @import "mixin/toppage/basic-title";
 @import "mixin/toppage/display-btn";
 
+@import "modules/_form_footer";
+@import "modules/_form_header";
+@import "mixin/formpage/_btn_design";
+@import "mixin/formpage/_form_required";
+@import "mixin/formpage/_p_title";
+@import "mixin/formpage/_select_box";
+@import "mixin/formpage/_items_name_box";
+
 @import "pages/toppage_items_index";
+@import "pages/_newpage_items_new";
 @import "modules/third-section";
 @import "modules/purchasebtn";
 
