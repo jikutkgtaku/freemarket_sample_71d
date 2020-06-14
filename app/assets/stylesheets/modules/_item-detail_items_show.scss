@@ -1,0 +1,197 @@
+$show-box-width: 700px;
+
+//画像が親より大きければ縮小。縦横比維持
+.resize {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.item-wrapper {
+  width: 100%;
+  background-color: $base-ground-color;
+  padding: 40px 0;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+.item-box {
+  width: $show-box-width;
+  margin: 0 auto;
+  padding: 20px 40px;
+  align-items: center;
+  background-color: $white;
+  // 商品名
+  &__name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  // 画像
+  &__image {
+    width: 80%;
+    margin: 0 auto;
+    &__main {
+      @include item-place;
+      width: 100%;
+      &__pict {
+        text-align: center;
+      }
+    }
+    &__sub {
+      @include item-place;
+      &__pict {
+        width: 25%;
+        margin:10px 5px 0 5px;
+        text-align: center;
+      }
+    }
+  }
+  // 価格
+  &__price {
+    font-size: 46px;
+    font-weight: bold;
+    text-align: center;
+    margin: 24px 0;
+    &__detail{
+      font-size: 16px;
+      font-weight: normal;
+      text-align: center;
+    }
+  }
+  // 商品説明
+  &__introduction {
+    width: 100%;
+    font-size: 18px;
+    word-wrap: break-word; 
+    margin-bottom: 20px;
+    margin-top: 10px;
+  }
+  // 商品情報
+  &__table {
+    table {
+      height: 400px;
+      width: 100%;
+      border-collapse: collapse;
+      tr {
+        border-spacing: 2px;
+        th {
+          width: 20%;
+          text-align: center;
+          border: 1px solid $dark-gray;
+          font-size: 14px;
+          padding: 8px;
+          background-color: $transparent;
+        }
+        td {
+          width: 60%;
+          vertical-align: inherit;
+          border: 1px solid $dark-gray;
+          padding: 15px;
+          font-size: 14px;
+        }
+      }
+    }
+    &__link {
+      color: $base-color;
+    }
+  }
+  // お気に入り・通報
+  .option-box{
+    width: 100%;
+    margin: 30px 0;
+    display: flex;
+    justify-content: space-between;
+    &__favorite {
+      color: $base-color;
+      border-radius: 27px;
+      border: 1px solid $orange;
+      padding: 5px 10px;
+      &__icon {
+        font-size: 13px;
+      }
+    }
+    &__report {
+      border: 1px solid;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 14px;
+      &__icon {
+        font-size: 13px;
+      }
+    }
+  }
+}
+// コメント部分
+.comment-box {
+  width: $show-box-width;
+  padding: 20px;
+  margin: 10px auto;
+  text-align: center;
+  background-color: $white;
+  .comment-form {
+    align-items: center;
+    &__content {
+      width: 100%;
+      min-height: 100px;
+      padding: 10px;
+    }
+    &__note {
+      width: 100%;
+      font-size: 14px;
+      padding: 5px;
+      margin-top: 10px;
+      text-align: left;
+      background-color: $base-ground-color;
+    }
+    &__button {
+      width: 60%;
+      background-color: $base-color;
+      color: $white;
+      border: 1px solid;
+      line-height: 50px;
+      border-radius: 60px;
+      font-size: 18px;
+      margin-top: 30px;
+    }
+  }
+}
+// 下部のリンク
+.links {
+  width: $show-box-width;
+  margin: 0 auto;
+  text-align: center;
+  &__kategory {
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    &__link {
+      color: $base-color;
+    }
+  }
+  &__around {
+    display: flex;
+    justify-content: space-between;
+    &__link {
+      color: $base-color;
+      &__icon {
+        -webkit-text-stroke: 1px $base-ground-color
+      }
+    }
+  }
+}
+// 購入ボタン
+.purchaseBtn {
+  &--buy {
+    padding:18px 15px;
+  }
+  &--icon-wallet{
+    font-size: 54px;
+  }
+}
+
+
+

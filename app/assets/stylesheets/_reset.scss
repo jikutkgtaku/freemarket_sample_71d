@@ -1,17 +1,23 @@
+/*!
+ * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
+ * http://cssreset.com
+ * Copyright 2012 Yahoo! Inc. All rights reserved.
+ * http://yuilibrary.com/license/
+ */
 /*
-	TODO will need to remove settings on HTML since we can't namespace it.
-	TODO with the prefix, should I group by selector or property for weight savings?
+    TODO will need to remove settings on HTML since we can't namespace it.
+    TODO with the prefix, should I group by selector or property for weight savings?
 */
 html{
-	color:#000;
-	background:#FFF;
+  color:#000;
+  background:#FFF;
 }
 /*
-	TODO remove settings on BODY since we can't namespace it.
+  TODO remove settings on BODY since we can't namespace it.
 */
 /*
-	TODO test putting a class on HEAD.
-		- Fails on FF.
+  TODO test putting a class on HEAD.
+      - Fails on FF.
 */
 body,
 div,
@@ -38,19 +44,19 @@ p,
 blockquote,
 th,
 td {
-	margin:0;
-	padding:0;
+  margin:0;
+  padding:0;
 }
 table {
-	border-collapse:collapse;
-	border-spacing:0;
+  border-collapse:collapse;
+  border-spacing:0;
 }
 fieldset,
 img {
-	border:0;
+  border:0;
 }
 /*
-	TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
+  TODO think about hanlding inheritence differently, maybe letting IE6 fail a bit...
 */
 address,
 caption,
@@ -61,18 +67,18 @@ em,
 strong,
 th,
 var {
-	font-style:normal;
-	font-weight:normal;
+  font-style:normal;
+  font-weight:normal;
 }
 
 ol,
 ul {
-	list-style:none;
+  list-style:none;
 }
 
 caption,
 th {
-	text-align:left;
+  text-align:left;
 }
 h1,
 h2,
@@ -80,6 +86,24 @@ h3,
 h4,
 h5,
 h6 {
+  font-size:100%;
+  font-weight:normal;
+}
+q:before,
+q:after {
+  content:'';
+}
+abbr,
+acronym {
+  border:0;
+  font-variant:normal;
+}
+/* to preserve line-height and selector appearance */
+sup {
+  vertical-align:text-top;
+}
+sub {
+  vertical-align:text-bottom;
 	font-size:100%;
 	font-weight:normal;
 }
@@ -102,12 +126,19 @@ sub {
 input,
 textarea,
 select {
-	font-family:inherit;
-	font-size:inherit;
-	font-weight:inherit;
-	*font-size:100%; /*to enable resizing for IE*/
+  font-family:inherit;
+  font-size:inherit;
+  font-weight:inherit;
+}
+/*to enable resizing for IE*/
+input,
+textarea,
+select {
+  *font-size:100%;
 }
 /*because legend doesn't inherit in IE */
 legend {
-	color:#000;
+  color:#000;
 }
+/* YUI CSS Detection Stamp */
+#yui3-css-stamp.cssreset { display: none; }
