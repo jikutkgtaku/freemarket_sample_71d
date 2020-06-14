@@ -1,0 +1,28 @@
+.form-footer {
+  height: 220px;
+  padding-top: 40px;
+  &--contents {
+    text-align: center;
+    .contents-links {
+      height: 54px;
+      &--item {
+        text-decoration: none;
+        color: #333;
+      }
+    }
+    ul {
+      font-size: 14px;
+      li {
+        margin-left: 15px;
+        display: inline-block;
+      }
+      :hover {
+        color: #808080;
+        text-decoration: underline;
+      }
+    }
+    &__trademark {
+      font-size: 12px;
+    }
+  } 
+}

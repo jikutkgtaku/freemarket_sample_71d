@@ -2,15 +2,6 @@ Rails.application.routes.draw do
   devise_for :users
   root "items#index"
   resources :items
-  
-  # # マイページトップ（仮）
-  # get "users/show"
-  # # マイページ-支払い方法（仮）
-  # get "users/cards"
-  # # マイページ-クレジットカード登録（仮）
-  # get "users/card-create"
-  # # マイページ-ログアウト（仮）
-  # get "users/logout"
 
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
@@ -21,6 +12,17 @@ Rails.application.routes.draw do
       # クレジットカード削除
         # delete 'delete', to: 'cards#delete'
       end
+    end
+  end
+
+  resources :items, only: [:show, :index, :new]
+  resources :users, only: :show do
+    collection do
+      get "new_login"
+      get "new_session"
+      get "new_user"
+      get "new_address"
+      get "create_address" 
     end
   end
 end

@@ -1,0 +1,36 @@
+.single-container
+  .single-container__header
+    .single-container__header__logo
+      = link_to image_tag("material/logo/logo.png", class:"list-image2"), root_path()
+  .single-container__main
+    .single-container__main__head
+      住所情報
+  .single-container__main
+    .single-container__main__title
+      郵便番号
+      %span{class: "require"} 必須
+    %input{class: "single-container__main__text", placeholder: "例)123-4567"}
+    .single-container__main__title
+      都道府県
+      %span{class: "require"} 必須
+      .flexbox
+        %select{class: "single-container__main__select"}
+          %option{value: "0"} --
+          %option{value: "1"} 選択肢1
+          %option{value: "2"} 選択肢2
+          %option{value: "3"} 選択肢3
+    .single-container__main__title
+      市区町村
+      %span{class: "require"} 必須
+    %input{class: "single-container__main__text", placeholder: "例)渋谷区"}
+    .single-container__main__title
+      番地
+      %span{class: "require"} 必須
+    %input{class: "single-container__main__text", placeholder: "例)道玄坂3-2"}
+    .single-container__main__title
+      建物名
+      %span{class: "any"} 任意
+    %input{class: "single-container__main__text", placeholder: "例)フォンティスビル7F"}
+    .single-container__main__caution
+      ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+    %input{type: "submit",class: "single-container__main__btn", value: "次へ進む"}

@@ -1,4 +1,9 @@
+$emphasis-color: #3CCACE;
+
 @import "reset";
+@import "config/colors";
+@import "config/fonts";
+@import "base";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "config/colors";
@@ -6,9 +11,11 @@
 @import "modules/header";
 @import "modules/footer";
 
+// ログイン、新規登録ページ
+@import "users";
+
 // トップページの変数（注意：変数のimportを上に記述する）
 @import "mixin/toppage/text-shadow";
-@import "mixin/toppage/emphasis-color";
 @import "mixin/toppage/pickup-title";
 @import "mixin/toppage/pickup-subtitle";
 @import "mixin/toppage/basic-title";
@@ -19,7 +26,16 @@
 @import "mixin/mypage/default-btn";
 @import "mixin/mypage/remove-btn";
 
+@import "modules/_form_footer";
+@import "modules/_form_header";
+@import "mixin/formpage/_btn_design";
+@import "mixin/formpage/_form_required";
+@import "mixin/formpage/_p_title";
+@import "mixin/formpage/_select_box";
+@import "mixin/formpage/_items_name_box";
+
 @import "pages/toppage_items_index";
+@import "pages/_newpage_items_new";
 @import "modules/third-section";
 @import "modules/purchasebtn";
 
@@ -28,3 +44,8 @@
 @import "pages/cards";
 @import "pages/logout";
 @import "pages/card-create";
+
+//商品詳細
+@import "mixin/item-detail/item-place";
+@import "modules/item-detail_items_show";
+@import "modules/kategory-hierarchy";
