@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:show, :index, :new]
-  resources :users, only: :show do
+  resource :users, only: [:show] do
     collection do
       get "new_login"
       get "new_session"
