@@ -4,61 +4,74 @@
   = render partial: 'kategory-hierarchy'
 .item-wrapper
   .item-box
-    %h1.item-box__name ああああ 
+    %h1.item-box__name
+      = @item.name
     .item-box__image
-      %ul.item-box__image__main
-        %li.item-box__image__main__pict
-          = image_tag "ramen.png", class:"resize"
-      %ul.item-box__image__sub
-        %li.item-box__image__sub__pict
-          = image_tag "ramen.png", width: "100px", class:"resize"
-        %li.item-box__image__sub__pict
-          = image_tag "ramen.png", width: "100px", class:"resize"
-        %li.item-box__image__sub__pict
-          = image_tag "ramen.png", width: "100px", class:"resize"
+      - @images.each do |image|
+        - if image == @images.first
+          %ul.item-box__image__main
+            %li.item-box__image__main__pict
+              = image_tag image.image, class:"resize"
+        - else
+          %ul.item-box__image__sub
+            %li.item-box__image__sub__pict
+              = image_tag image.image, width: "100px", class:"resize"
     .item-box__price
-      %span ¥20000
+      %span ¥
+      %span
+        = @item.price
       .item-box__price__detail （税込）送料別
-    .item-box__introduction 親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰
+    .item-box__introduction
+      = simple_format(@item.introduction)
     .item-box__table
       %table
         %tr
           %th 出品者
-          %td ほげ
+          %td
+            = @item.seller.nickname
         %tr
           %th カテゴリー
           %td 
+            - if @item.category.parent.parent
+              =link_to '#', class:"item-box__table__link" do
+                = @item.category.parent.parent.name
+              %br
+            - if @item.category.parent
+              =link_to '#', class:"item-box__table__link" do
+                = @item.category.parent.name
+              %br
             =link_to '#', class:"item-box__table__link" do
-              ほげ 
-            %br
-            =link_to '#', class:"item-box__table__link" do
-              hoge
-            %br
-            =link_to '#', class:"item-box__table__link" do
-              hoge
+              = @item.category.name
         %tr
           %th ブランド
           %td
+            - if @item.brand
+              = @item.brand.name
         %tr
           %th 商品のサイズ
           %td
+            = @item.size.name
         %tr
           %th 商品の状態
-          %td ほげ
+          %td
+            = @item.condition.name
         %tr
           %th 配送料の負担
-          %td ほげ
+          %td
+            = @item.shipping_fee.name
         %tr
           %th 配送方法
-          %td ほげ
+          %td
+            = @item.shipping_way.name
         %tr
           %th 発送元の地域
           %td
             =link_to '#', class:"item-box__table__link" do
-              ほげ
+              = @item.prefecture.name
         %tr
           %th 発送日の目安
-          %td ほげ
+          %td
+            = @item.shipping_period.name
     .option-box
       =link_to '#', class: 'option-box__favorite' do
         = icon('fa', 'star', class: 'option-box__favorite__icon')
@@ -87,8 +100,18 @@
           後ろの商品 
           = icon('fa', 'angle-right', class:"links__around__link__icon")
     .links__kategory
-      =link_to '#', class:"links__kategory__link" do
-        メンズをもっと見る
+      - if @item.category.parent.parent
+        =link_to '#', class:"links__kategory__link" do
+          = @item.category.parent.parent.name
+          をもっと見る
+      - elsif @item.category.parent
+        =link_to '#', class:"links__kategory__link" do
+          = @item.category.parent.name
+          をもっと見る
+      - else
+        =link_to '#', class:"links__kategory__link" do
+          = @item.category.name
+          をもっと見る
 =link_to "#" do
   .purchaseBtn.purchaseBtn--buy
     %span.purchaseBtn__text 購入する

@@ -37,6 +37,7 @@ $show-box-width: 700px;
       @include item-place;
       width: 100%;
       &__pict {
+        width: 100%;
         text-align: center;
       }
     }
