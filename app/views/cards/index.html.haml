@@ -1,0 +1,25 @@
+-# ヘッダー
+%header
+  = render 'items/header'
+
+-# パンくずリスト
+%nav.bread-crumbs 
+  %ul
+    %li パンくずリスト
+
+-# メイン部
+.main
+  .content
+    = render 'users/sidebar'
+    = render 'users/mainbar-cards'
+
+  -# サードビュー
+  .main__third-section
+    = render 'items/third-section'
+
+-# フッター
+%footer
+  = render 'items/footer'
+
+-# 画面右下の固定アイコン
+= render 'items/purchasebtn'
