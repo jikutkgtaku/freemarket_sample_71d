@@ -7,13 +7,45 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # GET /resource/sign_up
   def new
     @user = User.new
-  end 
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    @user = User.new(sign_up_params)
+    if @user.valid?
+      session["devise.regist_data"] = {user: @user.attributes}
+      session["devise.regist_data"][:user]["password"] = params[:user][:password]
+      redirect_to addresses_path
+    else
+      render :new
+    end
+  end
+  
 
+  def new_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new
+  end
+
+  def create_address
+    @user = User.new(session["devise.regist_data"]["user"])
+    @address = Address.new(address_params)
+    if @address.valid?
+      @user.save
+      @address = Address.new(address_params.merge(user_id: @user.id))
+      @address.save
+      session["devise.regist_data"]["user"].clear
+      sign_in(:user, @user)
+    else
+      render :new_address
+    end
+  end
+
+  protected
+
+  def address_params
+    params.require(:address).permit(:post_number, :prefecture, :city, :address, :apartment)
+  end
   # GET /resource/edit
   # def edit
   #   super

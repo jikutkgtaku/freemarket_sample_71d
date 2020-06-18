@@ -3,19 +3,17 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
   }
 
-  root "items#index"
-  # resources :items
+  devise_scope :user do
+    get  'addresses', to: 'users/registrations#new_address'
+    post 'addresses', to: 'users/registrations#create_address'
+  end
 
-  # resources :users, only: :show do
-  #   collection do
-  #     get "new_login"
-  #     get "new_session"
-  #     get "new_user"
-  #     get "new_address"
-  #     get "create_address"
-      
-  #   end
-  # end
+
+  root "items#index"
+ 
+
   resources :users, only: :show
+
 end
+
 
