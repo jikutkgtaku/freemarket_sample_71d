@@ -16,7 +16,17 @@
         = link_to "ブランド", "/", class: "list-btn"
 
       %ul.list-right
-        %li.list-right__login-btn 
-          = link_to "ログイン", new_user_session_path, class: "list-btn"
-        %li.list-right__registration-btn
-          = link_to "新規会員登録", new_user_registration_path, class: "list-btn"
+        - if user_signed_in?  
+          =link_to "#", class: "list-right" do 
+            マイページ
+          = link_to destroy_user_session_path, method: :delete, class: "list-right" do 
+            ログアウト
+        - else
+          = link_to new_user_session_path, class:"list-btn " do
+            ログイン
+          = link_to new_user_registration_path, class:"list-btn " do
+            新規会員登録      
+        -# %li.list-right__login-btn 
+        -#   = link_to "ログイン", new_user_session_path, class: "list-btn"
+        -# %li.list-right__registration-btn
+        -#   = link_to "新規会員登録", new_user_registration_path, class: "list-btn"
