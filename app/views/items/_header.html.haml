@@ -17,14 +17,14 @@
 
       %ul.list-right
         - if user_signed_in?  
-          =link_to "#", class: "list-right" do 
+          =link_to "#", class: "list-btn" do 
             マイページ
-          = link_to destroy_user_session_path, method: :delete, class: "list-right" do 
+          = link_to destroy_user_session_path, method: :delete, class: "list-btn2" do 
             ログアウト
         - else
           = link_to new_user_session_path, class:"list-btn " do
             ログイン
-          = link_to new_user_registration_path, class:"list-btn " do
+          = link_to new_user_registration_path, class:"list-btn2 " do
             新規会員登録      
         -# %li.list-right__login-btn 
         -#   = link_to "ログイン", new_user_session_path, class: "list-btn"
