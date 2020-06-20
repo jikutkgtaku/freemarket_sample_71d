@@ -15,25 +15,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     if @user.valid?
       session["devise.regist_data"] = {user: @user.attributes}
       session["devise.regist_data"][:user]["password"] = params[:user][:password]
-      redirect_to addresses_path
+      @address = @user.addresses.build
+      render :new_address
     else
       render :new
     end
   end
   
 
-  def new_address
-    @user = User.new(session["devise.regist_data"]["user"])
-    @address = Address.new
-  end
+  # def new_address
+  #   @user = User.new(session["devise.regist_data"]["user"])
+  #   @address = Address.new
+  # end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
     if @address.valid?
+      @user.addresses.build(@address.attributes)
       @user.save
-      @address = Address.new(address_params.merge(user_id: @user.id))
-      @address.save
       session["devise.regist_data"]["user"].clear
       sign_in(:user, @user)
     else
@@ -44,8 +44,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:post_number, :prefecture, :city, :address, :apartment)
+    params.require(:address).permit(:post_number, :firstname, :address, :lastname, :prefecture, :city, :apartment, :tel_number)
   end
+
   # GET /resource/edit
   # def edit
   #   super
