@@ -1,16 +1,45 @@
-.kari-hedder
-.buy
+.form-buy
   .buy__header
-    %h2.buy__header__title 購入内容の確認
-  .buy__item
-    .buy__item__info
-      .buy__item__info__image
-        = image_tag "cards/master.png", class:"item-image"
-        -# ↑imageタグで仮置きしているけど、今後、商品と連携する
-      .buy__item__info__details
-        .item__name 【美品】master card
-        %p.item__price
-          %span.price ¥10000
-          %span.shipping__fee （税込）送料込み
-  .buy__content
-    .buy__content__price
+    = render "items/form_header"
+
+  .buy
+    .buy__title
+      %section.buy__title__section
+        %h2.buy__title__name 購入内容の確認
+    %section.buy__item
+      .buy__item__info
+        .buy__item__info__image
+          = image_tag "cards/master.png", class:"item-image"
+          -# ↑imageタグで仮置きしているけど、今後、商品と連携する
+        .buy__item__info__details
+          .item__name 【美品】master card
+          %p.item__price
+            %span.price ¥10000
+            %span.shipping__fee （税込）送料込み
+    %section.buy__content
+      .buy__content__price
+        %span.purchase-price 支払い金額
+        %span.price ¥10000
+    %section.buy__creditcard
+      .buy__creditcard__method
+        %h3.method-howto 支払い方法
+        =link_to "変更する", '#', class: "method-change"
+      .buy__creditcard__registration
+        %p クレジットカード
+        %p ************1111
+        %p 有効期限 12 / 24
+        = image_tag "cards/master.png", class:"bcr-card"
+        -# ↑imageタグで仮置きしているけど、今後、クレカと連携する
+    %section.buy__shipping
+      .buy__shipping__destination
+        %h3.shipping-destination 配送先
+        =link_to "変更する", '#', class: "method-change"
+      .buy__shipping__address
+        %p 〒111-1111
+        %p 東京都 渋谷市 テク野
+        %p イケ　メン
+    %section.buy__button
+      
+
+  .buy__footer
+    = render "items/form_footer"
