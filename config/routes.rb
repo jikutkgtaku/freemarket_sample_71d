@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   root "items#index"  
 
-  resources :items, only: [:show, :index, :new]
+  resources :items, only: [:show, :index, :new, :destroy]
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
     resources :cards, only: [:new, :index] do
@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       end
     end
   end
+end
 #   resource :users, only: [:show] do
 #     collection do
 #       get "new_login"
