@@ -2,6 +2,7 @@ class CreditcardsController < ApplicationController
   require "payjp"
 
   def new
+
   end
 
   def create
@@ -29,6 +30,7 @@ class CreditcardsController < ApplicationController
   # 商品購入確認ページをbuyアクションと定義ぎて行う。
 
   def buy
+    
   end
 
 end
