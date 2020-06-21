@@ -125,6 +125,27 @@ $show-box-width: 700px;
     }
   }
 }
+.seller-box {
+  width: $show-box-width;
+  padding: 20px;
+  margin: 10px auto;
+  text-align: center;
+  background-color: $white;
+  &__edit {
+    &--btn {
+      @include default-btn;
+      margin: 10px 0;
+    }
+  }
+  &__delete {
+    &--btn {
+      @include default-btn;
+      margin: 10px 0;
+      border: $dark-gray;
+      background-color: $dark-gray;
+    }
+  }
+}
 // コメント部分
 .comment-box {
   width: $show-box-width;

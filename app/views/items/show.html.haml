@@ -7,15 +7,13 @@
     %h1.item-box__name
       = @item.name
     .item-box__image
-      - @images.each do |image|
-        - if image == @images.first
-          %ul.item-box__image__main
-            %li.item-box__image__main__pict
-              = image_tag image.image, class:"resize"
-        - else
-          %ul.item-box__image__sub
-            %li.item-box__image__sub__pict
-              = image_tag image.image, width: "100px", class:"resize"
+      %ul.item-box__image__main
+        %li.item-box__image__main__pict
+          = image_tag @images.first.image, class:"resize"
+      %ul.item-box__image__sub
+        - @images.each do |image|
+          %li.item-box__image__sub__pict
+            = image_tag image.image, width: "100px", class:"resize"
     .item-box__price
       %span ¥
       %span
@@ -79,6 +77,15 @@
       =link_to '#', class: 'option-box__report' do
         = icon('fas', 'flag', class: 'option-box__report__icon')
         不適切な商品の通報
+  - if user_signed_in? && current_user.id == @item.seller_id
+    .seller-box
+      .seller-box__edit
+        = link_to "#", class:"seller-box__edit--btn" do
+          編集する
+        %span or
+      .seller-box__delete
+        = link_to item_path(@item), method: :delete, class:"seller-box__delete--btn" do
+          削除
   .comment-box
     %form.comment-form
       %textarea.comment-form__content
@@ -112,10 +119,19 @@
         =link_to '#', class:"links__kategory__link" do
           = @item.category.name
           をもっと見る
-=link_to "#" do
-  .purchaseBtn.purchaseBtn--buy
-    %span.purchaseBtn__text 購入する
-    =icon('fas', 'wallet', class:"purchaseBtn--icon-wallet")
+-# 出品者または購入ずみの場合は購入ボタンの表示はしない
+- if user_signed_in?
+  - if current_user.id == @item.seller_id || @item.buyer_id
+  - else
+    =link_to "#" do
+      .purchaseBtn.purchaseBtn--buy
+        %span.purchaseBtn__text 購入する
+        =icon('fas', 'wallet', class:"purchaseBtn--icon-wallet")
+- else
+  =link_to user_session_path do
+    .purchaseBtn.purchaseBtn--buy
+      %span.purchaseBtn__text 購入する
+      =icon('fas', 'wallet', class:"purchaseBtn--icon-wallet")
 .over-footer
   = render partial: 'third-section'
 %footer
