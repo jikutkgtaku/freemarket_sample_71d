@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       get "new_address"
       get "create_address"
     end
+  end
 end
 
 
