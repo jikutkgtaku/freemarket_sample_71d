@@ -8,13 +8,6 @@ $light-gray :#cccccc;
 $silver :#bfbfbf;
 $rouge: #ea352d;
 
-@mixin section-design{
-  max-width: 375px;
-  padding: 32px 16px;
-  margin: auto;
-  border-bottom: 1px solid $white-smoke;
-}
-
 .form-buy {
   background-color: $white-smoke;
   min-height: 100%;
@@ -25,15 +18,15 @@ $rouge: #ea352d;
     margin: auto;
     background-color: white;
     &__title{
-      max-width: 700px;
-      margin: 0 auto;
-      &__section {
-        @include section-design;
-        font-size: 22px;
-        text-align: center;
-        background-color: white;
+      @include section-design;
+      font-size: 22px;
+      text-align: center;
+      background-color: white;
+      &__name {
+        font-weight: 600;
       }
     }
+
     &__item {
       @include section-design;
       height: 81px;
@@ -87,13 +80,14 @@ $rouge: #ea352d;
         }
       }
     }
+
     &__creditcard {
       @include section-design;
       &__method {
         display: flex;
         justify-content: space-between;
-
       }
+
       &__registration {
         font-size: 14px;
         .bcr-card {
@@ -102,12 +96,39 @@ $rouge: #ea352d;
           margin-top: 8px;
         }
       }
+
     }
     &__shipping {
       @include section-design;
       &__destination {
         display: flex;
         justify-content: space-between;
+      }
+      
+      &__address {
+        font-size: 14px;
+      }
+    }
+
+    &__btn {
+      @include section-design;
+      padding-bottom: 48px;
+      &__content {
+        color: $ash-gray;
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+      }
+
+      &__button {
+        display: flex;
+        .btn--purchase__btn {
+          @include btn-design;
+          width: 100%;
+          background-color: $rouge;
+          color: $white;
+          padding: 0 24px;
+        }
       }
     }
   }
@@ -116,4 +137,13 @@ $rouge: #ea352d;
 // 変更ボタン
 .method-change {
   color: $cyan;
+  font-size: 14px;
+}
+
+// h3
+.method-howto {
+  margin-bottom: 8px;
+}
+.shipping-destination {
+  margin-bottom: 8px;
 }

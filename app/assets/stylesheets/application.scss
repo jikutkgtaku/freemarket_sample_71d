@@ -38,4 +38,8 @@ $emphasis-color: #3CCACE;
 @import "modules/kategory-hierarchy";
 
 @import "pages/_registration_creditcard_new";
+
+
+//商品購入確認
+@import "mixin/purchase/section-design";
 @import "pages/_purchase_comfirmation_buy";
