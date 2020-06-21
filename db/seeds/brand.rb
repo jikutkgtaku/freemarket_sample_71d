@@ -18,4 +18,3 @@ Brand.find_or_create_by(name: "ユニクロ")
 Brand.find_or_create_by(name: "ルイ ヴィトン")
 Brand.find_or_create_by(name: "シャネル")
 Brand.find_or_create_by(name: "グッチ")
-
