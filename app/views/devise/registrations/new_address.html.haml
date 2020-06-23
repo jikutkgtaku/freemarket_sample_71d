@@ -4,6 +4,7 @@
       .single-container__header__logo
         = link_to image_tag("material/logo/logo.png", class:"list-image2"), root_path()
     .single-container__main
+      = render "devise/shared/error_messages", resource: @address
       .single-container__main__head
         住所情報
     .single-container__main
