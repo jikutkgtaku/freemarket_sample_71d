@@ -24,6 +24,6 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_period_id,
       :price
-    ).merge(seller_id: current_user.id, status_id: 1)
+    ).merge(seller_id: current_user.id)
   end
 end

@@ -17,6 +17,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash  :size
   belongs_to_active_hash  :status
 
-  validates :name, :price, :category, :seller, :condition, :size, :shipping_fee, :prefecture, :shipping_period, :shipping_way, :status, presence: true
+  validates :name, :price, :category, :seller, :condition, :size, :shipping_fee, :prefecture, :shipping_period, :shipping_way, :status, :introduction, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 9999999 }
+  validates :name, length: { maximum: 40 }
+  validates :introduction, length: { maximum: 1000 }
+
 end
