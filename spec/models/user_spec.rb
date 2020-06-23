@@ -130,6 +130,13 @@ describe User do
       expect(another_user.errors[:email]).to include("has already been taken")
     end
 
+    it "重複したnicknameが存在する場合登録できないこと" do      
+      user = create(:user)
+      another_user = build(:user, nickname: user.nickname)
+      another_user.valid?
+      expect(another_user.errors[:nickname]).to include("has already been taken")
+    end
+
     # 氏名は全角ひらがな・漢字・カタカナであること
     it 'lastnameが全角であること（半角カナではない）' do
       user = build(:user, lastname: "ｱｱ")
