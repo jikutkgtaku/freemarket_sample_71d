@@ -25,6 +25,35 @@ ja:
         unconfirmed_email: 未確認Eメール
         unlock_token: ロック解除用トークン
         updated_at: 更新日
+        #エラーメッセージの日本語化
+    models: 
+      user: "ユーザー"
+    attributes:
+      user:
+        nickname: "ニックネーム"
+        firstname: "苗字"  
+        lastname: "名前"  
+        firstname_kana: "苗字カナ"
+        lastname_kana: "名前カナ"
+        tel_number: "電話番号"
+        birth_year: "生年月日 西暦"
+        birth_month: "生年月日 月"
+        birth_day: "生年月日 日"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認用）"
+        email: "Eメール"
+        
+    # models: 
+    #   address: "住所"
+    # attributes:
+    #   address:    
+    #     firstname: "送付先の苗字"  
+    #     lastname: "送付先のお名前"  
+    #     post_number: "郵便番号"
+    #     prefecture: "都道府県"
+    #     city: "市区町村"
+    #     address: "番地"
+
     models:
       user: ユーザー
   devise:
@@ -140,3 +169,5 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+
+        
