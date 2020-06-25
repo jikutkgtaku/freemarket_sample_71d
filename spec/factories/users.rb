@@ -9,15 +9,15 @@ FactoryBot.define do
     lastname              {"佐々木"}
     firstname_kana        {"ナツ"}
     lastname_kana         {"ササキ"}
-    birth_year            {"2020"}
-    birth_month           {"6"}
-    birth_day             {"25"}
+    birth_year            {"2012"}
+    birth_month           {"12"}
+    birth_day             {"10"}
     tel_number            {"09000000000"}
 
-    post_number           {"111-1111"}
-    prefecture            {"東京都"}
-    city                  {"渋谷区"}
-    address               {"1-1-1"}
+    # post_number           {"111-1111"}
+    # prefecture            {"東京都"}
+    # city                  {"渋谷区"}
+    # address               {"1-1-1"}
   end
 
 end
