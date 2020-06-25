@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:show, :index, :new]
+
   resource :users, only: [:show] do
     collection do
       get "new_login"
@@ -24,4 +25,10 @@ Rails.application.routes.draw do
       get "create_address" 
     end
   end
+  resources :creditcards, only: [:new, :create] do
+    collection do
+      get "buy"
+    end
+  end
+
 end
