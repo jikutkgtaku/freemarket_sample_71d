@@ -86,29 +86,6 @@ describe User do
       expect(user.errors[:tel_number]).to include("を入力してください")
     end
 
-    # it "post_numberがない場合は登録できないこと" do
-    #   user = build(:user, post_number: "")
-    #   user.valid?
-    #   expect(user.errors[:post_number]).to include("can't be blank")
-    # end
-
-    # it "prefectureがない場合は登録できないこと" do
-    #   user = build(:user, prefecture: "")
-    #   user.valid?
-    #   expect(user.errors[:prefecture]).to include("can't be blank")
-    # end
-
-    # it "cityがない場合は登録できないこと" do
-    #   user = build(:user, city: "")
-    #   user.valid?
-    #   expect(user.errors[:city]).to include("can't be blank")
-    # end
-
-    # it "addressがない場合は登録できないこと" do
-    #   user = build(:user, address: "")
-    #   user.valid?
-    #   expect(user.errors[:address]).to include("can't be blank")
-    # end
 
     #文字数制限のある項目のテストコード
     it "passwordが7文字以上であれば登録できること" do
