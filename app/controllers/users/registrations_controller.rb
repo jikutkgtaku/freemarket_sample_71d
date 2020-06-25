@@ -21,12 +21,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
-  
-
-  # def new_address
-  #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @address = Address.new
-  # end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
