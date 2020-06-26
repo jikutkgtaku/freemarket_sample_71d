@@ -9,8 +9,9 @@ Rails.application.routes.draw do
       get "new_user"
       get "new_address"
       get "create_address"
-      
     end
   end
+
+  resources :brands, only: :index
 end
 
