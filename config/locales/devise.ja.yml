@@ -43,16 +43,7 @@ ja:
         password_confirmation: "パスワード（確認用）"
         email: "Eメール"
         
-    # models: 
-    #   address: "住所"
-    # attributes:
-    #   address:    
-    #     firstname: "送付先の苗字"  
-    #     lastname: "送付先のお名前"  
-    #     post_number: "郵便番号"
-    #     prefecture: "都道府県"
-    #     city: "市区町村"
-    #     address: "番地"
+ 
 
     models:
       user: ユーザー
