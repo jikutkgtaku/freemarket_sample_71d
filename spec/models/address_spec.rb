@@ -120,6 +120,64 @@ describe Address do
       expect(address).to be_valid 
     end
     
+    #tel_number関連
+    it 'tel_numberが10文字で登録出来ること' do
+      address = build(:address, tel_number: "0123456789")
+      expect(address).to be_valid 
+    end
+
+    it 'tel_numberが11文字で登録出来ること' do
+      address = build(:address, tel_number: "01234567890")
+      expect(address).to be_valid 
+    end
+
+    it 'tel_numberが9文字で登録出来ないこと' do
+      address = build(:address, tel_number: "012345678")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は10文字以上で入力してください")
+    end
+
+    it 'tel_numberが12文字で登録出来ないこと' do
+      address = build(:address, tel_number: "012345678910")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は11文字以内で入力してください")
+    end
+
+    it 'tel_numberにひらがなが入ると登録できない' do
+      address = build(:address, tel_number: "0900000000あ")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに全角カタカナが入ると登録できない' do
+      address = build(:address, tel_number: "0900000000ア")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに半角カタカナが入ると登録できない' do
+      address = build(:address, tel_number: "0900000000ｱ")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに半角英語が入ると登録できない' do
+      address = build(:address, tel_number: "0900000000a")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに全角数字が入ると登録できない' do
+      address = build(:address, tel_number: "0900000000９")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに全角英語が入ると登録できない' do
+      address = build(:address, tel_number: "0900000000Ａ")
+      address.valid?
+      expect(address.errors[:tel_number]).to include("は数値で入力してください")
+    end
 
   end
 end

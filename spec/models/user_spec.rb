@@ -283,11 +283,41 @@ describe User do
       expect(user.errors[:tel_number]).to include("は11文字以内で入力してください")
     end
 
-    it 'tel_numberが半角数字の場合登録できる' do
-      user = build(:user, tel_number: "01234567891")     
-      expect(user).to be_valid 
+    it 'tel_numberにひらがなが入ると登録できない' do
+      user = build(:user, tel_number: "0900000000あ")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
     end
 
+    it 'tel_numberに全角カタカナが入ると登録できない' do
+      user = build(:user, tel_number: "0900000000ア")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに半角カタカナが入ると登録できない' do
+      user = build(:user, tel_number: "0900000000ｱ")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに半角英語が入ると登録できない' do
+      user = build(:user, tel_number: "0900000000a")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに全角数字が入ると登録できない' do
+      user = build(:user, tel_number: "0900000000９")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
+    end
+
+    it 'tel_numberに全角英語が入ると登録できない' do
+      user = build(:user, tel_number: "0900000000Ａ")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は数値で入力してください")
+    end
 
   end
 end
