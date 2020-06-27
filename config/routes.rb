@@ -14,7 +14,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:show, :index, :new]
+  resources :items, only: [:show, :index, :new] do
+    collection do
+      get "category_children"
+      get "category_grandchildren"
+    end
+  end
+
   resource :users, only: [:show] do
     collection do
       get "new_login"

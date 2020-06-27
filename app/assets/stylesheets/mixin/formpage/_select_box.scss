@@ -5,4 +5,15 @@
   padding: 0 56px 0 16px;
   margin-top: 16px;
   border: 2px solid $white-smoke;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url(/assets/chevron-down-solid.svg);
+  background-repeat: no-repeat;
+  background-size: 15px 24px;
+  background-position: right 30px center;
+  display: block;  
+  &:hover{
+    border-color: #3CCACE;
+  }
 }
