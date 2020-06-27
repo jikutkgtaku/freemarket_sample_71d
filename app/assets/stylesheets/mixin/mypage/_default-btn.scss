@@ -1,0 +1,11 @@
+@mixin default-btn {
+  display: block;
+  width: 100%;
+  line-height: 48px;
+  font-size: 16px;
+  background: $base-color;
+  border: 1px solid $base-color;
+  color: $white;
+  text-decoration: none;
+  text-align: center;
+}

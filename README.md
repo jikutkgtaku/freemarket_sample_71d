@@ -44,6 +44,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |user|references|null: false, foreign_key: true|
+|customer_id|string|null: false|
 |payjp_id|string|null: false|
 
 ### Association
