@@ -283,5 +283,11 @@ describe User do
       expect(user.errors[:tel_number]).to include("は11文字以内で入力してください")
     end
 
+    it 'tel_numberが半角数字の場合登録できる' do
+      user = build(:user, tel_number: "01234567891")     
+      expect(user).to be_valid 
+    end
+
+
   end
 end
