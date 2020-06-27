@@ -33,14 +33,12 @@ $show-box-width: 700px;
   &__image {
     width: 500px;
     margin: 0 auto;
-    &__owl {
-      &__dots {
-        @include item-place;
-        &__pict {
-          width: 25%;
-          margin:10px 5px 0 5px;
-          text-align: center;
-        }
+    &__sub {
+      @include item-place;
+      &__pict {
+        width: 25%;
+        margin:10px 5px 0 5px;
+        text-align: center;
       }
     }
   }
