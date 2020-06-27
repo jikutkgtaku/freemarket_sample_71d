@@ -25,7 +25,19 @@
         line-height: 1.4;
       }
     }
+    &__details {
+      border-top: 1px solid #f5f5f5;
+      
+      .number-details {
+        .card-number {
+        }
+        .form-required {
+          @include form-required;
+        }
+      }
+    }
   }
+
 }
 
 
