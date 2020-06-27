@@ -82,3 +82,5 @@ gem 'pry-rails'
 gem 'devise'
 gem 'ancestry'
 
+gem 'payjp'
+
