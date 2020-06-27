@@ -6,9 +6,10 @@ Rails.application.routes.draw do
     get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root "items#index"  
+  root "items#index"
 
-  resources :items, only: [:show, :index, :new, :destroy]
+
+
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
     resources :cards, only: [:new, :index] do
@@ -20,14 +21,12 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :items, only: [:show, :index, :new]
+  resources :creditcards, only: [:new, :create] do
+    collection do
+      get "buy"
+    end
+  end
+
 end
-#   resource :users, only: [:show] do
-#     collection do
-#       get "new_login"
-#       get "new_session"
-#       get "new_user"
-#       get "new_address"
-#       get "create_address" 
-#     end
-#   end
-# end

@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
+  #単体テストのため導入
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -79,3 +82,6 @@ gem 'pry-rails'
 gem 'devise'
 gem 'ancestry'
 gem 'jquery-rails'
+
+gem 'payjp'
+

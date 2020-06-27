@@ -4,6 +4,7 @@
       .single-container__header__logo
         = link_to image_tag("material/logo/logo.png", class:"list-image2"), root_path()
     .single-container__main
+      = render "devise/shared/error_messages", resource: @address
       .single-container__main__head
         住所情報
     .single-container__main
@@ -13,10 +14,11 @@
         .flexbox
           = f.text_field :firstname, {class: "single-container__main__text text-half", placeholder: "例)フリマ"}
           = f.text_field :lastname , {class: "single-container__main__text text-half", placeholder: "例)太郎"}
+      
       .single-container__main__title
         郵便番号
         %span{class: "require"} 必須
-      = f.text_field :post_number, {class: "single-container__main__text", placeholder: "例)123-4567"}
+        = f.text_field :post_number, {class: "single-container__main__text", placeholder: "ハイフンなし 例)1234567"}
       .single-container__main__title
         都道府県
         %span{class: "require"} 必須
@@ -24,19 +26,19 @@
       .single-container__main__title
         市区町村
         %span{class: "require"} 必須
-      = f.text_field :city, {class: "single-container__main__text", placeholder: "例)渋谷区"}
+        = f.text_field :city, {class: "single-container__main__text", placeholder: "例)渋谷区"}
       .single-container__main__title
         番地
         %span{class: "require"} 必須
-      = f.text_field :address, {class: "single-container__main__text", placeholder: "例)道玄坂3-2"}
+        = f.text_field :address, {class: "single-container__main__text", placeholder: "例)道玄坂3-2"}
       .single-container__main__title
         建物名
         %span{class: "any"} 任意
-      = f.text_field :apartment, {class: "single-container__main__text", placeholder: "例)フォンティスビル7F"}
+        = f.text_field :apartment, {class: "single-container__main__text", placeholder: "例)フォンティスビル7F"}
       .single-container__main__title
         送付先電話番号
         %span{class: "any"} 任意
-      = f.text_field :tel_number, {class: "single-container__main__text", placeholder: "ハイフンなし10~11桁"}
+        = f.text_field :tel_number, {class: "single-container__main__text", placeholder: "ハイフンなし10~11桁"}
       .single-container__main__caution
         ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
-      = f.submit "次へ進む", class: "single-container__main__btn"
+      = f.submit "登録を完了する", class: "single-container__main__btn"

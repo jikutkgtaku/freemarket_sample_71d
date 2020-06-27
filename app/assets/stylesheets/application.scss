@@ -47,3 +47,12 @@
 @import "modules/kategory-hierarchy";
 @import "owl/owl.carousel.css";
 @import "owl/owl.theme.default.css";
+
+//商品購入機能
+
+@import "pages/_registration_creditcard_new";
+
+//商品購入確認
+@import "mixin/purchase/section-design";
+@import "pages/_purchase_confirmation_buy";
+

@@ -21,16 +21,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
       render :new
     end
   end
-  
-
-  # def new_address
-  #   @user = User.new(session["devise.regist_data"]["user"])
-  #   @address = Address.new
-  # end
 
   def create_address
     @user = User.new(session["devise.regist_data"]["user"])
     @address = Address.new(address_params)
+    
     if @address.valid?
       @user.addresses.build(@address.attributes)
       @user.save
@@ -44,7 +39,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def address_params
-    params.require(:address).permit(:post_number, :firstname, :address, :lastname, :prefecture, :city, :apartment, :tel_number)
+    params.require(:address).permit(:firstname, :lastname, :post_number, :prefecture, :city, :address, :apartment, :tel_number)
   end
 
   # GET /resource/edit
