@@ -7,9 +7,10 @@
     %h1.item-box__name
       = @item.name
     .item-box__image
-      %ul.item-box__image__main
-        %li.item-box__image__main__pict
-          = image_tag @images.first.image, class:"resize"
+      %ul.item-box__image__main.owl-carousel.owl-theme
+        - @images.each do |image|
+          %li.item-box__image__main__pict.item
+            = image_tag image.image, class:"resize"
       %ul.item-box__image__sub
         - @images.each do |image|
           %li.item-box__image__sub__pict
@@ -30,6 +31,7 @@
         %tr
           %th カテゴリー
           %td 
+            -# カテゴリを親、その親まで表示させる
             - if @item.category.parent.parent
               =link_to '#', class:"item-box__table__link" do
                 = @item.category.parent.parent.name
@@ -77,6 +79,7 @@
       =link_to '#', class: 'option-box__report' do
         = icon('fas', 'flag', class: 'option-box__report__icon')
         不適切な商品の通報
+  -# 編集・削除は出品者のみ表示
   - if user_signed_in? && current_user.id == @item.seller_id
     .seller-box
       .seller-box__edit
@@ -107,21 +110,21 @@
           後ろの商品 
           = icon('fa', 'angle-right', class:"links__around__link__icon")
     .links__kategory
+      -# カテゴリの最上位へのリンクを表示させる
       - if @item.category.parent.parent
         =link_to '#', class:"links__kategory__link" do
-          = @item.category.parent.parent.name
-          をもっと見る
+          = @item.category.parent.parent.name + "をもっと見る"
       - elsif @item.category.parent
         =link_to '#', class:"links__kategory__link" do
-          = @item.category.parent.name
-          をもっと見る
+          = @item.category.parent.name + "をもっと見る"
       - else
         =link_to '#', class:"links__kategory__link" do
-          = @item.category.name
-          をもっと見る
--# 出品者または購入ずみの場合は購入ボタンの表示はしない
+          = @item.category.name + "をもっと見る"
+          
+-# 出品者の場合または出品中でない場合は購入ボタンの表示はしない
+-# ログインしていない場合はログインページへ遷移させる
 - if user_signed_in?
-  - if current_user.id == @item.seller_id || @item.buyer_id
+  - if current_user.id == @item.seller_id || @item.status_id != 1
   - else
     =link_to "#" do
       .purchaseBtn.purchaseBtn--buy

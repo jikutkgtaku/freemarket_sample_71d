@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @images = Image.where(item_id: params[:id])
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def destroy

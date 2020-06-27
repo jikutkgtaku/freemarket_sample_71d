@@ -1,13 +1,9 @@
-$emphasis-color: #3CCACE;
-
 @import "reset";
 @import "config/colors";
 @import "config/fonts";
 @import "base";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "config/colors";
-@import "config/fonts";
 @import "modules/header";
 @import "modules/footer";
 
@@ -49,3 +45,5 @@ $emphasis-color: #3CCACE;
 @import "mixin/item-detail/item-place";
 @import "modules/item-detail_items_show";
 @import "modules/kategory-hierarchy";
+@import "owl/owl.carousel.css";
+@import "owl/owl.theme.default.css";
