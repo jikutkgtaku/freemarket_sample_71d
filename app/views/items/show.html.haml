@@ -79,8 +79,8 @@
       =link_to '#', class: 'option-box__report' do
         = icon('fas', 'flag', class: 'option-box__report__icon')
         不適切な商品の通報
-  -# 編集・削除は出品者のみ表示
-  - if user_signed_in? && current_user.id == @item.seller_id
+  -# 編集・削除は出品者のみ表示・出品中のみ表示
+  - if user_signed_in? && current_user.id == @item.seller_id && @item.status_id == 1
     .seller-box
       .seller-box__edit
         = link_to "#", class:"seller-box__edit--btn" do
