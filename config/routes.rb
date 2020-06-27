@@ -30,4 +30,10 @@ Rails.application.routes.draw do
       get "create_address" 
     end
   end
+  resources :creditcards, only: [:new, :create] do
+    collection do
+      get "buy"
+    end
+  end
+
 end
