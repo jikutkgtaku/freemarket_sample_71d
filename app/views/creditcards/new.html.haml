@@ -7,10 +7,10 @@
       %h2.card__title__name 支払い方法
 
     -#form_tagメソッドでcreateアクションに入力情報を渡します。
-    = form_tag(creditcards_path, method: :post, id: "charge-form", class: "details", name: "inputForm") do
+    = form_tag(creditcards_path, method: :post, id: "charge-form", class: "card__details", name: "inputForm") do
       .number-details
         .card-number カード番号
-        %span.must_check 必須
+        %span.form-required 必須
       .number
         = text_field_tag 'payment_card_no', "", class: 'cardnumber', id: "payment_card_no", placeholder: '半角数字のみ', type: "text", maxlength: "16"
       -# 事前にassets/imagesにcardsファイルを作成、中に各カード会社の画像を入れておき、呼び出す。
