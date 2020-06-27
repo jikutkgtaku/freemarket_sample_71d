@@ -1,0 +1,66 @@
+= form_with model: @user, url: user_registration_path, local: true do |f|
+  .single-container
+    .single-container__header
+      .single-container__header__logo
+        = link_to image_tag("material/logo/logo.png", class:"list-image2"), root_path()
+    .single-container__main
+      .single-container__main__head
+        会員情報入力
+    .single-container__main
+      .single-container__main__title
+        = render "devise/shared/error_messages", resource: @user
+        ニックネーム
+        %span{class: "require"} 必須
+      = f.text_field :nickname, {class: "single-container__main__text", placeholder: "例)フリマ太郎"}
+      .single-container__main__title
+        メールアドレス
+        %span{class: "require"} 必須
+      = f.text_field :email, {class: "single-container__main__text", placeholder: "PC・携帯どちらでも可"}
+      .single-container__main__title
+        パスワード
+        %span{class: "require"} 必須
+      = f.password_field :password, {class: "single-container__main__text", placeholder: "7文字以上"}
+      .single-container__main__title
+        パスワード(確認)
+        %span{class: "require"} 必須
+      = f.password_field :password_confirmation, {class: "single-container__main__text", placeholder: "7文字以上"}
+      .single-container__main__title
+        お名前(全角)
+        %span{class: "require"} 必須
+        .flexbox
+          = f.text_field :firstname, {class: "single-container__main__text text-half", placeholder: "例)フリマ"}
+          = f.text_field :lastname , {class: "single-container__main__text text-half", placeholder: "例)太郎"}
+      .single-container__main__title
+        お名前カナ(全角)
+        %span{class: "require"} 必須
+        .flexbox
+          = f.text_field :firstname_kana, {class: "single-container__main__text text-half", placeholder: "例)フリマ"}
+          = f.text_field :lastname_kana , {class: "single-container__main__text text-half", placeholder: "例)タロウ"}
+      .single-container__main__title
+        生年月日
+        %span{class: "require"} 必須
+        .flexbox
+          - year = ["--"]
+          - for num in 0..120
+            - year << 2020-num
+          = f.select :birth_year, year, {}, class: "single-container__main__select three-select"
+          年
+          - month = ["--"]
+          - for num in 1..12
+            - month << num
+          = f.select :birth_month, month, {}, class: "single-container__main__select three-select"
+          月
+          - day = ["--"]
+          - for num in 1..31
+            - day << num
+          = f.select :birth_day, day, {}, class: "single-container__main__select three-select"
+          日
+ 
+      .single-container__main__title
+        電話番号
+        %span{class: "require"} 必須
+      = f.text_field :tel_number, {class: "single-container__main__text", placeholder: "ハイフンなし10~11桁"}
+      .single-container__main__title
+      .single-container__main__caution
+        ※本人情報は正しく入力してください。会員登録後、お時間を頂く場合があります。
+      = f.submit "次へ進む", class: "single-container__main__btn"
