@@ -1,0 +1,65 @@
+@mixin cards_setting{
+  height: 20px;
+}
+
+.form-card {
+  background-color: $white-smoke;
+  min-height: 100%;
+  line-height: 1;
+
+  .card {
+    max-width: 700px;
+    margin: auto;
+    background-color: white;
+    &__title{
+      // max-width: 343px;
+      font-size: 24px;
+
+      margin: auto;
+      border-bottom: 1px solid $white-smoke;
+      text-align: center;
+      background-color: white;
+      &__name {
+        font-weight: 600;
+        padding: 8px 24px;
+        line-height: 1.4;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+.visa {
+  @include cards_setting
+}
+
+.master {
+  @include cards_setting
+}
+
+.jcb {
+  @include cards_setting
+}
+
+.amex {
+  @include cards_setting
+}
+
+.diners {
+  @include cards_setting
+}
+
+.discover {
+  @include cards_setting
+}
+
+.saison {
+  @include cards_setting
+}
