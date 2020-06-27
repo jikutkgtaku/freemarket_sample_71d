@@ -232,33 +232,56 @@ describe User do
     it 'lastname_kanaが全角カタカナであること（半角カナではない）' do
       user = build(:user, lastname_kana: "ｱｱ")
       user.valid?
-      expect(user.errors[:lastname_kana,]).to include("は不正な値です")
+      expect(user.errors[:lastname_kana]).to include("は不正な値です")
     end
 
     it 'lastname_kanaが全角カタカナであること（ひらがなではない）' do
       user = build(:user, lastname_kana: "ああ")
       user.valid?
-      expect(user.errors[:lastname_kana,]).to include("は不正な値です")
+      expect(user.errors[:lastname_kana]).to include("は不正な値です")
     end
 
     it 'lastname_kanaが全角カタカナであること（全角英語ではない）' do
       user = build(:user, lastname_kana: "ｒｑ")
       user.valid?
-      expect(user.errors[:lastname_kana,]).to include("は不正な値です")
+      expect(user.errors[:lastname_kana]).to include("は不正な値です")
     end
 
     it 'lastname_kanaが全角カタカナであること（半角英語ではない）' do
       user = build(:user, lastname_kana: "aa")
       user.valid?
-      expect(user.errors[:lastname_kana,]).to include("は不正な値です")
+      expect(user.errors[:lastname_kana]).to include("は不正な値です")
     end
 
     it 'lastname_kanaが全角カタカナであること（数字ではない）' do
       user = build(:user, lastname_kana: "22")
       user.valid?
-      expect(user.errors[:lastname_kana,]).to include("は不正な値です")
+      expect(user.errors[:lastname_kana]).to include("は不正な値です")
     end
 
+
+    #tel_number関連
+    it 'tel_numberが10文字で登録出来ること' do
+      user = build(:user, tel_number: "0123456789")
+      expect(user).to be_valid 
+    end
+
+    it 'tel_numberが11文字で登録出来ること' do
+      user = build(:user, tel_number: "01234567890")
+      expect(user).to be_valid 
+    end
+
+    it 'tel_numberが9文字で登録出来ないこと' do
+      user = build(:user, tel_number: "012345678")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は10文字以上で入力してください")
+    end
+
+    it 'tel_numberが12文字で登録出来ないこと' do
+      user = build(:user, tel_number: "012345678910")
+      user.valid?
+      expect(user.errors[:tel_number]).to include("は11文字以内で入力してください")
+    end
 
   end
 end
