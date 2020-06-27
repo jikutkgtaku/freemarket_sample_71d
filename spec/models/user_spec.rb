@@ -229,31 +229,31 @@ describe User do
       expect(user).to be_valid 
     end
 
-    it 'lastname_kana,が全角カタカナであること（半角カナではない）' do
+    it 'lastname_kanaが全角カタカナであること（半角カナではない）' do
       user = build(:user, lastname_kana: "ｱｱ")
       user.valid?
       expect(user.errors[:lastname_kana,]).to include("は不正な値です")
     end
 
-    it 'lastname_kana,が全角カタカナであること（ひらがなではない）' do
+    it 'lastname_kanaが全角カタカナであること（ひらがなではない）' do
       user = build(:user, lastname_kana: "ああ")
       user.valid?
       expect(user.errors[:lastname_kana,]).to include("は不正な値です")
     end
 
-    it 'lastname_kana,が全角カタカナであること（全角英語ではない）' do
+    it 'lastname_kanaが全角カタカナであること（全角英語ではない）' do
       user = build(:user, lastname_kana: "ｒｑ")
       user.valid?
       expect(user.errors[:lastname_kana,]).to include("は不正な値です")
     end
 
-    it 'lastname_kana,が全角カタカナであること（半角英語ではない）' do
+    it 'lastname_kanaが全角カタカナであること（半角英語ではない）' do
       user = build(:user, lastname_kana: "aa")
       user.valid?
       expect(user.errors[:lastname_kana,]).to include("は不正な値です")
     end
 
-    it 'lastname_kana,が全角カタカナであること（数字ではない）' do
+    it 'lastname_kanaが全角カタカナであること（数字ではない）' do
       user = build(:user, lastname_kana: "22")
       user.valid?
       expect(user.errors[:lastname_kana,]).to include("は不正な値です")
