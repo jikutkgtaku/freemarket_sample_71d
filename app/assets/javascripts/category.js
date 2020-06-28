@@ -6,30 +6,30 @@ $(function(){
   function appendChidrenBox(insertHTML){ //子セレクトボックスのhtml作成
     var childSelectHtml = '';
       childSelectHtml = `<div class='product-select-wrapper' id= 'children_wrapper'>
-                        <div class='items-date--category__child' >
+                        <div class='items-data--category__child' >
                         <select class="select-box" id="child_category" name="item[category_id]">
                         <option value="---">選択してください</option>
                         ${insertHTML}
                         </select>
                         </div>
-                        <div class= 'items-date--category__grandchild'>
+                        <div class= 'items-data--category__grandchild'>
                         </div>
                         </div>`;
-    $('.items-date--category__child').append(childSelectHtml);
+    $('.items-data--category__child').append(childSelectHtml);
   }
   function appendgrandChildrenBox(insertHTML){
     var grandchildrenSelectHtml = '';
     grandchildrenSelectHtml = `<div class='product-select-wrapper' id= 'grandchildren_wrapper'>
-                              <div class='items-date--category__grandchild'>
+                              <div class='items-data--category__grandchild'>
                               <select class="select-box" id="grandchild_category" name="item[category_id]">
                               <option value="---">選択してください</option>
                               ${insertHTML}
                               </select>
                               </div>
-                              <div class= 'items-date--category__grandchild'>
+                              <div class= 'items-data--category__grandchild'>
                               </div>
                               </div>`;
-    $('.items-date--category__grandchild').append(grandchildrenSelectHtml);
+    $('.items-data--category__grandchild').append(grandchildrenSelectHtml);
   }
 
   $(document).on('change', '#category_select', function(){ //親セレクトボックスの選択肢を変えたら発火
@@ -74,7 +74,10 @@ $(function(){
         grandchildren.forEach(function(grandchild){
           insertHTML += appendOption(grandchild);
         });
-        appendgrandChildrenBox(insertHTML);
+        if (insertHTML != ''){
+          appendgrandChildrenBox(insertHTML);
+        }
+        
         $(document).on('change', '#child_category', function(){
           $('#grandchildren_wrapper').remove();
         })

@@ -68,7 +68,7 @@ men_12.children.create([{name: "ソックス"},{name: "レギンス/スパッツ
 men_13 = men.children.create(name: "アンダーウェア")
 men_13.children.create([{name: "トランクス"},{name: "ボクサーパンツ"},{name: "その他"}])
 men_14 = men.children.create(name: "その他")
-men_14.children.create([{name: "すべて"}])
+#men_14.children.create([{name: "すべて"}])
 
 #ベビー・キッズ
 baby_kid = Category.create(name: "ベビー・キッズ")
@@ -130,7 +130,7 @@ interior_house_mallarticle_11.children.create([{name: "ごみ箱"},{name: "ウ�
 interior_house_mallarticle_12 = interior_house_mallarticle.children.create(name: "季節/年中行事")
 interior_house_mallarticle_12.children.create([{name: "正月"},{name: "成人式"},{name: "バレンタインデー"},{name: "ひな祭り"},{name: "子どもの日"},{name: "母の日"},{name: "父の日"},{name: "サマーギフト/お中元"},{name: "夏/夏休み"},{name: "ハロウィン"},{name: "敬老の日"},{name: "七五三"},{name: "お歳暮"},{name: "クリスマス"},{name: "冬一般"},{name: "その他"}])
 interior_house_mallarticle_13 = interior_house_mallarticle.children.create(name: "その他")
-interior_house_mallarticle_13.children.create([{name: "すべて"}])
+#interior_house_mallarticle_13.children.create([{name: "すべて"}])
 
 #本・音楽・ゲーム
 book_music_game = Category.create(name: "本・音楽・ゲーム")
@@ -220,7 +220,7 @@ appliances_phones_camera_8.children.create([{name: "エアコン"},{name: "空�
 appliances_phones_camera_9 = appliances_phones_camera.children.create(name: "生活家電")
 appliances_phones_camera_9.children.create([{name: "冷蔵庫"},{name: "洗濯機"},{name: "炊飯器"},{name: "電子レンジ/オーブン"},{name: "調理機器"},{name: "アイロン"},{name: "掃除機"},{name: "エスプレッソマシン"},{name: "コーヒーメーカー"},{name: "衣類乾燥機"},{name: "その他"}])
 appliances_phones_camera_10 = appliances_phones_camera.children.create(name: "その他")
-appliances_phones_camera_10.children.create([{name: "すべて"}])
+#appliances_phones_camera_10.children.create([{name: "すべて"}])
 
 #スポーツ・レジャー
 sport_leisure = Category.create(name: "スポーツ・レジャー")
@@ -268,7 +268,7 @@ handmade_7.children.create([{name: "各種パーツ"},{name: "生地/糸"},{name
 handmade_8 = handmade.children.create(name: "二次創作物")
 handmade_8.children.create([{name: "Ingress"},{name: "クリエイターズ宇宙兄弟"}])
 handmade_9 = handmade.children.create(name: "その他")
-handmade_9.children.create([{name: "すべて"}])
+#handmade_9.children.create([{name: "すべて"}])
 
 #チケット
 ticket = Category.create(name: "チケット")
@@ -287,7 +287,7 @@ ticket_6.children.create([{name: "遊園地/テーマパーク"},{name: "美術�
 ticket_7 = ticket.children.create(name: "優待券/割引券")
 ticket_7.children.create([{name: "ショッピング"},{name: "レストラン/食事券"},{name: "フード/不ドリンク券"},{name: "宿泊券"},{name: "その他"}])
 ticket_8 = ticket.children.create(name: "その他")
-ticket_8.children.create([{name: "すべて"}])
+#ticket_8.children.create([{name: "すべて"}])
 
 #自動車・オートバイ
 car_motorcycle = Category.create(name: "自動車・オートバイ")
@@ -300,7 +300,7 @@ car_motorcycle_3.children.create([{name: "サスペンション"},{name: "ブレ
 car_motorcycle_4 = car_motorcycle.children.create(name: "自動車アクセサリー")
 car_motorcycle_4.children.create([{name: "車内アクセサリー"},{name: "カーナビ"},{name: "カーオーディオ"},{name: "車外アクセサリー"},{name: "メンテナンス用品"},{name: "チャイルドシード"},{name: "ドライブレコーダー"},{name: "レーダー探知機"},{name: "カタログ/マニュアル"},{name: "セキュリティ"},{name: "ETC"},{name: "その他"}])
 car_motorcycle_5 = car_motorcycle.children.create(name: "オートバイ車体")
-car_motorcycle_5.children.create([{name: "すべて"}])
+#car_motorcycle_5.children.create([{name: "すべて"}])
 car_motorcycle_6 = car_motorcycle.children.create(name: "オートバイパーツ")
 car_motorcycle_6.children.create([{name: "タイヤ"},{name: "マフラー"},{name: "エンジン、冷却装置"},{name: "カウル、フェンダー、外装"},{name: "サスペンション"},{name: "ホイール"},{name: "シート"},{name: "ブレーキ"},{name: "タンク"},{name: "ライト、ウィンカー"},{name: "チェーン、スプロケット、駆動系"},{name: "メーター"},{name: "電装系"},{name: "ミラー"},{name: "外国オートバイ用パーツ"},{name: "その他"}])
 car_motorcycle_7 = car_motorcycle.children.create(name: "オートバイアクセサリー")
@@ -309,7 +309,7 @@ car_motorcycle_7.children.create([{name: "ヘルメット/シールド"},{name: 
 #その他
 other = Category.create(name: "その他")
 other_1 = other.children.create(name: "まとめ売り")
-other_1.children.create([{name: "すべて"}])
+#other_1.children.create([{name: "すべて"}])
 other_2 = other.children.create(name: "ペット用品")
 other_2.children.create([{name: "ペットフード"},{name: "犬用品"},{name: "猫用品"},{name: "魚用品/水草"},{name: "小動物用品"},{name: "爬虫類/両生類用品"},{name: "かご/おり"},{name: "鳥用品"},{name: "虫類用品"},{name: "その他"}])
 other_3 = other.children.create(name: "食品")
@@ -325,4 +325,4 @@ other_7.children.create([{name: "筆記用具"},{name: "ノート/メモ帳"},{n
 other_8 = other.children.create(name: "事務/店舗用品")
 other_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 other_9 = other.children.create(name: "その他")
-other_9.children.create([{name: "すべて"}])
+#other_9.children.create([{name: "すべて"}])

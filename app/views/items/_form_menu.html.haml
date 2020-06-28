@@ -36,9 +36,9 @@
           %h3
             カテゴリー
             %span.form-required 必須
-          .items-date--category__select
+          .items-data--category__select
             = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
-          .items-date--category__child
+          .items-data--category__child
         .items-data--size.contents-height
           %h3
             サイズ
