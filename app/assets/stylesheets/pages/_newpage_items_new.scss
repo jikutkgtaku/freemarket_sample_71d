@@ -88,7 +88,7 @@ h3 {
           padding: 13px 16px;
           border: 2px solid $white-smoke;
           &:hover{
-            border-color: #3CCACE;
+            border-color: $base-color;
           }
         }
         &__count {
@@ -159,7 +159,7 @@ h3 {
             background-color: $white;
             border: 2px solid $white-smoke;
             &:hover{
-              border-color: #3CCACE;
+              border-color: $base-color;
             }
           }
         }
