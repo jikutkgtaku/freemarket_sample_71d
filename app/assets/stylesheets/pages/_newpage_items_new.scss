@@ -126,6 +126,19 @@ h3 {
         margin-bottom: 24px;
         font-size: 14px;
       }
+      #brand-search-result {
+        display: none;
+        margin-top: 15px;
+        overflow: scroll;
+        height: 180px;
+        overflow: scroll;
+        border-right: solid 1px $ash-gray;
+        border-left: solid 1px $ash-gray;
+        border-bottom: solid 1px $ash-gray;
+      }
+      .brand-list {
+        padding-left: 18px;
+      }
     }
     
     .delivery {

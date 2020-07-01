@@ -42,12 +42,14 @@
           %h3
             サイズ
             %span.form-required 必須
-          = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
+          = f.collection_select :size_id, Size.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box"}
+          -# = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
         .items-data--barand
           %h3
             ブランド
             %span.form-any 任意
-          = f.text_field :brand, { class: 'items-name-box', placeholder: '例）シャネル' }
+          = f.text_field :brand_id, { class: 'items-name-box', placeholder: '例）シャネル' }
+          #brand-search-result 
         .items-data--status.contents-height
           %h3
             商品の状態

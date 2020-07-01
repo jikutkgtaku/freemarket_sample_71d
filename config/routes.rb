@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root "items#index"  
-  resources :items, only: [:show, :index, :new, :create]
+  resources :items, only: [:show, :index, :new, :create] 
+
   resources :users, only: :show do
     collection do
       get "new_login"
@@ -12,6 +13,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :brands, only: :index
+  resources :brands, only: :index, defaults: { format: 'json' }
 end
-

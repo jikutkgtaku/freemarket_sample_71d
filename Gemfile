@@ -78,3 +78,6 @@ gem 'active_hash'
 gem 'pry-rails'
 gem 'devise'
 gem 'ancestry'
+
+# jQuery使用のために追加
+gem 'jquery-rails'

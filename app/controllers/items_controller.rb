@@ -6,13 +6,19 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def new
+    @item = Item.new
+  end
+
   def create
-    @item = Item.new(item_params)
+    Item.create(item_params)
+    binding.pry
+    redirect_to :root
   end
   
   private
   def item_params
-    params.require(:item).permit(
+    params.require(:item, :brand).permit(
       :name,
       :introduction,
       :category_id,
