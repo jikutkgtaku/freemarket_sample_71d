@@ -1,5 +1,6 @@
 @mixin cards_setting{
   height: 20px;
+  margin-left: 3px;
 }
 
 .form-card {
@@ -12,7 +13,7 @@
     margin: auto;
     background-color: white;
     &__title{
-      // max-width: 343px;
+
       font-size: 24px;
 
       margin: auto;
@@ -23,16 +24,29 @@
         font-weight: 600;
         padding: 8px 24px;
         line-height: 1.4;
+        color: $safe-color;
       }
     }
     &__details {
       border-top: 1px solid #f5f5f5;
-      
-      .number-details {
-        .card-number {
+      padding: 40px 40px 64px;
+      .card__information {
+        max-width: 343px;
+        margin: auto;
+
+
+        .number-details {
+          display: flex;
+          .card-number {
+            font-size: 14px;
+          }
+
         }
-        .form-required {
-          @include form-required;
+        .number {
+
+        }
+        .cards__image {
+          margin: 8px 0 0;
         }
       }
     }
@@ -40,7 +54,13 @@
 
 }
 
-
+// 必須
+.form-required {
+  @include form-required;
+  background-color: $emphasis-color;
+  text-align: center;
+  vertical-align: top;
+}
 
 
 
