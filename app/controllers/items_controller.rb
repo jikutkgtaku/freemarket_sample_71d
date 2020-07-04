@@ -11,14 +11,16 @@ class ItemsController < ApplicationController
   end
 
   def create
-    Item.create(item_params)
-    binding.pry
-    redirect_to :root
+    if Item.create(item_params)
+      redirect_to root_path, notice: "出品完了しました。"
+    else
+      render :new
+    end
   end
   
   private
   def item_params
-    params.require(:item, :brand).permit(
+    params.require(:item).permit(
       :name,
       :introduction,
       :category_id,
@@ -30,6 +32,6 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_period_id,
       :price
-    ).merge(seller_id: current_user.id)
+    )
   end
 end
