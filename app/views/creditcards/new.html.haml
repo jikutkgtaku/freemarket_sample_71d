@@ -62,10 +62,12 @@
 
         .securitycode
           .securitycode__details
-            .securitycode-details__title セキュリティコード
+            .securitycode__details__title セキュリティコード
             %span.form-required 必須
           .securitycode__cardsecurity
             = text_field_tag  "payment_card_cvc", "", type: 'text', class: 'securitycode__cardsecurity__form', id: "payment_card_cvc", maxlength: "4", placeholder: 'カード背面4桁もしくは3桁の番号'
           .card-question カード裏面の番号とは？
         .add 
           = submit_tag "登録する", class: "add__btn", id: "payment_card_submit-button"
+  .card__fotter
+    = render "items/form_footer"
