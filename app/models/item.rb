@@ -17,6 +17,10 @@ class Item < ApplicationRecord
   belongs_to_active_hash  :size
   belongs_to_active_hash  :status
 
+  # fields_forメソッドを利用する際に、親モデルの中に書く必要があるメソッド
+  # 引数として、子モデルの名前を記載する。
+  # allow_destroy: trueで、親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除できる。
+  accepts_nested_attributes_for :images, allow_destroy: true
   validates :name, :price, :category, :seller, :condition, :size, :shipping_fee, :prefecture, :shipping_period, :shipping_way, :status, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 9999999 }
 end
