@@ -23,9 +23,10 @@
 }
 
 @mixin card_number_securitycode {
-  width: calc(100% - 34px);
+  box-sizing: border-box;
+  width: 100%;
   margin: 8px 0 0;
-  height: 28px;
+  height: 48px;
   padding: 10px 16px 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -44,6 +45,7 @@
   vertical-align: top;
   background-color: $emphasis-color;
 }
+
 
 .form-card {
   background-color: $white-smoke;
@@ -67,128 +69,122 @@
         color: $safe-color;
       }
     }
-    &__details {
-      border-top: 1px solid #f5f5f5;
-      padding: 40px 40px 64px;
-      .card__information {
-        max-width: 343px;
-        margin: auto;
-        .number-details {
-          display: flex;
-          .card-number {
-            font-size: 14px;
-            font-weight: bold;
-          }
-        }
-        .number {
-          .cardnumber {
-            @include card_number_securitycode
-          }
-        }
-        .cards__image {
-          margin: 8px 0 0 0;
-          text-align: left;
-          .visa {
-            @include cards_setting
-          }
-          .master {
-            @include cards_setting
-          }
-          .jcb {
-            @include cards_setting
-          }
-          .amex {
-            @include cards_setting
-          }
-          .diners {
-            @include cards_setting
-          }
-          .discover {
-            @include cards_setting
-          }
-          .saison {
-            @include cards_setting
-          }
-        }
-        .expirationdate {
-          margin: 24px 0 0;
-          &__details {
-            display: flex;
-            font-size: 14px;
-            .date {
-              font-weight: bold;
-            }
-          }
-          &__choice {
-            display: flex;
-            width: 100%;
-            margin: 8px 0 0;
-            .month {
-              display: flex;
-              width: calc(50% - 2px);
-              #payment_card_month {
-                @include month_year_payment
-              }
-              &-details {
-                @include month_year
-              }
-            }
-            .year {
-              display: flex;
-              width: calc(50% - 2px);
-              #payment_card_year {
-                @include month_year_payment
-              }
-              &-details {
-                @include month_year
-              }
-            }
-          }
-        }
-
-        .securitycode {
-          margin: 24px 0 0;
-          &__details {
-            display: flex;
-            &__title {
-              font-size: 14px;
-              font-weight: bold;
-            }
-          }
-          &__cardsecurity {
-
-            &__form {
-              @include card_number_securitycode
-            }
-          }
-          .card-question {
-            width: 100%;
-            text-align: right;
-            color: #0099e8;
-            margin-top: 5px;
-            font-size: 14px;
-          }
-        }
-      }
-      .add {
-        width: 100%;
-        .add__btn {
-          @include btn-design;
-          max-width: 343px;
-          background-color: $emphasis-color;
-          color: $white;
-          margin: 24px 0 0;
-          font-size: 14px;
-        }
-      }
-    }
   }
 }
 
 
+.card__details {
+  border-top: 1px solid #f5f5f5;
+  padding: 40px 40px 64px;
+  .card__information {
+    max-width: 343px;
+    margin: auto;
+    .number-details {
+      display: flex;
+      .card-number {
+        font-size: 14px;
+        font-weight: bold;
+      }
+    }
+    .number {
+      .cardnumber {
+        @include card_number_securitycode
+      }
+    }
+    .cards__image {
+      margin: 8px 0 0 0;
+      text-align: left;
+      .visa {
+        @include cards_setting
+      }
+      .master {
+        @include cards_setting
+      }
+      .jcb {
+        @include cards_setting
+      }
+      .amex {
+        @include cards_setting
+      }
+      .diners {
+        @include cards_setting
+      }
+      .discover {
+        @include cards_setting
+      }
+      .saison {
+        @include cards_setting
+      }
+    }
+    .expirationdate {
+      margin: 24px 0 0;
+      &__details {
+        display: flex;
+        font-size: 14px;
+        .date {
+          font-weight: bold;
+        }
+      }
+      &__choice {
+        display: flex;
+        width: 100%;
+        margin: 8px 0 0;
+        .month {
+          display: flex;
+          width: calc(50% - 2px);
+          #payment_card_month {
+            @include month_year_payment
+          }
+          &-details {
+            @include month_year
+          }
+        }
+        .year {
+          display: flex;
+          width: calc(50% - 2px);
+          #payment_card_year {
+            @include month_year_payment
+          }
+          &-details {
+            @include month_year
+          }
+        }
+      }
+    }
 
+    .securitycode {
+      margin: 24px 0 0;
+      &__details {
+        display: flex;
+        &__title {
+          font-size: 14px;
+          font-weight: bold;
+        }
+      }
+      &__cardsecurity {
 
-
-
-
-
+        &__form {
+          @include card_number_securitycode
+        }
+      }
+      .card-question {
+        width: 100%;
+        text-align: right;
+        color: #0099e8;
+        margin-top: 5px;
+        font-size: 14px;
+      }
+    }
+  }
+  .add {
+    width: 100%;
+    .add__btn {
+      @include btn-design;
+      max-width: 343px;
+      background-color: $emphasis-color;
+      color: $white;
+      margin: 24px 0 0;
+      font-size: 14px;
+    }
+  }
+}
