@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:show, :index, :new]
+  resources :items
   resources :creditcards, only: [:new, :create] do
     collection do
       get "buy"

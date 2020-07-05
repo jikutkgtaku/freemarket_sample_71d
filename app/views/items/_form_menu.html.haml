@@ -8,13 +8,22 @@
             %span.form-required 必須
           %p.photos--title__comments
             最大10枚までアップロードできます
-        .photos--drops
-          %i.fas.fa-camera
-          .photos--drops__comment
-            %p
-              ドラッグアンドドロップ
-              %br
-              またはクリックしてファイルをアップロード
+        .photos-box
+          .previews
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
+          = f.fields_for :images  do |i|
+            .js-file_group{"data-index" => "#{i.index}"}
+              %label
+                = i.file_field :image, class: 'photos--form', accept: 'image/png,image/jpeg'
+                .photos--drops
+                  %i.fas.fa-camera
+                  .photos--drops__comment
+                    %p
+                      ドラッグアンドドロップ
+                      %br
+                      またはクリックしてファイルをアップロード
 
       .items
         .items--name.contents-height
