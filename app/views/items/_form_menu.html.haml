@@ -102,10 +102,11 @@
             = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0',  value: '', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
         .cost--commission
           %p 販売手数料 (10%)
-          %span.gain -
+          %span.gain-commission -
         .cost--profit
           %p 販売利益
-          %span.gain -
+          = f.number_field :price, style: "display: none", id: "price"
+          %span.gain-profit -
 
       .btns
         = f.button '出品する', class: 'btns--display btn-design'
