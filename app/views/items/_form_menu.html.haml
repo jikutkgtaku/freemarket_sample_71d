@@ -36,8 +36,7 @@
           %h3
             カテゴリー
             %span.form-required 必須
-          = f.select :condition_id, [["選択してください",""],["レディース", 1], ["メンズ", 2], ["ベビーキッズ", 3],],{},{class: "select-box"}
-          -# クラス名の後に、required: trueを入れる？
+          = f.select :category_id, [["選択してください",""],["レディース", 1], ["メンズ", 2], ["ベビーキッズ", 3],],{},{class: "select-box"}
         .items-data--size.contents-height
           %h3
             サイズ
@@ -99,7 +98,7 @@
               %span.form-required 必須
           .cost--selling--number
             %p ¥
-            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0',  value: '', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
+            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
         .cost--commission
           %p 販売手数料 (10%)
           %span.gain-commission -

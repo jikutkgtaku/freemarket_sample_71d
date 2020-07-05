@@ -8,16 +8,14 @@ $(function(){
   }
 
   // 選択したブランド名を項目欄に追加、選択リストは非表示にする
-  function addBrand(brandId) {
-    $("#item_brand_id").val(brandId); 
+  function addBrand(brandId, brandName) {
+    $("#item_brand_id").val(brandName); 
     $("#brand-search-result").hide();
-  }
 
-  // DBにブランド情報をいれる
-  // function setBrandId(brandId, brandName) {
-  //   let brand_data = `<input name="item[brand_id]" type="hidden" value="${brandId}" />`;
-  //   $(`#item_brand_id`).append(brand_data);
-  // }
+    // DB送信時にbrand_idの情報を持たせる
+    let brand_data = `<input value="${brandId}" name="item[brand_id]" type="hidden" />`;
+    $(`#item_brand_id`).append(brand_data);
+  }
 
   
   // ブランド項目欄へ文字を入力する事でのイベント発火
@@ -47,7 +45,6 @@ $(function(){
   $(document).on("click", ".brand-list", function() {
     const brandId = $(this).attr("data-brand-id");
     const brandName = $(this).attr("data-brand-name");
-    addBrand(brandId);
-    // setBrandId(brandId, brandName);
+    addBrand(brandId, brandName);
   });
 });
