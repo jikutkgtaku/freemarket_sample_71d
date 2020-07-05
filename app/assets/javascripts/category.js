@@ -51,6 +51,7 @@ $(function(){
         //通信成功時に親の選択肢を変えたらイベント発火、子と孫を削除、selectのidにかけるのではなく、親要素にかけないと残ってしまう
           $('#children_wrapper').remove();
           $('#grandchildren_wrapper').remove();
+          $('#size_wrapper').remove();
         })
       })
       .fail(function(){
@@ -80,6 +81,7 @@ $(function(){
         
         $(document).on('change', '#child_category', function(){
           $('#grandchildren_wrapper').remove();
+          $('#size_wrapper').remove();
         })
       })
       .fail(function(){
@@ -88,3 +90,52 @@ $(function(){
     }
   });
 });
+
+$(function(){
+  function appendSizeOption(size){ //sizeの作成
+    var html = `<option value="${size.id}">${size.name}</option>`;
+    return html;
+  }
+
+  function appendSizeBox(insertHTML){ //sizeボックスのhtml作成
+    var sizeSelectHtml = '';
+    sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
+                        <div class="items-data--size" class="contents-height">
+                          <h3>サイズ</h3>
+                          <span class='form-required'>必須</span>
+                          <select class="select-box" id="size" name="item[size_id]">
+                          <option value="---">選択してください</option>
+                          ${insertHTML}
+                          </select>
+                        </div>
+                      </div>`;
+    $('.items-data--category__grandchild').append(sizeSelectHtml);
+  }
+  //孫カテゴリー選択後のイベント
+  $(document).on('change', '#grandchild_category', function(){
+    var grandchildId = document.getElementById('grandchild_category').value; //選択された孫カテゴリーのidを取得
+    if (grandchildId != '---'){
+      $.ajax ({
+        url: 'get_size',
+        type: 'GET',
+        date: { grandchild_id: grandchildId },
+        dataType: 'json'
+      })
+      .done(function(sizes) {
+        if (sizes.length != 0) {
+          var insertHTML = '';
+          sizes.forEach(function(size){
+            insertHTML += appendSizeOption(size);
+          });
+          appendSizeBox(insertHTML);
+          $(document).on('change', '#grandchildren_wrapper', function(){
+            $('#size_wrapper').remove(); //孫が変更された時、サイズ蘭以下を削除する
+          })
+        }
+      })
+      .fail(function(){
+        alert('サイズ取得に失敗しました。');
+      })
+    }
+  })
+})

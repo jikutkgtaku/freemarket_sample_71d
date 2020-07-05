@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     collection do
       get "category_children"
       get "category_grandchildren"
+      get "get_size", defauts: { format: 'json' }
     end
   end
 
