@@ -1,5 +1,5 @@
 
-$(function(){
+document.addEventListener("turbolinks:load", function(){
   $('.cost--selling--number__price').on('input', function(){   //リアルタイムで表示したいのでinputを使う｡入力の度にイベントが発火するようになる｡
     var data = $('.cost--selling--number__price').val(); // val()でフォームのvalueを取得(数値)
     var profit = Math.round(data * 0.9)  // 手数料計算を行う｡dataにかけているのが0.9なのは単に引きたい手数料が10%のため｡
