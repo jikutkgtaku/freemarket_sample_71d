@@ -30,7 +30,6 @@ $(document).on("turbolinks:load", function() {
         dataType: 'json',
       })
       .done(function(shipping_ways){
-        console.log(shipping_ways);
         var insertHtml = '';
         shipping_ways.forEach(function(shipping_way){
           insertHtml += appendOption(shipping_way);
