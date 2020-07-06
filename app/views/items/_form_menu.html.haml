@@ -39,11 +39,6 @@
           .items-data--category__select
             = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
           .items-data--category__child
-        .items-data--size.contents-height
-          %h3
-            サイズ
-            %span.form-required 必須
-          = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
         .items-data--barand
           %h3
             ブランド

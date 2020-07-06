@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_07_05_120457) do
   end
 
   create_table "category_sizes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "categories_id"
-    t.bigint "sizes_id"
+    t.integer "category_id"
+    t.integer "size_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -100,8 +100,9 @@ $(function(){
   function appendSizeBox(insertHTML){ //sizeボックスのhtml作成
     var sizeSelectHtml = '';
     sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
-                        <div class="items-data--size" class="contents-height">
-                          <h3>サイズ</h3>
+                        
+                        <label class="items-data--size" class="contents-height" for="サイズ">サイズ</label>
+                          
                           <span class='form-required'>必須</span>
                           <select class="select-box" id="size" name="item[size_id]">
                           <option value="---">選択してください</option>
@@ -109,7 +110,7 @@ $(function(){
                           </select>
                         </div>
                       </div>`;
-    $('.items-data--category__grandchild').append(sizeSelectHtml);
+    $('.items-data--category').append(sizeSelectHtml);
   }
   //孫カテゴリー選択後のイベント
   $(document).on('change', '#grandchild_category', function(){
@@ -118,7 +119,7 @@ $(function(){
       $.ajax ({
         url: 'get_size',
         type: 'GET',
-        date: { grandchild_id: grandchildId },
+        data: { grandchild_id: grandchildId },
         dataType: 'json'
       })
       .done(function(sizes) {

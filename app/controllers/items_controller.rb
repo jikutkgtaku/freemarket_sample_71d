@@ -20,11 +20,11 @@ class ItemsController < ApplicationController
 
   def get_size
     select_grandchild = Category.find("#{params[:grandchild_id]}") #孫カテゴリーを取得
-    if related_size_parent = selected_grandchildren.products_size[0]#孫カテゴリーの紐づくサイズ(親)があれば取得
+    if related_size_parent = select_grandchild.sizes[0]#孫カテゴリーの紐づくサイズ(親)があれば取得
       @sizes = related_size_parent.children#紐づいたサイズ(親)の子供の配列を取得
     else
       select_child = Category.find("#{params[:grandchild_id]}").parent #孫カテゴリーの親を取得
-      if related_size_parent = select_child.products_size[0] #孫カテゴリーの親と紐づくサイズ(親)があれば取得
+      if related_size_parent = select_child.sizes[0] #孫カテゴリーの親と紐づくサイズ(親)があれば取得
         @sizes = related_size_parent.children #紐づいたサイズ(親)の子供の配列を取得
       end
     end
