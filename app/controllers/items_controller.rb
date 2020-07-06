@@ -6,8 +6,21 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def new
+    @item = Item.new
+  end
+
   def create
     @item = Item.new(item_params)
+    respond_to do
+      format.html
+      format.json
+    end
+
+  end
+  
+  def get_shipping_way
+    @shipping_way = ShippingWay.find_all_by_group(params[:selected_fee])
   end
   
   private

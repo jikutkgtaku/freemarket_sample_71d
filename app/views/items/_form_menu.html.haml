@@ -64,15 +64,8 @@
           %h3
             配送料の負担
             %span.form-required 必須
-          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box"}
-          -# = f.select :shipping_method, [["選択してください",""],["送料込み(出品者負担)", 1], ["着払い(購入者負担)", 2]],{},{class: "select-box"}
-
+          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box", id: "shipping-fee_select" }
         .delivery--way.contents-height
-          %h3
-            配送の方法
-            %span.form-required 必須
-          = f.collection_select :shipping_way_id, ShippingWay.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box"}
-          -# = f.select :shipping_way, [["選択してください",""],["未定", 1], ["メルカリ便", 2]],{},{class: "select-box"}
         .delivery--area.contents-height
           %h3
             発送元の地域
