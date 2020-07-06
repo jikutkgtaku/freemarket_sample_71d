@@ -53,7 +53,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true|
-|introduction|text||
+|introduction|text|null: false|
 |price|integer|null: false, index: true|
 |category_id|integer|null: false, foreign_key: true|
 |brand_id|integer|foreign_key: true|

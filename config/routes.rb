@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       get "get_shipping_way"
     end
   end
+
   resources :users, only: :show do
     collection do
       get "new_login"
@@ -15,5 +16,6 @@ Rails.application.routes.draw do
       get "create_address"
     end
   end
-end
 
+  resources :brands, only: :index, defaults: { format: 'json' }
+end

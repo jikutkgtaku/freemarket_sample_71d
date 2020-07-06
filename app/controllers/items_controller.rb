@@ -11,12 +11,11 @@ class ItemsController < ApplicationController
   end
 
   def create
-    @item = Item.new(item_params)
-    respond_to do
-      format.html
-      format.json
+    if Item.create(item_params)
+      redirect_to root_path, notice: "出品完了しました。"
+    else
+      render :new
     end
-
   end
   
   def get_shipping_way
@@ -37,6 +36,6 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_period_id,
       :price
-    ).merge(seller_id: current_user.id)
+    )
   end
 end
