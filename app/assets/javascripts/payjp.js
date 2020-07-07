@@ -1,7 +1,6 @@
 window.addEventListener('DOMContentLoaded', function(){
-  Payjp.setPublicKey("pk_test_1ec0ec04db6b232048c16e77");
-
   let submit = document.getElementById("payment_card_submit-button");
+  Payjp.setPublicKey("pk_test_1ec0ec04db6b232048c16e77");
   submit.addEventListener('click', function(e){
     e.preventDefault();
 
@@ -14,12 +13,12 @@ window.addEventListener('DOMContentLoaded', function(){
 
     Payjp.createToken(card, function(status, response) {
       if (status === 200) {
-        $(".number").removeAttr("name");
-        $(".cvc").removeAttr("name");
-        $(".exp_month").removeAttr("name");
-        $(".exp_year").removeAttr("name");
+        $("#payment_card_no").removeAttr("name");
+        $("#payment_card_cvc").removeAttr("name");
+        $("#payment_card_month").removeAttr("name");
+        $("#payment_card_year").removeAttr("name");
         $("#charge-form").append(
-          $('<input type="hidden" name="payjp_token>').val(response.id)
+          $('<input type="hidden" name="payjp_token">').val(response.id)
         );
         document.inputForm.submit();
         alert("登録が完了しました"); //正常処理完了確認用。createビューがあればつけなくてもOKかな
