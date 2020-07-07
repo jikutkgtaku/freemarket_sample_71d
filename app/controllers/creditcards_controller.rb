@@ -2,6 +2,8 @@ class CreditcardsController < ApplicationController
   require "payjp"
 
   def new
+    @card = Creditcard.where(user_id: current_user.id)
+    redirect_to creditcard_path(current_user.id) if @card.exists?
   end
 
   def create
@@ -19,11 +21,14 @@ class CreditcardsController < ApplicationController
       @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
 
       if @card.save
-        redirect_to card_path(card)
+        redirect_to action: "show"
       else
         redirect_to action: "create"
       end
     end
+  end
+
+  def show
   end
 
   # 商品購入確認ページをbuyアクションと定義して行う。
