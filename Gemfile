@@ -81,3 +81,4 @@ gem 'ancestry'
 
 # jQuery使用のために追加
 gem 'jquery-rails'
+

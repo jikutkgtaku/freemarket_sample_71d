@@ -18,6 +18,10 @@ class ItemsController < ApplicationController
     end
   end
   
+  def get_shipping_way
+    @shipping_way = ShippingWay.find_all_by_group(params[:selected_fee])
+  end
+  
   private
   def item_params
     params.require(:item).permit(
