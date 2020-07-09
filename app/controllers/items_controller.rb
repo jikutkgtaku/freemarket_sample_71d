@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
 
   def create
     if Item.create(item_params)
-      redirect_to root_path, notice: "出品完了しました。"
+      redirect_to root_path
     else
       render :new
     end
