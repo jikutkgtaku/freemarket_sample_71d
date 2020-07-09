@@ -99,16 +99,13 @@ $(function(){
 
   function appendSizeBox(insertHTML){ //sizeボックスのhtml作成
     var sizeSelectHtml = '';
-    sizeSelectHtml = `<div class="listing-product-detail__size" id= 'size_wrapper'>
-                        
+    sizeSelectHtml = `<div class="items-deta--category__size" id= 'size_wrapper'>
                         <label class="items-data--size" class="contents-height" for="サイズ">サイズ</label>
-                          
                           <span class='form-required'>必須</span>
                           <select class="select-box" id="size" name="item[size_id]">
                           <option value="---">選択してください</option>
                           ${insertHTML}
                           </select>
-                        </div>
                       </div>`;
     $('.items-data--category').append(sizeSelectHtml);
   }
