@@ -16,7 +16,11 @@
         = link_to "ブランド", "/", class: "list-btn"
 
       %ul.list-right
-        %li.list-right__login-btn 
-          = link_to "ログイン", new_login_users_path, class: "list-btn"
-        %li.list-right__registration-btn
-          = link_to "新規会員登録", new_session_users_path, class: "list-btn"
+        - if user_signed_in?
+          = link_to user_registration_path(current_user), class: "list-btn" do
+            マイページ
+        - else
+          = link_to new_user_session_path, class:"list-btn" do
+            ログイン
+          = link_to new_user_registration_path, class:"list-btn2" do
+            新規会員登録
