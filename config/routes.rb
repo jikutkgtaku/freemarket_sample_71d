@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
   end
-  root "items#index"  
+  root "items#index"
 
 
 
@@ -15,10 +15,10 @@ Rails.application.routes.draw do
     get 'logout', to: 'users#logout'
     resources :cards, only: [:new, :index] do
       collection do
-        # クレジットカード登録
-          # post 'pay', to: 'cards#pay'
-        # クレジットカード削除
-          # delete 'delete', to: 'cards#delete'
+      # クレジットカード登録
+        # post 'pay', to: 'cards#pay'
+      # クレジットカード削除
+        # delete 'delete', to: 'cards#delete'
       end
     end
   end
@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :brands, only: :index, defaults: { format: 'json' }
+  resources :brands, only: [:index], defaults: {format: 'json'}
 
   resources :creditcards, only: [:new, :create] do
     collection do
