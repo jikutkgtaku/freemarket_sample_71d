@@ -1,5 +1,5 @@
+// turbolinks:loadイベントを監視することでページ遷移ごとの処理が実装できる
 $(document).on('turbolinks:load', () => {
-  // 画像用のインプットを生成
   const buildFileField = (index) => {
     const html = `
     <div class="js-file_group" data-index="${index}" >
@@ -13,7 +13,6 @@ $(document).on('turbolinks:load', () => {
       </label>
     </div>
     `;
-    // name属性についてはproduct[images_attributes][0][src]という値に、id属性についてはproduct_images_attributes_0_srcという値になる。fields_forで生成されるフォームの1つ目は、このように0という添え字が当てられる。2つ目のフォーム以降は、この添え字の部分を1, 2...といった具合に増やす。
     return html;
   }
 
@@ -21,12 +20,12 @@ $(document).on('turbolinks:load', () => {
     const html = `<img data-index="${index}" src="${url}" width="100px" height="100px">`;
     return html;
   }
-  // file_fieldのnameに動的なindexをつける為の配列
+
   let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
-  // photos-box要素内の状態に変化がある場合に発火
-  // onの引数に".photos--form"を追記することにより、後から追加されたものでも発火する。
+  // photos-boxの
   $(".photos-box").on("change", ".photos--form", function (e) {
+    // photo
     const targetIndex = $(this).parent().data('index');
     // ファイルのブラウザ上でのURLを取得する
     const file = e.target.files[0];

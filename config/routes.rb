@@ -23,11 +23,17 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items
+  resources :items do
+    collection do
+      get "get_shipping_way"
+    end
+  end
+
+  resources :brands, only: [:index], defaults: {format: 'json'}
+
   resources :creditcards, only: [:new, :create] do
     collection do
       get "buy"
     end
   end
-
 end

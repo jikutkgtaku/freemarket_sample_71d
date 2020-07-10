@@ -31,7 +31,6 @@ h3 {
 
   .form-items {
     .photos {
-      // height: 300px;
       width: 700px;
       padding: 40px;
       display: flex;
@@ -45,6 +44,7 @@ h3 {
         }  
       }
       &--form{
+        // この記載で画像選択のボタンを非表示にする
         display: none;
       }
       &--drops {
