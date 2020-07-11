@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:show, :index, :new]
-  resources :creditcards, only: [:new, :create] do
+  resources :creditcards, only: [:show, :new, :create] do
     collection do
       get "buy"
     end
