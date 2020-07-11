@@ -16,9 +16,9 @@ class CreditcardsController < ApplicationController
       customer = Payjp::Customer.create(
       email: current_user.email,
       card: params['payjp_token'],
-      metadate: {user_id: current_user.id}
+      metadata: {user_id: current_user.id}
       )
-      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
+      @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, payjp_id: customer.default_card)
 
       if @card.save
         redirect_to action: "show"
