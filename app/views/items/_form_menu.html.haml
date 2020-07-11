@@ -87,7 +87,7 @@
               %span.form-required 必須
           .cost--selling--number
             %p ¥
-            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0',  value: '', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
+            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
         .cost--commission
           %p 販売手数料 (10%)
           %span.gain-commission -
