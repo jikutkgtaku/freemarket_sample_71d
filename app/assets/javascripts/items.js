@@ -25,12 +25,10 @@ $(document).on('turbolinks:load', () => {
   }
 
   let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-
   // photos-boxの要素に変化があったときにphotos--form要素に対して実行
   $(".photos-box").on("change", ".photos--form", function (e) {
     // photos--formの親要素を取得し、data-index属性の値をtargetIndexと定義
-    const targetIndex = $(this).parent().data('index');
-    console.log(targetIndex)
+    const targetIndex = $(this).parent().parent().data('index');
     // eは発火させたイベント,すなわち、photos-boxの要素変化そのもの
     const file = e.target.files[0];
     // ファイルのブラウザ上でのURLを取得
@@ -45,8 +43,13 @@ $(document).on('turbolinks:load', () => {
       // photos-boxにbuildFileFieldを実行
       $(".photos-box").append(buildFileField(fileIndex[0]));
       fileIndex.shift();
-      // 末尾の数に１を足した数を追加する。
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
+      // $(".js-file_group").remove()
     }
+    $(".js-remove").on("click", function () {
+      var target_image = $(this).parent()
+      target_image.remove();
+      document.querySelector('input[type=file]').val("")
+    })
   });
 });

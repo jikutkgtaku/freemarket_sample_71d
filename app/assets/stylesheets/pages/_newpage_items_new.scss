@@ -45,6 +45,7 @@ h3 {
       }
       .previews {
         display: flex;
+        flex-wrap: wrap;
       }
       &--form{
         // この記載で画像選択のボタンを非表示にする
