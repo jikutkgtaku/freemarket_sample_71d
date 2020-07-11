@@ -41,7 +41,10 @@ h3 {
           margin-top: 16px;
           color: $safe-color;
           font-size: 14px;          
-        }  
+        } 
+      }
+      .previews {
+        display: flex;
       }
       &--form{
         // この記載で画像選択のボタンを非表示にする
