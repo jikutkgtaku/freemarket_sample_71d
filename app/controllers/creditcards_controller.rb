@@ -14,9 +14,9 @@ class CreditcardsController < ApplicationController
       redirect_to action: "new", alert: "クレジットカードを登録できませんでした。"
     else
       customer = Payjp::Customer.create(
-        email: current_user.email,
-        card: params['payjp_token'],
-        metadate: {user_id: current_user.id}
+      email: current_user.email,
+      card: params['payjp_token'],
+      metadate: {user_id: current_user.id}
       )
       @card = Creditcard.new(user_id: current_user.id, customer_id: customer.id, card_id: customer.default_card)
 
