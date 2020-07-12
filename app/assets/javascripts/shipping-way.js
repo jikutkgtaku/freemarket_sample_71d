@@ -12,7 +12,7 @@ $(document).on("turbolinks:load", function() {
                     </span>
                   </h3>
                   <div class='items-data--shipping-way' >
-                    <select class="select-box" id="shipping-way" name="item[shipping-way_id]">
+                    <select class="select-box" id="shipping-way" name="item[shipping_way_id]">
                       <option value="---">選択してください</option>
                         ${insertHtml}
                     </select>
