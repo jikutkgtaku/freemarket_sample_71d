@@ -4,6 +4,7 @@
       .photos
         .photos--title
           %h3
+            = render "devise/shared/error_messages", resource: @item
             出品画像
             %span.form-required 必須
           %p.photos--title__comments
