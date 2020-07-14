@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.seller_id = current_user.id
+    binding.pry
     if @item.save
       redirect_to root_path
     else
@@ -40,7 +41,6 @@ class ItemsController < ApplicationController
   # fields_forを利用して作成されたフォームから来る値は、○○s_attributes: [:××]という形でparamsに入る
   # fields_forから送られてくるこのキーを持った情報を頼りに、railsが子モデルの更新・削除を行う
     params.require(:item).permit(
-      # images_attributes:  [:image, :_destroy, :id],
       :name,
       :introduction,
       :category_id,
@@ -51,9 +51,9 @@ class ItemsController < ApplicationController
       :shipping_way_id,
       :prefecture_id,
       :shipping_period_id,
-      :price
+      :price,
+      images_attributes: [:image, :_destroy, :id]
       )
   end
 
 end
-

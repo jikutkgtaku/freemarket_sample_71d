@@ -1,14 +1,10 @@
-// turbolinks:loadイベントを監視することでページ遷移ごとの処理が実装できる
+//  document ＝ 開いているWebページのDOMツリーが入っているオブジェクト
+//  turbolinks:load ＝ 初回読み込み、リロード、ページ切り替えで動く。
 $(document).on('turbolinks:load', () => {
   const buildFileField = (index) => {
     const html = `
     <div class="js-file_group" data-index="${index}" >
-      <label>
-        <input class="photos--form" accept="image/png,image/jpeg" type="file" name=item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">
-        <div class="photos--drops">
-          <i class ="fas fa-camera"></i>
-        </div>
-      </label>
+      <input class="photos--form" accept="image/png,image/jpeg" type="file" name=item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">
     </div>
     `;
     return html;
@@ -16,40 +12,55 @@ $(document).on('turbolinks:load', () => {
 
   const buildImg = (index, url) => {
     const html = `
-    <div>
+    <div class="preview">
       <img data-index="${index}" src="${url}" width="100px" height="100px">
-      <div class="js-remove">削除</div>
+      <div class="js-remove" id="delete-btn-${index}">削除</div>
     </div>
     `;
     return html;
   }
 
+  // file_fieldのnameに動的なindexをつける為の配列（上記のindexに入る数字）
   let fileIndex = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  // すでに使われているindexを除外
+  lastIndex = $('.js-file_group:last').data('index');
+  fileIndex.splice(0, lastIndex);
+  $('.hidden-destroy').hide();
+
   // photos-boxの要素に変化があったときにphotos--form要素に対して実行
   $(".photos-box").on("change", ".photos--form", function (e) {
-    // photos--formの親要素を取得し、data-index属性の値をtargetIndexと定義
-    const targetIndex = $(this).parent().parent().data('index');
-    // eは発火させたイベント,すなわち、photos-boxの要素変化そのもの
+    const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
-    // ファイルのブラウザ上でのURLを取得
     const blobUrl = window.URL.createObjectURL(file);
-    // 該当indexを持つimgタグがあれば、取得して変数imgに入れる(画像変更の処理)
+    const countIMG = $(".preview").length;
+    console.log(countIMG)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
-      // setAttributeメソッドでimgタグのsrc属性にファイルのURLが入力
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
-      // preview要素にbuildImgを実行
       $('.previews').append(buildImg(targetIndex, blobUrl));
-      // photos-boxにbuildFileFieldを実行
-      $(".photos-box").append(buildFileField(fileIndex[0]));
+      $(".photos--drops").append(buildFileField(fileIndex[0]));
+      $(".photos--drops").attr({ for: `item_images_attributes_${targetIndex + 1}_image` });
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
-      // $(".js-file_group").remove()
     }
-    $(".js-remove").on("click", function () {
-      var target_image = $(this).parent()
-      target_image.remove();
-      document.querySelector('input[type=file]').val("")
-    })
+    // previewが10になったら、フォームを非表示にする
+    if (countIMG == 10) {
+      $(".photos--drops").toggle(false);
+    }
+  });
+
+  $('.photos-box').on("click", '.js-remove', function () {
+    // js-remove要素のidを取得し、数字の部分を抽出
+    const targetIMG = $(this).attr("id").replace(/[^0-9]/g, '');
+    const countIMG = $(".preview").length;
+    $(this).parent().remove();
+    console.log(countIMG)
+    // 削除した画像のフォームの中身を削除
+    $(`item_images_attributes_${targetIMG}_image`).val("");
+    
+    // previewが10未満になったら、フォームを非表示にする
+    if (countIMG < 10) {
+      $(".photos--drops").toggle(true);
+    }
   });
 });

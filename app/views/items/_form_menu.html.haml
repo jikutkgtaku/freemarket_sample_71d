@@ -10,20 +10,14 @@
             最大10枚までアップロードできます
         .photos-box
           .previews
-            - if @item.persisted?
-              - @item.images.each_with_index do |image, i|
-                = image_tag image.image.url, data: { index: i }, width: "100", height: '100'
           = f.fields_for :images  do |i|
-            %label
-              .js-file_group{"data-index" => "#{i.index}"}
+            %label.photos--drops{for: "item_images_attributes_0_image"}
+              %i.fas.fa-camera
+                .photos--drops__comment
+                  %p
+                    クリックしてファイルをアップロード
+              .js-file_group{data: {index:  "#{i.index}"}}
                 = i.file_field :image, class: 'photos--form', accept: 'image/png,image/jpeg'
-                .photos--drops
-                  %i.fas.fa-camera
-                  .photos--drops__comment
-                    %p
-                      ドラッグアンドドロップ
-                      %br
-                      またはクリックしてファイルをアップロード
 
       .items
         .items--name.contents-height
