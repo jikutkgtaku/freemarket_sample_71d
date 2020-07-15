@@ -11,7 +11,7 @@
             最大10枚までアップロードできます
         .photos-box
           .previews
-          = f.fields_for :images  do |i|
+          = f.fields_for :images do |i|
             %label.photos--drops{for: "item_images_attributes_0_image"}
               %i.fas.fa-camera
                 .photos--drops__comment

@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', () => {
   const buildImg = (index, url) => {
     const html = `
     <div class="preview">
-      <img data-index="${index}" src="${url}" width="100px" height="100px">
+      <img data-index="${index}" src="${url}" width="105px" height="90px">
       <div class="js-remove" id="delete-btn-${index}">削除</div>
     </div>
     `;
@@ -44,7 +44,7 @@ $(document).on('turbolinks:load', () => {
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
     // previewが10になったら、フォームを非表示にする
-    if (countIMG == 10) {
+    if (countIMG == 9) {
       $(".photos--drops").toggle(false);
     }
   });
@@ -58,8 +58,8 @@ $(document).on('turbolinks:load', () => {
     // 削除した画像のフォームの中身を削除
     $(`item_images_attributes_${targetIMG}_image`).val("");
     
-    // previewが10未満になったら、フォームを非表示にする
-    if (countIMG < 10) {
+    // previewが10未満になったら、フォームを表示する
+    if (countIMG < 11) {
       $(".photos--drops").toggle(true);
     }
   });

@@ -43,9 +43,28 @@ h3 {
           font-size: 14px;          
         } 
       }
+      .photos-box {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+      }
       .previews {
         display: flex;
         flex-wrap: wrap;
+        width: 100%;
+        padding: 10px 10px 10px 0;
+
+        img {
+          margin-top: 5px;
+          margin-right: 15px;
+        }
+
+        .js-remove {
+          width: 100%;
+          text-align: center;
+          font-size: 14px;
+          padding-top: 5px;
+        }
       }
       .js-file_group{
         // この記載で画像選択のボタンを非表示にする
