@@ -56,7 +56,7 @@ $(document).on('turbolinks:load', () => {
     $(this).parent().remove();
     console.log(countIMG)
     // 削除した画像のフォームの中身を削除
-    $(`item_images_attributes_${targetIMG}_image`).val("");
+    $(`#item_images_attributes_${targetIMG}_image`).remove();
     
     // previewが10未満になったら、フォームを表示する
     if (countIMG < 11) {
