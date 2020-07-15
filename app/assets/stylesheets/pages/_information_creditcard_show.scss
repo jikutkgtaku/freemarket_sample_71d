@@ -1,0 +1,64 @@
+.form-card {
+
+  .card {
+    .creditcard__list {
+      font-size: 14px;
+      padding: 40px;
+      &__title {
+        font-weight: bold;
+        max-width: 320px;
+        margin: auto;
+      }
+      &__frame {
+        display: flex;
+        justify-content: space-between;
+        padding: 24px 0;
+        border-bottom: 1px solid $white-smoke;
+        max-width: 320px;
+        margin: auto;
+        position: relative;
+        .creditcard__info {
+          &__brand {
+
+          }
+          &__numbers {
+            .number {
+              margin: 8px 0 0;
+            }
+            .expiration__date {
+              &__info {
+                margin: 8px 0 0;
+
+              }
+            }
+          }
+
+        }
+        .destroy__function {
+          position: absolute;
+          top: 10;
+          right: 0;
+          padding: 4px 6px;
+          background: #fff;
+          border-radius: 3px;
+          border: 1px solid #ea352d;
+          &__link {
+            &__btn {
+              color: #ea352d;
+            }
+          }
+        }
+      }
+    }
+    .payment-details {
+      margin: 40px 0 0;
+      text-align: right;
+      &__btn {
+        color: #0099e8;
+      }
+    }
+  }
+}
+.creditcard__info__brand__img {
+  height: 20px;
+}

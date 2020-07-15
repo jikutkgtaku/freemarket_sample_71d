@@ -1,0 +1,15 @@
+.form-card_create
+  .card-create__header
+  = render "items/form_header"
+
+  .crc__create
+    .crc__create__frame
+      .crc__create__frame__message
+        登録が完了しました。
+      %ul.crc__create__frame__btns
+        -# マイページに戻るパスを指定
+        %li.crc__my_page_link
+          = link_to "マイページに戻る", users_path(current_user.id), class: "my_page_link__btn"
+        -# のちに実装する、登録クレジットカード詳細表示(showアクション)に行くパスを指定
+        %li.crc__credit_cards_index_link
+          = link_to "登録カード一覧", creditcards_path(current_user.id), class: "credit_cards_index_link__btn"
