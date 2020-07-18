@@ -44,7 +44,7 @@
         .items-data--size.contents-height
           %h3
             サイズ
-            %span.form-required 必須
+            %span.form-any 任意
           = f.collection_select :size_id, Size.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box"}
           -# = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
         .items-data--barand

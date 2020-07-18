@@ -28,7 +28,7 @@ describe Item do
     end
 
     it "seller_idがない場合は登録できないこと" do
-      item = build(:item, seller: "")
+      item = build(:item, seller_id: "")
       item.valid?
       # expect(item.errors[:seller]).to include("を入力してください")
     end
