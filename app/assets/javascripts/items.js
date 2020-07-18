@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', () => {
   const buildFileField = (index) => {
     const html = `
     <div class="js-file_group" data-index="${index}" >
-      <input class="photos--form" accept="image/png,image/jpeg" type="file" name=item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">
+      <input class="photos--form" accept="image/png,image/jpeg" type="file" name="item[images_attributes][${index}][image]" id="item_images_attributes_${index}_image">
     </div>
     `;
     return html;

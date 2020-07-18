@@ -52,7 +52,7 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_period_id,
       :price,
-      images_attributes: [:image, :_destroy, :id]
+      images_attributes: [:image]
       )
   end
 
