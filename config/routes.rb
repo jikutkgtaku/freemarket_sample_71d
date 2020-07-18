@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
-    resources :cards, only: [:new, :index] do
+    resources :cards, only: [:new, :index, :show] do
       collection do
       # クレジットカード登録
         # post 'pay', to: 'cards#pay'
@@ -29,5 +29,4 @@ Rails.application.routes.draw do
       get "buy"
     end
   end
-
 end

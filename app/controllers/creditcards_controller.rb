@@ -4,7 +4,6 @@ class CreditcardsController < ApplicationController
 
   def show
     @card = Creditcard.find_by(user_id: current_user.id)
-    
     if @card.blank?
       redirect_to action: "new"
     else
