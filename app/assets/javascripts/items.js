@@ -33,7 +33,6 @@ $(document).on('turbolinks:load', () => {
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
     const countIMG = $(".preview").length;
-    console.log(countIMG)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
@@ -54,7 +53,6 @@ $(document).on('turbolinks:load', () => {
     const targetIMG = $(this).attr("id").replace(/[^0-9]/g, '');
     const countIMG = $(".preview").length;
     $(this).parent().remove();
-    console.log(countIMG)
     // 削除した画像のフォームの中身を削除
     $(`#item_images_attributes_${targetIMG}_image`).remove();
     
