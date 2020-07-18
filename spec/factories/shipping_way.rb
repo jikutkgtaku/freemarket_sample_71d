@@ -1,7 +1,7 @@
 FactoryBot.define do
 
-  factory :status do
-    name                      {"出品中"}
+  factory :shipping_way do
+    name                      {"ヤマト宅急便"}
     ancestry                  {"1"}
   end
 

@@ -21,7 +21,7 @@ class Item < ApplicationRecord
   # 引数として、子モデルの名前を記載する。
   # allow_destroy: trueで、親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除できる。
   accepts_nested_attributes_for :images, allow_destroy: true
-  validates :name, :price, :category, :seller, :condition, :size, :shipping_fee, :prefecture, :shipping_period, :shipping_way, :status, presence: true
+  validates :name, :introduction, :price, :category_id, :seller_id, :condition_id, :size, :shipping_fee_id, :prefecture_id, :shipping_period_id, :shipping_way_id, :status_id, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 9999999 }
   validates :name, length: { maximum: 40 }
   validates :introduction, length: { maximum: 1000 }

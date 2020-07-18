@@ -1,6 +1,7 @@
 FactoryBot.define do
 
   factory :item do
+    seller_id                 {"1"} 
     name                      {"sasaki"}
     introduction              {"コメント"}
     price                     {"2000"}
