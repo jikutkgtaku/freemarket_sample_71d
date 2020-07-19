@@ -33,7 +33,7 @@ Rails.application.routes.draw do
     resource :creditcards do
       member do
         get "buy"
-        post "pay"
+        get "pay"
       end
     end
   end
@@ -50,5 +50,5 @@ Rails.application.routes.draw do
     end
   end
   resources :creditcards, only: [:new, :create, :destroy, :show]
-  
+
 end
