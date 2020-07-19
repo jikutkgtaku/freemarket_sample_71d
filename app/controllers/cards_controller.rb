@@ -4,6 +4,10 @@ class CardsController < ApplicationController
   end
 
   def new
+    @card = Creditcard.find_by(user_id: current_user.id)
+    if @card.present?
+      redirect_to users_cards_url
+    end
   end
 
   def show
