@@ -30,6 +30,12 @@ Rails.application.routes.draw do
       get "category_grandchildren"
       get "get_size", defauts: { format: 'json' }
     end
+    resource :creditcards do
+      member do
+        get "buy"
+        post "pay"
+      end
+    end
   end
 
   resources :brands, only: [:index], defaults: {format: 'json'}
@@ -43,10 +49,6 @@ Rails.application.routes.draw do
       get "create_address" 
     end
   end
-
-  resources :creditcards, only: [:new, :create, :destroy, :show] do
-    collection do
-      get "buy"
-    end
-  end
+  resources :creditcards, only: [:new, :create, :destroy, :show]
+  
 end

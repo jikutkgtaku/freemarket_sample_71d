@@ -14,13 +14,15 @@
         .buy__item__info__details
           .item__name 【美品】master card
           %p.item__price
-            %span.price ¥10,000
+            %span.price
+            -#  = "#{@item.price}" + "円"
             %span.shipping__fee （税込）送料込み
 
     %section.buy__content
       .buy__content__price
         %span.purchase-price 支払い金額
-        %span.price ¥10,000
+        %span.price
+        -# = "¥" + "#{@item.price}"
 
     %section.buy__creditcard
       .buy__creditcard__method
@@ -28,9 +30,11 @@
         =link_to "変更する", '#', class: "method-change"
       .buy__creditcard__registration
         %p クレジットカード
-        %p ************1111
-        %p 有効期限 12 / 24
-        = image_tag "cards/master.png", class:"bcr-card"
+        %p 
+        = "**** **** **** " + @customer_card.last4
+        %p 有効期限
+        = @exp_month + " / " + @exp_year
+        = image_tag "cards/#{@card_src}", class:"bcr-card"
         -# ↑imageタグで仮置きしているけど、今後、クレカと連携する
 
     %section.buy__shipping
