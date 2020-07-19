@@ -24,9 +24,13 @@ Rails.application.routes.draw do
   end
 
   resources :items, only: [:show, :index, :new]
-  resources :creditcards, only: [:new, :create, :destroy, :show] do
-    collection do
-      get "buy"
+    resource :creditcards do
+      member do
+        get "buy"
+        post "pay"
+      end
     end
-  end
+
+  resources :creditcards, only: [:new, :create, :destroy, :show]
+  
 end
