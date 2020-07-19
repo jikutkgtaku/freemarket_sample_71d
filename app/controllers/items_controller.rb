@@ -6,16 +6,15 @@ class ItemsController < ApplicationController
   def new
     @item = Item.new
     # itemクラスのインスタンスに関連づけられたImageクラスのインスタンスを作成
-    @item.images.new
+    @item.images.build
   end
 
   def create
     @item = Item.new(item_params)
-    @item.seller_id = current_user.id
     if @item.save
       redirect_to root_path
     else
-      render :new
+      render 'new'
     end
   end
 
@@ -51,8 +50,8 @@ class ItemsController < ApplicationController
       :prefecture_id,
       :shipping_period_id,
       :price,
-      images_attributes: [:image]
-      )
+      images_attributes: [:image, :id, :_destroy]
+      ).merge( seller_id: current_user.id)
   end
 
 end

@@ -1,10 +1,10 @@
 .form-body
   .form-items
-    = form_with model: @item do |f|
+    = form_with model: @item, local: true do |f|
+      = render 'layouts/error-messages'
       .photos
         .photos--title
           %h3
-            = render "devise/shared/error_messages", resource: @item
             出品画像
             %span.form-required 必須
           %p.photos--title__comments
