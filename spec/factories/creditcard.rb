@@ -1,6 +1,6 @@
 FactoryBot.define do
 
-  factory :creditcards do
+  factory :creditcard do
     
     customer_id             {"1"}
     payjp_id                {"1"}
