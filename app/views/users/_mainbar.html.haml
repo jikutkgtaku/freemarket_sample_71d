@@ -2,8 +2,9 @@
   %section.content__main__user-info
     = link_to "#" do
       %figure
-        = image_tag 'material/icon/default-statue.jpeg', height: '60px', width: '60px'
-      %h2 テストユーザー
+        = image_tag 'material/icon/default-statue.jpg', height: '60px', width: '60px'
+      %h2
+        = current_user.nickname
       .user-data
         %div
           評価数
@@ -28,7 +29,7 @@
             %figure
               = image_tag 'material/icon/icon_brand.png', height: '48px', width: '48px'
             .item-link__body
-              .item-link__body__text お知らせ1
+              .item-link__body__text 《あと5日》最大10,000円分のポイントGETのチャンス！
               %time
                 =icon('far', 'clock', class: "icon-clock")
                 %span<>10時間前
@@ -38,7 +39,7 @@
             %figure
               = image_tag 'material/icon/icon_brand.png', height: '48px', width: '48px'
             .item-link__body
-              .item-link__body__text お知らせ2
+              .item-link__body__text 《明日が最終日》メルペイスマート払いでフリマの商品を買うとP1,500もらえる
               %time
                 =icon('far', 'clock', class: "icon-clock")
                 %span<>5時間前
@@ -48,7 +49,7 @@
             %figure
               = image_tag 'material/icon/icon_brand.png', height: '48px', width: '48px'
             .item-link__body
-              .item-link__body__text お知らせ3
+              .item-link__body__text 事務局から個別メッセージ「取引評価機能の変更について」
               %time
                 =icon('far', 'clock', class: "icon-clock")
                 %span<>10時間前

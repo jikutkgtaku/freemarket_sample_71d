@@ -40,13 +40,12 @@
           %h3
             カテゴリー
             %span.form-required 必須
-          = f.select :category_id, [["選択してください",""],["レディース", 1], ["メンズ", 2], ["ベビーキッズ", 3],],{},{class: "select-box"}
-        .items-data--size.contents-height
-          %h3
-            サイズ
-            %span.form-any 任意
-          = f.collection_select :size_id, Size.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box"}
-          -# = f.select :condition_id, [["選択してください",""],["S", 1], ["M", 2], ["L", 3],],{},{class: "select-box"}
+
+          .items-data--category__select
+            = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
+          .items-data--category__child
+          .items-data--category__size
+          
         .items-data--barand
           %h3
             ブランド

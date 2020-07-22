@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     @item = Item.new
     # itemクラスのインスタンスに関連づけられたImageクラスのインスタンスを作成
     @item.images.build
+    @category = Category.where(ancestry: nil).order("id ASC")
   end
 
   def create
@@ -29,9 +30,30 @@ class ItemsController < ApplicationController
 
   def show
   end
+
   
   def get_shipping_way
     @shipping_way = ShippingWay.find_all_by_group(params[:selected_fee])
+  end
+  
+  def category_children
+    @category_children = Category.find(params[:productcategory]).children
+  end
+
+  def category_grandchildren 
+    @category_grandchildren = Category.find(params[:productcategory]).children
+  end
+
+  def get_size
+    select_grandchild = Category.find("#{params[:grandchild_id]}") #孫カテゴリーを取得
+    if related_size_parent = select_grandchild.sizes[0]#孫カテゴリーの紐づくサイズ(親)があれば取得
+      @sizes = related_size_parent.children#紐づいたサイズ(親)の子供の配列を取得
+    else
+      select_child = Category.find("#{params[:grandchild_id]}").parent #孫カテゴリーの親を取得
+      if related_size_parent = select_child.sizes[0] #孫カテゴリーの親と紐づくサイズ(親)があれば取得
+        @sizes = related_size_parent.children #紐づいたサイズ(親)の子供の配列を取得
+      end
+    end
   end
 
   private
@@ -55,3 +77,5 @@ class ItemsController < ApplicationController
   end
 
 end
+
+

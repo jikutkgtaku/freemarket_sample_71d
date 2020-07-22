@@ -26,10 +26,23 @@ Rails.application.routes.draw do
   resources :items do
     collection do
       get "get_shipping_way"
+      get "category_children"
+      get "category_grandchildren"
+      get "get_size", defauts: { format: 'json' }
     end
   end
 
   resources :brands, only: [:index], defaults: {format: 'json'}
+
+  resource :users, only: [:show] do
+    collection do
+      get "new_login"
+      get "new_session"
+      get "new_user"
+      get "new_address"
+      get "create_address" 
+    end
+  end
 
   resources :creditcards, only: [:new, :create] do
     collection do
