@@ -2,7 +2,7 @@
   %nav.content__side__nav
     %ul.content__side__nav__list
       %li.content__side__nav__list__item
-        = link_to users_path do
+        = link_to user_path(current_user.id) do
           マイページ
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item
@@ -40,10 +40,10 @@
           発送元・お届け先住所変更
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item
-        = link_to users_cards_path do
+        = link_to "#" do
           支払い方法
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item
-        = link_to logout_users_path do
+        = link_to user_logout_path(current_user.id) do
           ログアウト
           = icon('fas', 'chevron-right', class: "arrow-right")

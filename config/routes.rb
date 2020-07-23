@@ -9,9 +9,7 @@ Rails.application.routes.draw do
   end
   root "items#index"
 
-
-
-  resource :users, only: [:show] do
+  resources :users, only: [:show] do
     get 'logout', to: 'users#logout'
     resources :cards, only: [:new, :index] do
       collection do
@@ -33,16 +31,6 @@ Rails.application.routes.draw do
   end
 
   resources :brands, only: [:index], defaults: {format: 'json'}
-
-  resource :users, only: [:index, :show] do
-    collection do
-      get "new_login"
-      get "new_session"
-      get "new_user"
-      get "new_address"
-      get "create_address" 
-    end
-  end
 
   resources :creditcards, only: [:new, :create] do
     collection do

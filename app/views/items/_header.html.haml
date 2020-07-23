@@ -17,7 +17,7 @@
 
       %ul.list-right
         - if user_signed_in?  
-          =link_to user_registration_path(current_user), class: "list-btn" do 
+          =link_to "/users/#{current_user.id}", class: "list-btn" do 
             マイページ
         - else
           = link_to new_user_session_path, class:"list-btn " do
