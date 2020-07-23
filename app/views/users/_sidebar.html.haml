@@ -18,7 +18,7 @@
           出品する
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item
-        = link_to "#" do
+        = link_to user_items_path(current_user.id) do
           出品した商品
           = icon('fas', 'chevron-right', class: "arrow-right")    
       %li.content__side__nav__list__item

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show] do
     get 'logout', to: 'users#logout'
+    get 'items', to: 'users#items'
     resources :cards, only: [:new, :index] do
       collection do
       # クレジットカード登録
