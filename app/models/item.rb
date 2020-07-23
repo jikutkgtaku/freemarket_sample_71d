@@ -5,7 +5,7 @@ class Item < ApplicationRecord
   has_many                :images         ,dependent: :destroy
   belongs_to              :category
   belongs_to              :brand          ,optional: true
-  belongs_to              :buyer          ,class_name: "User"
+  belongs_to              :buyer          ,class_name: "User", optional: true
   # has_many                :favorites      ,dependent: :destroy
   # has_many                :evaluations
   # has_many                :comments       ,dependent: :destroy
@@ -17,6 +17,12 @@ class Item < ApplicationRecord
   belongs_to_active_hash  :size
   belongs_to_active_hash  :status
 
-  validates :name, :price, :category, :seller, :condition, :size, :shipping_fee, :prefecture, :shipping_period, :shipping_way, :status, presence: true
+  # fields_forメソッドを利用する際に、親モデルの中に書く必要があるメソッド
+  # 引数として、子モデルの名前を記載する。
+  # allow_destroy: trueで、親のレコードが削除された場合に、関連付いている子のレコードも一緒に削除できる。
+  accepts_nested_attributes_for :images, allow_destroy: true
+  validates :images, :name, :introduction, :price, :category_id, :seller_id, :condition_id, :size, :shipping_fee_id, :prefecture_id, :shipping_period_id, :shipping_way_id, :status_id, presence: true
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 9999999 }
+  validates :name, length: { maximum: 40 }
+  validates :introduction, length: { maximum: 1000 }
 end

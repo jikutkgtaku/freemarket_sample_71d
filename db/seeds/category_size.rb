@@ -1,0 +1,71 @@
+CategorySize.create!(
+  [
+    #レディース
+    {category_id: '2', size_id: '1'},
+    {category_id: '21', size_id: '1'},
+    {category_id: '43', size_id: '1'},
+    {category_id: '55', size_id: '1'},
+    {category_id: '61', size_id: '1'},
+    {category_id: '66', size_id: '21'},
+    {category_id: '77', size_id: '1'},
+    {category_id: '173', size_id: '1'},
+    {category_id: '174', size_id: '1'},
+    {category_id: '175', size_id: '1'},
+    {category_id: '178', size_id: '1'},
+    {category_id: '179', size_id: '1'},
+    {category_id: '180', size_id: '1'},
+    {category_id: '186', size_id: '1'},
+    {category_id: '187', size_id: '1'},
+    {category_id: '188', size_id: '1'},
+    {category_id: '189', size_id: '1'},
+    {category_id: '190', size_id: '1'},
+    {category_id: '191', size_id: '1'},
+    {category_id: '192', size_id: '1'},
+    {category_id: '193', size_id: '1'},
+    #メンズ
+    {category_id: '200', size_id: '1'},
+    {category_id: '213', size_id: '1'},
+    {category_id: '237', size_id: '1'},
+    {category_id: '247', size_id: '21'},
+    {category_id: '270', size_id: '1'},
+    {category_id: '271', size_id: '1'},
+    {category_id: '272', size_id: '1'},
+    {category_id: '273', size_id: '1'},
+    {category_id: '330', size_id: '1'},
+    {category_id: '331', size_id: '1'},
+    {category_id: '340', size_id: '1'},
+    {category_id: '341', size_id: '1'},
+    #ベビー・キッズ
+    {category_id: '345', size_id: '47'},
+    {category_id: '357', size_id: '47'},
+    {category_id: '366', size_id: '47'},
+    {category_id: '375', size_id: '53'},
+    {category_id: '394', size_id: '53'},
+    {category_id: '409', size_id: '53'},
+    {category_id: '418', size_id: '12'},
+    #テレビ
+    {category_id: '925', size_id: '61'},
+    #スノーボード
+    {category_id: '1037', size_id: '72'},
+    {category_id: '1039', size_id: '21'},
+    {category_id: '1040', size_id: '21'},
+    {category_id: '1041', size_id: '12'},
+    {category_id: '1042', size_id: '1'},
+    {category_id: '1043', size_id: '1'},
+    {category_id: '1044', size_id: '53'},
+    #スキー
+    {category_id: '1049', size_id: '80'},
+    {category_id: '1050', size_id: '21'},
+    {category_id: '1051', size_id: '21'},
+    {category_id: '1052', size_id: '12'},
+    {category_id: '1054', size_id: '1'},
+    {category_id: '1055', size_id: '1'},
+    {category_id: '1056', size_id: '53'},
+    #タイヤ・ホイール
+    {category_id: '1199', size_id: '88'},
+    {category_id: '1200', size_id: '88'},
+    {category_id: '1201', size_id: '88'},
+    #ヘルメッド
+    {category_id: '1250', size_id: '102'}
+  ]
+)
