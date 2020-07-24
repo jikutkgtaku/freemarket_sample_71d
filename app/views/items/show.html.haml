@@ -8,13 +8,13 @@
       = @item.name
     .item-box__image
       %ul.item-box__image__main.owl-carousel.owl-theme
-        - @images.each do |image|
+        - @item.images.each do |image|
           %li.item-box__image__main__pict.item
-            = image_tag image.image, class:"resize"
+            = image_tag image.image.url, class:"resize"
       %ul.item-box__image__sub
-        - @images.each do |image|
+        - @item.images.each do |image|
           %li.item-box__image__sub__pict
-            = image_tag image.image, width: "100px", class:"resize"
+            = image_tag image.image.url, class:"resize"
     .item-box__price
       %span ¥
       %span

@@ -31,7 +31,7 @@ class ItemsController < ApplicationController
 
   def show
     @item = Item.find(params[:id])
-    @images = Image.where(item_id: params[:id])
+    @images = @item.images
     respond_to do |format|
       format.html
       format.json
