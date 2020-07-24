@@ -33,8 +33,7 @@ class ItemsController < ApplicationController
 
   def destroy
     出品者かどうか念のため判定
-    if @item.seller_id == current_user.id
-      @item.destroy
+    if @item.seller_id == current_user.id && @item.destroy
       redirect_to root_path
     else
       flash.now[:alert] = '削除に失敗しました'
