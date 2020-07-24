@@ -101,14 +101,16 @@
         コメントする
   .links
     %ul.links__around
-      %li
-        =link_to '#', class:"links__around__link" do
-          = icon('fa', 'angle-left', class:"links__around__link__icon") 
-          前の商品
-      %li
-        =link_to '#', class:"links__around__link" do
-          後ろの商品 
-          = icon('fa', 'angle-right', class:"links__around__link__icon")
+      - unless Item.first.id == @item.id
+        %li
+          =link_to item_path(@item.previous.id), class:"links__around__link" do
+            = icon('fa', 'angle-left', class:"links__around__link__icon") 
+            前の商品
+      - unless Item.last.id == @item.id
+        %li
+          =link_to item_path(@item.next.id), class:"links__around__link" do
+            後ろの商品 
+            = icon('fa', 'angle-right', class:"links__around__link__icon")
     .links__kategory
       -# カテゴリの最上位へのリンクを表示させる
       - if @item.category.parent.parent
