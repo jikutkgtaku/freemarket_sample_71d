@@ -32,7 +32,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    出品者かどうか念のため判定
     if @item.seller_id == current_user.id && @item.destroy
       redirect_to root_path
     else
