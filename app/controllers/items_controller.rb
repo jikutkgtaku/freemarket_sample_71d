@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:show, :destroy]
+
   def index
   end
 
@@ -27,17 +28,17 @@ class ItemsController < ApplicationController
   end
 
   def show
-    @item = Item.find(params[:id])
     @images = @item.images
   end
 
   def destroy
-    item = Item.find(params[:id])
-    # 出品者かどうか念のため判定
-    if item.seller_id == current_user.id
-      item.destroy
-      # 今のところトップページ仮置き
+    出品者かどうか念のため判定
+    if @item.seller_id == current_user.id
+      @item.destroy
       redirect_to root_path
+    else
+      flash.now[:alert] = '削除に失敗しました'
+      render :show
     end
   end
 
@@ -84,6 +85,10 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image, :id, :_destroy]
       ).merge( seller_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

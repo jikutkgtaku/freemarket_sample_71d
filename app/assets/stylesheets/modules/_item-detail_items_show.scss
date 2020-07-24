@@ -1,5 +1,12 @@
 $show-box-width: 700px;
 
+.notifications {
+  color: $white;
+  text-align: center;  
+  .alert {
+    background-color: $orange;
+  }
+}
 //画像が親より大きければ縮小。縦横比維持
 .resize {
   width: auto;
