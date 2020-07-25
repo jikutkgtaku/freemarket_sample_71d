@@ -9,8 +9,8 @@
       %section.buy__item
         .buy__item__info
           .buy__item__info__image
-            = image_tag "cards/master.png", class:"item-image"
-            -# ↑imageタグで仮置きしているけど、今後、商品と連携する
+            = image_tag  @item.images[0].image.url, class:"item-image"
+
           .buy__item__info__details
             .item__name 【美品】master card
             %p.item__price

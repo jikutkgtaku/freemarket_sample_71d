@@ -83,7 +83,7 @@ class CreditcardsController < ApplicationController
   def buy
     @item = Item.find(params[:item_id])
     @images = @item.images.all
-
+    
     @address = Address.find(current_user.id)
 
     if @item.buyer.present?
