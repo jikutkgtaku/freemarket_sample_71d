@@ -81,9 +81,10 @@ class CreditcardsController < ApplicationController
   # 商品購入確認ページをbuyアクションと定義して行う。
 
   def buy
-    # @item = Items.find(params[:item_id])
-    # @images = @item.images.all
+    @item = Item.find(params[:item_id])
+    @images = @item.images.all
 
+    @address = Address.find(current_user.id)
 
     if user_signed_in?
       @user = current_user
@@ -120,30 +121,30 @@ class CreditcardsController < ApplicationController
   end
 
   def pay
-    # @item = Items.find(params[:item_id])
-    # @images = @item.images.all
+    @item = Item.find(params[:item_id])
+    @images = @item.images.all
+
+    if @item.buyer.present?
+      redirect_to item_path(@item.id), alert: "売り切れています"
+    else
+      @item.with_lock do
+        if current_user.creditcard.present?
+          @card = Creditcard.find_by(user_id: current_user.id)
+          Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
+          charge = Payjp::Charge.create(
+            amount: @item.price,
+            customer: Payjp::Customer.retrieve(@card.customer_id),
+            currency: 'jpy'
+          )
+        else
+          Payjp::Charge.create(
+            amount: @item.price,
+            card: params['payjp-token'],
+            currency: 'jpy'
+          )
+        end
+        @purchase = @item.update(buyer_id: current_user.id)
+      end
+    end
   end
-  #   if @item.purchase.present?
-  #     redirect_to item_path(@item.id), alert: "売り切れています"
-  #   else
-  #     @item.with_lock do
-  #       if current_user.creditcard.presene?
-  #         @card = Creditcard.find_by(user_id: current_user.id)
-  #         Payjp.api_key = Rails.application.credentials.dig(:payjp, :PAYJP_SECRET_KEY)
-  #         charge = Payjp::Charge.create(
-  #           amount: @item.price,
-  #           customer: Payjp::Customer.retrieve(@card.customer_id),
-  #           currency: 'jpy'
-  #         )
-  #       else
-  #         Payjp::Charge.create(
-  #           amount: @product.price,
-  #           card: params['payjp-token'],
-  #           currency: 'jpy'
-  #         )
-  #       end
-  #       @purchase = Purchase.create(buyer_id: current_user.id, item_id: params[:item_id])
-  #     end
-  #   end
-  # end
 end

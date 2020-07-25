@@ -23,14 +23,23 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :items, only: [:show, :index, :new]
+  resources :items do
+    collection do
+      get "get_shipping_way"
+      get "category_children"
+      get "category_grandchildren"
+      get "get_size", defauts: { format: 'json' }
+    end
+  end
+  
+  resources :items do
     resource :creditcards do
       member do
         get "buy"
-        get "pay"
+        post "pay"
       end
     end
-
+  end
   resources :creditcards, only: [:new, :create, :destroy, :show]
 
 end

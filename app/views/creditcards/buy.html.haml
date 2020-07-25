@@ -15,20 +15,20 @@
             .item__name 【美品】master card
             %p.item__price
               %span.price
-              -#  = "#{@item.price}" + "円"
+                = "#{@item.price}" + "円"
               %span.shipping__fee （税込）送料込み
 
       %section.buy__content
         .buy__content__price
           %span.purchase-price 支払い金額
           %span.price
-          -# = "¥" + "#{@item.price}"
+          = "¥" + "#{@item.price}"
 
 
       %section.buy__creditcard
         .buy__creditcard__method
           %h3.method-howto 支払い方法
-          =link_to "変更する", '#', class: "method-change"
+          =link_to "変更する", new_creditcard_url, class: "method-change"
         .buy__creditcard__registration
           %p クレジットカード
           %p 
@@ -44,9 +44,17 @@
           %h3.shipping-destination 配送先
           =link_to "変更する", '#', class: "method-change"
         .buy__shipping__address
-          %p 〒111-1111
-          %p 東京都 渋谷市 道玄坂 ビル
-          %p 不利魔 太郎
+          %p
+            = @address.post_number.to_s.slice(0,3) + " -"
+            = @address.post_number.to_s.slice(3,4)
+          %p
+            = @address.prefecture
+            = @address.city
+            = @address.address
+            = @address.apartment
+          %p
+            = @address.lastname
+            = @address.firstname
 
       %section.buy__btn
         .buy__btn__content
@@ -55,12 +63,11 @@
           %b.buy__btn__content__notification__bold 取引画面
           から受取場所を変更をすることが可能です。出品者が発送作業を開始した後は受取場所の変更ができませんので、早めに変更を行ってください。
           .buy__btn__button
-            = submit_tag "購入する", class: "btn--purchase__btn"
-            -# ↑ = link_to "登録クレジットカードで購入する", pay_item_purchases_path(item_id: @item.id), method: :post
+            = link_to "購入する", pay_item_creditcards_path(item_id: @item.id), method: :post, class: "btn--purchase__btn"
   - else
-    -# = link_to new_users_card_path, class: "btn--purchase__btn" do
-    -#   = icon('fa', 'credit-card')
-    -#   クレジットカードを追加する
+    = link_to new_users_card_path, class: "btn--purchase__btn" do
+      = icon('fa', 'credit-card')
+      クレジットカードを追加する
     .buy
       %section.buy__btn
         .buy__btn__none
