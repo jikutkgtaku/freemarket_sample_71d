@@ -99,110 +99,35 @@
 
 
   -# ピックアップカテゴリー
-  .main__pickup-category
-    .main__pickup-category__title
+  .main__pickup
+    .main__pickup__title
       ピックアップカテゴリー
-    .main__pickup-category__contents
-      .main__pickup-category__contents__title
-        =link_to "新規投稿商品","/",class:"pickup-category-title"
-      .main__pickup-category__contents__items
-        -# 以下、item1
-        -# 以下の#部分をitem/idに変更する予定
-        =link_to "#" do
-          .main__pickup-category__contents__items__item
-            .main__pickup-category__contents__items__item__image
-              = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-            .main__pickup-category__contents__items__item__info
-              %h3.name item1
-              .main__pickup-category__contents__items__item__info__detail
-                %ul
-                  %li 30000円
-                  %li
-                    = icon('fa', 'star')
-                    0
-                %p (税込)
-        -# item2
-        =link_to "#" do
-          .main__pickup-category__contents__items__item
-            .main__pickup-category__contents__items__item__image
-              = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-            .main__pickup-category__contents__items__item__info
-              %h3.name item2
-              .main__pickup-category__contents__items__item__info__detail
-                %ul
-                  %li 20000円
-                  %li
-                    = icon('fa', 'star')
-                    0
-                %p (税込)
-        -# item3
-        =link_to "#" do
-          .main__pickup-category__contents__items__item
-            .main__pickup-category__contents__items__item__image
-              = image_tag "material/icon/icon-04.png", class:"pickup-category-item"
-            .main__pickup-category__contents__items__item__info
-              %h3.name item3
-              .main__pickup-category__contents__items__item__info__detail
-                %ul
-                  %li 10000円
-                  %li
-                    = icon('fa', 'star')
-                    0
-                %p (税込)
+    .main__pickup__contents
+      .main__pickup__contents__title
+        =link_to "新規投稿商品","/",class:"pickup-title"
+      .main__pickup__contents__items
+        = render partial: 'item', collection: @items
+    .main__pickup__contents
+      .main__pickup__contents__title
+        =link_to "レディース","/",class:"pickup-title"
+      .main__pickup__contents__items
+        = render partial: 'item', collection: @items_ladies
+    .main__pickup__contents
+      .main__pickup__contents__title
+        =link_to "メンズ","/",class:"pickup-title"
+      .main__pickup__contents__items
+        = render partial: 'item', collection: @items_mens
 
 
   -# ピックアップブランド
-  .main__pickup-brand
-    .main__pickup-brand__title
+  .main__pickup
+    .main__pickup__title
       ピックアップブランド
-    .main__pickup-brand__contents
-      .main__pickup-brand__contents__title
-        -# 以下の#部分をitem/idに変更する予定
-        = link_to "アーカイバ","/",class:"pickup-brand-title"
-        .main__pickup-brand__contents__items
-          -# 以下、item1
-          = link_to "#" do
-            .main__pickup-brand__contents__items__item
-              .main__pickup-brand__contents__items__item__image
-                = image_tag "material/icon/icon-04.png", class:"pickup-brand-item"
-              .main__pickup-brand__contents__items__item__info
-                %h3.name item1
-                .main__pickup-brand__contents__items__item__info__detail
-                  %ul
-                    %li 30000円
-                    %li
-                      = icon('fa', 'star')
-                      0
-                  %p (税込)
-          -# item2
-          = link_to "#" do
-            .main__pickup-brand__contents__items__item
-              .main__pickup-brand__contents__items__item__image
-                = image_tag "material/icon/icon-04.png", class:"pickup-brand-item"
-              .main__pickup-brand__contents__items__item__info
-                %h3.name item2
-                .main__pickup-brand__contents__items__item__info__detail
-                  %ul
-                    %li 20000円
-                    %li
-                      = icon('fa', 'star')
-                      0
-                  %p (税込)
-          -# item3
-          = link_to "#" do
-            .main__pickup-brand__contents__items__item
-              .main__pickup-brand__contents__items__item__image
-                = image_tag "material/icon/icon-04.png", class:"pickup-brand-item"
-              .main__pickup-brand__contents__items__item__info
-                %h3.name item3
-                .main__pickup-brand__contents__items__item__info__detail
-                  %ul
-                    %li 10000円
-                    %li
-                      = icon('fa', 'star')
-                      0
-                  %p (税込)
-
+    .main__pickup__contents
+      .main__pickup__contents__title
+        = link_to "シャネル","/",class:"pickup-title"
+        .main__pickup__contents__items
+          = render partial: 'item', collection: @items_chanel
 
   -# サードビュー
   .main__third-section
