@@ -11,6 +11,11 @@
             最大10枚までアップロードできます
         .photos-box
           .previews
+            - if @item.persisted?
+              - @item.images.each_with_index do |image, i|
+                .preview
+                  = image_tag image.image.url, width: "105px", height: "90px", data: { index: i }
+                  .js-remove{:id => "delete-btn-${index}"} 削除
           = f.fields_for :images do |i|
             %label.photos--drops{for: "item_images_attributes_0_image"}
               %i.fas.fa-camera
@@ -40,12 +45,22 @@
           %h3
             カテゴリー
             %span.form-required 必須
+          -if @item.persisted? 
+            .items-data--category__select
+              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent.id }, {class: "select-box", id: "category_select" }
+            .items-data--category__child
+              = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "category_select" }
+            .items-data--category__grandchild
+              = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "category_select" }
+            .items-data--category__size#size_wrapper
+              %label.items-data--size
+                サイズ
+                %span.form-required 必須
+          - else
+            .items-data--category__select
+              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
+            .items-data--category__child
 
-          .items-data--category__select
-            = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
-          .items-data--category__child
-          .items-data--category__size
-          
         .items-data--barand
           %h3
             ブランド
@@ -67,8 +82,17 @@
           %h3
             配送料の負担
             %span.form-required 必須
-          = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box", id: "shipping-fee_select" }
+          - if @item.persisted? 
+            = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {include_blank: '選択してください', selected: @item.shipping_fee.id }, {class: "select-box", id: "shipping-fee_select" }
+          - else
+            = f.collection_select :shipping_fee_id, ShippingFee.all, :id, :name, {include_blank: '選択してください'}, {class: "select-box", id: "shipping-fee_select" }
         .delivery--way.contents-height
+          - if @item.persisted?
+            .product-select-wrapper#shipping-way_wrapper
+              %h3
+                配送方法
+                %span.form-required 必須
+            = f.collection_select :shipping_way_id, ShippingWay.all, :id, :name, {include_brank: '選択してください', selected: @item.shipping_way.id }, {class: "select-box", id: "shipping-way_select"}
         .delivery--area.contents-height
           %h3
             発送元の地域

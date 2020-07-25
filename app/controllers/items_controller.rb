@@ -8,6 +8,7 @@ class ItemsController < ApplicationController
     # itemクラスのインスタンスに関連づけられたImageクラスのインスタンスを作成
     @item.images.build
     @category = Category.where(ancestry: nil).order("id ASC")
+    # binding.pry
   end
 
   def create
@@ -21,9 +22,17 @@ class ItemsController < ApplicationController
   end
 
   def edit
+    @item = Item.find(params[:id])
+    @category = Category.all
+    binding.pry
   end
 
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      render 'edit'
+    end
   end
 
   def destroy
