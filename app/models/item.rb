@@ -25,4 +25,12 @@ class Item < ApplicationRecord
   validates :price, numericality: { only_integer: true, greater_than: 0, less_than: 9999999 }
   validates :name, length: { maximum: 40 }
   validates :introduction, length: { maximum: 1000 }
+# 一つ前のidのレコードを持ってくるメソッド
+  def previous
+    Item.where('id < ?', id).order("id asc").last
+  end
+# 一つ先のidのレコードを持ってくるメソッド
+  def next
+    Item.where("id > ?", id).order("id asc").first
+  end
 end
