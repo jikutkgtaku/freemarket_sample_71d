@@ -80,9 +80,10 @@
 
       &__registration {
         font-size: 14px;
+        line-height: 1.4em;
         .bcr-card {
-          height: 16px;
-          width: 48px;
+          max-height: 32px;
+          max-width: 48px;
           margin-top: 8px;
         }
       }
@@ -97,6 +98,7 @@
       
       &__address {
         font-size: 14px;
+        line-height: 1.4em;
       }
     }
 
@@ -118,6 +120,8 @@
           background-color: $base-color;
           color: $white;
           padding: 0 24px;
+          text-align: center;
+          line-height: 50px;
         }
       }
     }
@@ -136,4 +140,9 @@
 }
 .shipping-destination {
   margin-bottom: 8px;
+}
+
+.buy__btn__none {
+  display: flex;
+  justify-content: center;
 }

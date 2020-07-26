@@ -1,0 +1,43 @@
+@mixin pay_top_index_btn{
+  text-align: center;
+  background-color: $base-color;
+  color: $white;
+  padding: 0 24px;
+  text-decoration: none;
+  border-radius: 5px;
+  cursor: pointer; 
+  height: 32px;
+  border: 0;
+  font-weight: bolder;
+  line-height: 30px;
+  width: 160px;
+  min-width: 150px;
+}
+
+.pay {
+  max-width: 700px;
+  margin: auto;
+  background-color: white;
+  &__details {
+    &__message {
+      @include section-design;
+      font-size: 22px;
+      text-align: center;
+      background-color: white;
+    }
+  }
+}
+
+.purchased__links {
+  @include section-design;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  &__TopPage {
+    @include pay_top_index_btn;
+  }
+  &__index {
+    @include pay_top_index_btn;
+  }
+}
+

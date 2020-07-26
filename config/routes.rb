@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resource :users, only: [:show] do
     get 'logout', to: 'users#logout'
-    resources :cards, only: [:new, :index] do
+    resources :cards, only: [:new, :index, :show] do
       collection do
       # クレジットカード登録
         # post 'pay', to: 'cards#pay'
@@ -30,22 +30,15 @@ Rails.application.routes.draw do
       get "get_size", defauts: { format: 'json' }
     end
   end
-
-  resources :brands, only: [:index], defaults: {format: 'json'}
-
-  resource :users, only: [:show] do
-    collection do
-      get "new_login"
-      get "new_session"
-      get "new_user"
-      get "new_address"
-      get "create_address" 
+  
+  resources :items do
+    resource :creditcards do
+      member do
+        get "buy"
+        post "pay"
+      end
     end
   end
+  resources :creditcards, only: [:new, :create, :destroy, :show]
 
-  resources :creditcards, only: [:new, :create] do
-    collection do
-      get "buy"
-    end
-  end
 end

@@ -1,0 +1,23 @@
+.form-card_create {
+  background-color: #eee;
+  min-height: 100vh;
+
+  .crc__create__frame {
+    width: 500px;
+    padding: 20px;
+    margin: 0 auto;
+    margin-bottom: 1px;
+    background-color: white;
+    &__message {
+      text-align: center;
+      font-size: 18px;
+      font-weight: normal; 
+    }
+    &__btns {
+      font-size: 18px;
+      display: flex;
+      justify-content: space-evenly;
+      font-weight: bold;
+    }
+  }
+}
