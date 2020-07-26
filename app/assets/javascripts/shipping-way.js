@@ -30,14 +30,12 @@ $(document).on("turbolinks:load", function() {
         dataType: 'json',
       })
       .done(function(shipping_ways){
+        $('#shipping-way_wrapper').remove();
         var insertHtml = '';
         shipping_ways.forEach(function(shipping_way){
           insertHtml += appendOption(shipping_way);
         });
         $('.delivery--way').append(selectShippingWayHtml(insertHtml));
-        $("#shipping-fee_select").on('change', function() {
-          $('#shipping-way_wrapper').remove();
-        });
       })
       .fail(function(){
         alert('配送料の負担の取得エラー');
