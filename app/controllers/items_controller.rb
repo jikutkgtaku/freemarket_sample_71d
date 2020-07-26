@@ -23,11 +23,12 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @category = Category.all
-    binding.pry
+    @category = Category.where(ancestry: nil).order("id ASC")
+    #binding.pry
   end
 
   def update
+    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
@@ -47,11 +48,11 @@ class ItemsController < ApplicationController
   end
   
   def category_children
-    @category_children = Category.find(params[:productcategory]).children
+    @category_children = Category.find(params[:category_id]).children
   end
 
   def category_grandchildren 
-    @category_grandchildren = Category.find(params[:productcategory]).children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def get_size

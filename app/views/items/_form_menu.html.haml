@@ -47,15 +47,17 @@
             %span.form-required 必須
           -if @item.persisted? 
             .items-data--category__select
-              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent.id }, {class: "select-box", id: "category_select" }
+              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent.id }, {class: "select-box", id: "parent_category_edit"}
             .items-data--category__child
-              = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "category_select" }
+              = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "child_category_edit"}
             .items-data--category__grandchild
-              = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "category_select" }
-            .items-data--category__size#size_wrapper
-              %label.items-data--size
-                サイズ
-                %span.form-required 必須
+              = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "grandchild_category_edit", name: "product[category_id]" }
+            -if @item.persisted?
+              .items-data--category__size_wrapper
+                %label.items-data--size
+                  サイズ
+                  %span.form-required 必須
+                = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size.parent_id }, {class: "select-box", id: "size_wrapper", name: "" }  
           - else
             .items-data--category__select
               = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
