@@ -21,7 +21,6 @@ $(function(){
   // ブランド項目欄へ文字を入力する事でのイベント発火
   $(document).on("keyup", "#item_brand_id", function(){
     let input = $("#item_brand_id").val();
-    console.log(input)
     $.ajax({
       type: 'GET',
       url: '/brands',

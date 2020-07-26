@@ -24,9 +24,13 @@ class ItemsController < ApplicationController
   def edit
     @item = Item.find(params[:id])
     @category = Category.where(ancestry: nil).order("id ASC")
-    #binding.pry
+    if @item.brand_id.present?
+      @brand = @item.brand.name
+    else
+      @brand = ""
+    end
   end
-
+  
   def update
     @item = Item.find(params[:id])
     if @item.update(item_params)
