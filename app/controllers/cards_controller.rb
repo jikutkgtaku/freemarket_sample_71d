@@ -1,17 +1,17 @@
 class CardsController < ApplicationController
+
+  before_action :set_card
+
   def index
-    @card = Creditcard.find_by(user_id: current_user.id)
   end
 
   def new
-    @card = Creditcard.find_by(user_id: current_user.id)
     if @card.present?
       redirect_to users_cards_url
     end
   end
 
   def show
-    @card = Creditcard.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new"
     else
@@ -38,5 +38,10 @@ class CardsController < ApplicationController
       @exp_month = @customer_card.exp_month.to_s
       @exp_year = @customer_card.exp_year.to_s.slice(2,3)
     end
+  end
+
+    private
+  def set_card
+    @card = Creditcard.find_by(user_id: current_user.id)
   end
 end

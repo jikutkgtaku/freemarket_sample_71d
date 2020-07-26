@@ -1,9 +1,10 @@
 class CreditcardsController < ApplicationController
   require "payjp"
+  before_action :set_card
+  before_action :set_item, only: [:buy, :pay]
 
 
   def show
-    @card = Creditcard.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new"
     else
@@ -60,7 +61,6 @@ class CreditcardsController < ApplicationController
   end
 
   def destroy
-    @card = Creditcard.find_by(user_id: current_user.id)
     if @card.blank?
       redirect_to action: "new"
     else
@@ -81,7 +81,6 @@ class CreditcardsController < ApplicationController
   # 商品購入確認ページをbuyアクションと定義して行う。
 
   def buy
-    @item = Item.find(params[:item_id])
     @images = @item.images.all
     
     @address = Address.find(current_user.id)
@@ -128,7 +127,6 @@ class CreditcardsController < ApplicationController
   end
 
   def pay
-    @item = Item.find(params[:item_id])
     @images = @item.images.all
 
     if @item.buyer.present?
@@ -153,5 +151,14 @@ class CreditcardsController < ApplicationController
         @purchase = @item.update(buyer_id: current_user.id)
       end
     end
+  end
+
+  private
+  def set_card
+    @card = Creditcard.find_by(user_id: current_user.id)
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 end
