@@ -8,22 +8,31 @@
             出品画像
             %span.form-required 必須
           %p.photos--title__comments
-            最大10枚までアップロードできます
+            最大5枚までアップロードできます
         .photos-box
           .previews
             - if @item.persisted?
               - @item.images.each_with_index do |image, i|
                 .preview
                   = image_tag image.image.url, width: "105px", height: "90px", data: { index: i }
-                  .js-remove{:id => "delete-btn-${index}"} 削除
-          = f.fields_for :images do |i|
-            %label.photos--drops{for: "item_images_attributes_0_image"}
-              %i.fas.fa-camera
-                .photos--drops__comment
-                  %p
-                    クリックしてファイルをアップロード
+                  .edit-btn
+                    %label{for: "item_images_attributes_#{i}_image"}
+                      %span
+                        編集
+          - if @item.images.count < 5
+            .label-content
+              %label.photos--drops{for: "item_images_attributes_#{@item.images.count}_image"}
+                %i.fas.fa-camera
+                  .photos--drops__comment
+                    %p
+                      クリックしてファイルをアップロード
+          .hidden-content
+            = f.fields_for :images do |i|
               .js-file_group{data: {index:  "#{i.index}"}}
                 = i.file_field :image, class: 'photos--form', accept: 'image/png,image/jpeg'
+            - if @item.persisted?
+              .js-file_group{data: {index:  "#{@item.images.count}"}}
+                = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: "photos--form", id:"item_images_attributes_#{@item.images.count}_image"
 
       .items
         .items--name.contents-height
@@ -46,18 +55,18 @@
             カテゴリー
             %span.form-required 必須
           -if @item.persisted? 
-            .items-data--category__select
-              = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent.id }, {class: "select-box", id: "parent_category_edit"}
-            .items-data--category__child
-              = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "child_category_edit"}
-            .items-data--category__grandchild
-              = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "grandchild_category_edit", name: "product[category_id]" }
-            -if @item.persisted?
-              .items-data--category__size_wrapper
-                %label.items-data--size
-                  サイズ
-                  %span.form-required 必須
-                = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size.parent_id }, {class: "select-box", id: "size_wrapper", name: "" }  
+            .items-data--category--edit
+              .items-data--category__select
+                = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent }, {class: "select-box", id: "parent_category_edit"}
+              .items-data--category__child
+                = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "child_category_edit"}
+              .items-data--category__grandchild
+                = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "grandchild_category_edit", name: "product[category_id]" }
+            .items-data--category__size_wrapper
+              %label.items-data--size
+                サイズ
+                %span.form-required 必須
+              = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size.parent_id }, {class: "select-box", id: "size_wrapper_edit"}  
           - else
             .items-data--category__select
               = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
@@ -67,7 +76,10 @@
           %h3
             ブランド
             %span.form-any 任意
-          = f.text_field :brand_id, { class: 'items-name-box', placeholder: '例）シャネル' }
+          -if @item.persisted?
+            = f.text_field :brand_id, { class: 'items-name-box', value: @brand }
+          -else
+            = f.text_field :brand_id, { class: 'items-name-box', placeholder: '例）シャネル' }
           #brand-search-result 
         .items-data--status.contents-height
           %h3
@@ -115,15 +127,19 @@
             %h3
               販売価格
               %span.form-required 必須
-          .cost--selling--number
-            %p ¥
-            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
+          -if @item.persisted?
+            .cost--selling--number
+              = f.number_field :price, {  class: 'cost--selling--number__price', value: @item.price, style: 'text-align:right'} 
+          -else
+            .cost--selling--number
+              %p ¥
+              = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
         .cost--commission
           %p 販売手数料 (10%)
           %span.gain-commission -
         .cost--profit
           %p 販売利益
-          = f.number_field :price, style: "display: none", id: "price"
+          -# = f.number_field :price, style: "display: none", id: "price"
           %span.gain-profit -
 
       .btns
