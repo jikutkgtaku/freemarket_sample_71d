@@ -2,10 +2,10 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :destroy]
 
   def index
-    @items = Item.includes(:images).where(status_id: 1).order("id desc").first(4)
-    @items_ladies = Item.includes(:images).where(category_id: 1..198, status_id: 1).order("id desc").first(4)
-    @items_mens = Item.includes(:images).where(category_id: 199..343, status_id: 1).order("id desc").first(4)
-    @items_chanel = Item.includes(:images).where(brand_id: [2447,8386,11784,12827,13628], status_id: 1).order("id desc").first(4)
+    @items = Item.includes(:images).where(buyer_id: nil).order("id desc").first(4)
+    @items_ladies = Item.includes(:images).where(category_id: 1..198, buyer_id: nil).order("id desc").first(4)
+    @items_mens = Item.includes(:images).where(category_id: 199..343, buyer_id: nil).order("id desc").first(4)
+    @items_chanel = Item.includes(:images).where(brand_id: [2447,8386,11784,12827,13628], buyer_id: nil).order("id desc").first(4)
   end
 
   def new
