@@ -2,9 +2,9 @@
   = render partial: 'header'
 .under-header
   = render partial: 'kategory-hierarchy'
-.notifications
-  - flash.each do |key, value|
-    = content_tag(:div, value, class: key)
+-# .notifications
+-#   - flash.each do |key, value|
+-#     = content_tag(:div, value, class: key)
 .item-wrapper
   .item-box
     %h1.item-box__name
@@ -131,7 +131,7 @@
 - if user_signed_in?
   - if current_user.id == @item.seller_id || @item.status_id != 1
   - else
-    =link_to "#" do
+    =link_to buy_item_creditcards_path(item_id: @item.id) do
       .purchaseBtn.purchaseBtn--buy
         %span.purchaseBtn__text 購入する
         =icon('fas', 'wallet', class:"purchaseBtn--icon-wallet")
