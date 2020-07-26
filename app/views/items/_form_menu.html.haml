@@ -66,9 +66,12 @@
         .items-data--barand
           %h3
             ブランド
-            %span.form-any 任意
-          = f.text_field :brand_id, { class: 'items-name-box', placeholder: '例）シャネル' }
-          #brand-search-result 
+            %span.value.form-any 任意
+          -if @item.persisted?
+            = f.text_field :brand_id, { class: 'items-name-box', value: @item.brand.name }
+          -else
+            = f.text_field :brand_id, { class: 'items-name-box', placeholder: '例）シャネル' }
+            #brand-search-result 
         .items-data--status.contents-height
           %h3
             商品の状態
@@ -115,9 +118,13 @@
             %h3
               販売価格
               %span.form-required 必須
-          .cost--selling--number
-            %p ¥
-            = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
+          -if @item.persisted?
+            .cost--selling--number
+              = f.number_field :price, {  class: 'cost--selling--number__price', value: @item.price, style: 'text-align:right'} 
+          -else
+            .cost--selling--number
+              %p ¥
+              = f.number_field :price, {  class: 'cost--selling--number__price', placeholder: '0', style: 'text-align:right', value: number_with_delimiter(@price, precision: 3)} 
         .cost--commission
           %p 販売手数料 (10%)
           %span.gain-commission -
