@@ -8,17 +8,20 @@
             出品画像
             %span.form-required 必須
           %p.photos--title__comments
-            最大5枚までアップロードできます
+            最大10枚までアップロードできます
         .photos-box
           .previews
             - if @item.persisted?
               - @item.images.each_with_index do |image, i|
                 .preview
                   = image_tag image.image.url, width: "105px", height: "90px", data: { index: i }
-                  .edit-btn
-                    %label{for: "item_images_attributes_#{i}_image"}
-                      %span
-                        編集
+                  .js-btn
+                    .edit-btn
+                      %label{for: "item_images_attributes_#{i}_image"}
+                        %span
+                          編集
+                    .js-remove{:id => "delete-btn-${index}"}
+                      削除
           - if @item.images.count < 5
             .label-content
               %label.photos--drops{for: "item_images_attributes_#{@item.images.count}_image"}

@@ -14,10 +14,13 @@ $(document).on('turbolinks:load', () => {
     const html = `
     <div class="preview">
       <img data-index="${index}" src="${url}" width="105px" height="90px">
-      <div class="edit-btn">
-        <label for= "item_images_attributes_${index}_image">
-          <span>編集</span>
-        </label>
+      <div class="js-btn">
+        <div class="edit-btn">
+          <label for= "item_images_attributes_${index}_image">
+            <span>編集</span>
+          </label>
+        </div>
+        <div class="js-remove" id="delete-btn-${index}">削除</div>
       </div>
     </div>
     `;
@@ -57,7 +60,7 @@ $(document).on('turbolinks:load', () => {
     // js-remove要素のidを取得し、数字の部分を抽出
     const targetIMG = $(this).attr("id").replace(/[^0-9]/g, '');
     const countIMG = $(".photos--form").length;
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
     // 削除した画像のフォームの中身を削除
     $(`#item_images_attributes_${targetIMG}_image`).remove();
 
