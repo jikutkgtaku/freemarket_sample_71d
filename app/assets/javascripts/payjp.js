@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() {
+$(document).on("turbolinks:load", function() {
   let submit = document.getElementById("payment_card_submit-button");
   Payjp.setPublicKey("pk_test_1ec0ec04db6b232048c16e77");
   submit.addEventListener('click', function(e){
