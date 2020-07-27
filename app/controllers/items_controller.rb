@@ -17,7 +17,7 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render 'new'
+      redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
     end
   end
 
@@ -37,7 +37,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to root_path
     else
-      render 'edit'
+      redirect_to edit_item_path, notice: "編集できません。入力必須項目を確認してください"
     end
   end
 
