@@ -48,7 +48,7 @@ $(function(){
   });
 
   // editアクション用（デフォルトでブランド名称を画面に表示させるにあたりid情報を持てていない為、以下のコードが必要となる。）
-  $(window).load(function () {
+  $(window).on('turbolinks:load', function () {
     // submitボタン押下時に入っていたvalue(ブランド名)を取得
     const brandData = $("#item_brand_id").val();
 
