@@ -46,4 +46,27 @@ $(function(){
     const brandName = $(this).attr("data-brand-name");
     addBrand(brandId, brandName);
   });
+
+  // editアクション用（デフォルトでブランド名称を画面に表示させるにあたりid情報を持てていない為、以下のコードが必要となる。）
+  $(window).load(function () {
+    // submitボタン押下時に入っていたvalue(ブランド名)を取得
+    const brandData = $("#item_brand_id").val();
+
+    // そのブランド名でインクリメンタルサーチを発火
+    if("#item_brand_id" != ""){
+      $.ajax({
+        type: "GET",
+        url: '/brands',
+        data: { keyword: brandData },
+        dataType: 'json',
+      })
+
+      // 名称をキーワードに取得したブランドデータからbrand_idを取得。paramsにidを載せる為、input valueにbrand_idの情報を持たせる。
+      .done(function(brands){
+        const brand = brands[0]
+        let brand_data = `<input value="${brand.id}" name="item[brand_id]" type="hidden" />`;
+        $(`#item_brand_id`).append(brand_data);        
+      });
+    }
+  });
 });
