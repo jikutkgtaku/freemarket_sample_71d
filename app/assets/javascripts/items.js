@@ -39,7 +39,7 @@ $(document).on('turbolinks:load', () => {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    const countIMG = $(".photos--form").length;
+    const countIMG = $(".preview").length + 1;
     console.log(countIMG)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
@@ -50,8 +50,8 @@ $(document).on('turbolinks:load', () => {
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
-    // formが5になったら、フォームを非表示にする
-    if (countIMG >= 5) {
+    // formが10になったら、フォームを非表示にする
+    if (countIMG >= 10) {
       $(".photos--drops").toggle(false);
     }
   });
@@ -59,13 +59,13 @@ $(document).on('turbolinks:load', () => {
   $('.photos-box').on("click", '.js-remove', function () {
     // js-remove要素のidを取得し、数字の部分を抽出
     const targetIMG = $(this).attr("id").replace(/[^0-9]/g, '');
-    const countIMG = $(".photos--form").length;
+    const countIMG = $(".preview").length - 1;
     $(this).parent().parent().remove();
     // 削除した画像のフォームの中身を削除
     $(`#item_images_attributes_${targetIMG}_image`).remove();
     $(`#item_images_attributes_${targetIMG}__destroy`).prop("checked", true);
-    // formが5未満になったら、フォームを表示する
-    if (countIMG < 5) {
+    // formが10未満になったら、フォームを表示する
+    if (countIMG < 10) {
       $(".photos--drops").toggle(true);
     }
   });
