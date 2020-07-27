@@ -93,5 +93,18 @@ describe Item do
       item.valid?
       expect(item.errors[:price]).to include() 
     end
+
+    #編集のテストコード
+    describe "item update" do
+      before do
+         item = create(:item)
+      end
+
+    it "nameがない場合は登録できないこと" do
+      item = build(:item, name: "")
+      item.valid?
+      expect(item.errors[:name]).to include("を入力してください")
   end
+end
+end
 end
