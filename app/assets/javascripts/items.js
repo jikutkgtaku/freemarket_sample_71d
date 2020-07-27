@@ -63,7 +63,7 @@ $(document).on('turbolinks:load', () => {
     $(this).parent().parent().remove();
     // 削除した画像のフォームの中身を削除
     $(`#item_images_attributes_${targetIMG}_image`).remove();
-
+    $(`#item_images_attributes_${targetIMG}__destroy`).prop("checked", true);
     // formが5未満になったら、フォームを表示する
     if (countIMG < 5) {
       $(".photos--drops").toggle(true);
