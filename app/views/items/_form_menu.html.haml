@@ -20,9 +20,9 @@
                       %label{for: "item_images_attributes_#{i}_image"}
                         %span
                           編集
-                    .js-remove{:id => "delete-btn-${index}"}
+                    .js-remove{:id => "delete-btn-#{i}"}
                       削除
-          - if @item.images.count < 5
+          - if @item.images.count < 10
             .label-content
               %label.photos--drops{for: "item_images_attributes_#{@item.images.count}_image"}
                 %i.fas.fa-camera
@@ -33,6 +33,7 @@
             = f.fields_for :images do |i|
               .js-file_group{data: {index:  "#{i.index}"}}
                 = i.file_field :image, class: 'photos--form', accept: 'image/png,image/jpeg'
+                = i.check_box :_destroy, { class: "hidden"}
             - if @item.persisted?
               .js-file_group{data: {index:  "#{@item.images.count}"}}
                 = file_field_tag :image, name: "item[images_attributes][#{@item.images.count}][image]", class: "photos--form", id:"item_images_attributes_#{@item.images.count}_image"
