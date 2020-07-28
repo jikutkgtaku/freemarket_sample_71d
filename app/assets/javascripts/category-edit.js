@@ -26,7 +26,7 @@ $(function(){
     var grandChildSelect = '';
     grandChildSelect = `<div class='product-select-wrapper' id= 'grandchildren_wrapper_edit'>
                           <div class="items-data--category--edit__grandchild">
-                            <select class="select-box" id="grandchild_category_edit" name="product[category_id]">
+                            <select class="select-box" id="grandchild_category_edit" name="item[category_id]">
                               <option value="---">選択してください</option>
                               ${insertHTML}
                             </select>
