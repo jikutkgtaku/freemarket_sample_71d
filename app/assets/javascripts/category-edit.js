@@ -117,15 +117,13 @@ $(function(){
           dataType: 'json'
         })
         .done(function(sizes) {
+          $('.items-data--category__size_wrapper').remove(); //孫が変更された時、サイズ蘭以下を削除する
           if (sizes.length != 0) {
             var insertHTML = '';
             sizes.forEach(function(size){
               insertHTML += appendSizeOption(size);
             });
             appendSizeBox(insertHTML);
-            $(document).on('change', '#grandchildren_wrapper_edit', function(){
-              $('.items-data--category__size_wrapper').remove(); //孫が変更された時、サイズ蘭以下を削除する
-            })
           }
         })
         .fail(function(){
@@ -145,7 +143,7 @@ $(function(){
 
   function appendSizeBox(insertHTML){ //sizeボックスのhtml作成
     var sizeSelectHtml = '';
-    sizeSelectHtml = `<div class="items-deta--category__size" id= 'size_wrapper_edit'>
+    sizeSelectHtml = `<div class="items-data--category__size" id= 'size_wrapper_edit'>
                         <label class="items-data--size" class="contents-height" for="サイズ">サイズ</label>
                           <span class='form-required'>必須</span>
                           <select class="select-box" id="size" name="item[size_id]">
