@@ -20,8 +20,8 @@ function selectShippingWayHtml(insertHtml){
   return html; 
 }
 
-$(document).on("turbolinks:load", function() {
-  $("#shipping-fee_select").on('change', function() {
+$(function() {
+  $(document).on('change',"#shipping-fee_select", function() {
     var selected_fee = $(this).val();
     if(selected_fee != ""){
       $.ajax({

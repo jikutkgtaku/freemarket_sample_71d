@@ -110,7 +110,7 @@
               %h3
                 配送方法
                 %span.form-required 必須
-              = f.collection_select :shipping_way_id, ShippingWay.all, :id, :name, {include_brank: '選択してください', selected: @item.shipping_way.id }, {class: "select-box", id: "shipping-way_select"}
+              = f.collection_select :shipping_way_id, ShippingWay.where(group: @item.shipping_fee_id.to_s), :id, :name, {include_brank: '選択してください', selected: @item.shipping_way.id }, {class: "select-box", id: "shipping-way_select"}
         .delivery--area.contents-height
           %h3
             発送元の地域
