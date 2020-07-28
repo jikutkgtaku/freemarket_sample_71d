@@ -61,7 +61,7 @@
           -if @item.persisted? 
             .items-data--category--edit
               .items-data--category__select
-                = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent }, {class: "select-box", id: "parent_category_edit"}
+                = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent_id }, {class: "select-box", id: "parent_category_edit"}
               .items-data--category__child
                 = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "child_category_edit"}
               .items-data--category__grandchild
