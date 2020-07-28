@@ -70,7 +70,7 @@
               %label.items-data--size
                 サイズ
                 %span.form-required 必須
-              = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size.parent_id }, {class: "select-box", id: "size_wrapper_edit"}  
+              = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size_id }, {class: "select-box", id: "size_wrapper_edit"}  
           - else
             .items-data--category__select
               = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }
