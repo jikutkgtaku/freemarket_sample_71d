@@ -1,5 +1,11 @@
 -# 画面右下の固定アイコン
-=link_to "items/new" do
-  .purchaseBtn
-    %span.purchaseBtn__text 出品する
-    = image_tag "icon_camera.png", class: "purchaseBtn-icon"
+- if user_signed_in?
+  =link_to new_item_path do
+    .purchaseBtn
+      %span.purchaseBtn__text 出品する
+      = image_tag "icon_camera.png", class: "purchaseBtn-icon"
+- else
+  =link_to user_session_path do
+    .purchaseBtn
+      %span.purchaseBtn__text 出品する
+      = image_tag "icon_camera.png", class: "purchaseBtn-icon"

@@ -1,13 +1,12 @@
 $emphasis-color: #3CCACE;
 
+@import "flash_notification";
 @import "reset";
 @import "config/colors";
 @import "config/fonts";
 @import "base";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-@import "config/colors";
-@import "config/fonts";
 @import "modules/header";
 @import "modules/footer";
 
@@ -49,12 +48,15 @@ $emphasis-color: #3CCACE;
 @import "mixin/item-detail/item-place";
 @import "modules/item-detail_items_show";
 @import "modules/kategory-hierarchy";
-
-//商品購入機能
-
-@import "pages/_registration_creditcard_new";
+@import "owl/owl.carousel.css";
+@import "owl/owl.theme.default.css";
 
 //商品購入確認
 @import "mixin/purchase/section-design";
 @import "pages/_purchase_confirmation_buy";
 
+//商品購入機能
+@import "pages/_registration_creditcard_new";
+@import "pages/_registration_creditcard_create";
+@import "pages/_information_creditcard_show";
+@import "pages/_purchase_pay";
