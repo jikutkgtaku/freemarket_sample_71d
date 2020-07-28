@@ -47,13 +47,13 @@ $(function(){
     addBrand(brandId, brandName);
   });
 
-  // editアクション用（デフォルトでブランド名称を画面に表示させるにあたりid情報を持てていない為、以下のコードが必要となる。）
+ // editアクション用（デフォルトでブランド名称を画面に表示させるにあたりid情報を持てていない為、以下のコードが必要となる。）
   $(window).on('turbolinks:load', function () {
     // submitボタン押下時に入っていたvalue(ブランド名)を取得
     const brandData = $("#item_brand_id").val();
 
     // そのブランド名でインクリメンタルサーチを発火
-    if("#item_brand_id" != ""){
+    if(brandData != ""){
       $.ajax({
         type: "GET",
         url: '/brands',
