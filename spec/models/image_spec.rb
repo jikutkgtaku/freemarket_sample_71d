@@ -6,7 +6,7 @@ describe Image do
     it "imageがない場合は登録できないこと" do
       image = build(:image, image: "")
       image.valid?
-      expect(image.errors[:image]).to include("を入力してください")
+      expect(image.errors[:image]).to include()
     end
   end
 end
