@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.includes(:images).where(buyer_id: nil).order("id desc").first(4)
@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
     # itemクラスのインスタンスに関連づけられたImageクラスのインスタンスを作成
     @item.images.build
     @category = Category.where(ancestry: nil).order("id ASC")
-    # binding.pry
   end
 
   def create
@@ -27,7 +26,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    @item = Item.find(params[:id])
     if @item.seller_id == current_user.id
       @category = Category.where(ancestry: nil).order("id ASC")
       if @item.brand_id.present?
@@ -41,7 +39,6 @@ class ItemsController < ApplicationController
   end
   
   def update
-    @item = Item.find(params[:id])
     if @item.update(item_params)
       redirect_to root_path
     else
