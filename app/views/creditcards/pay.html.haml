@@ -1,0 +1,16 @@
+.form-card
+  .card__header
+  = render "items/form_header"
+
+  .pay
+    .pay__contents
+      .pay__details
+        .pay__details__message
+          購入が完了しました。
+      %ul.purchased__links
+        %li.purchased__links__TopPage
+          = link_to "トップページに戻る", root_path, class: "purchased__links__TopPage__btn"
+        %li.purchased__links__index
+          = link_to "購入商品一覧", "#", class: "purchased__links__index__btn"
+  .card__fotter
+  = render "items/form_footer"

@@ -20,6 +20,7 @@ function selectShippingWayHtml(insertHtml){
   return html; 
 }
 
+
 $(function() {
   $(document).on('change',"#shipping-fee_select", function() {
     var selected_fee = $(this).val();

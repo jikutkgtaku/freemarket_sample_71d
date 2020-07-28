@@ -1,6 +1,11 @@
 class ItemsController < ApplicationController
-  
+  before_action :set_item, only: [:show, :destroy]
+
   def index
+    @items = Item.includes(:images).where(buyer_id: nil).order("id desc").first(4)
+    @items_ladies = Item.includes(:images).where(category_id: 1..198, buyer_id: nil).order("id desc").first(4)
+    @items_mens = Item.includes(:images).where(category_id: 199..343, buyer_id: nil).order("id desc").first(4)
+    @items_chanel = Item.includes(:images).where(brand_id: [2447,8386,11784,12827,13628], buyer_id: nil).order("id desc").first(4)
   end
 
   def new
@@ -44,10 +49,17 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
+  def show
+    @images = @item.images
   end
 
-  def show
+  def destroy
+    if @item.seller_id == current_user.id && @item.destroy
+      redirect_to root_path
+    else
+      flash.now[:alert] = '削除に失敗しました'
+      render :show
+    end
   end
 
   
@@ -93,6 +105,11 @@ class ItemsController < ApplicationController
       :price,
       images_attributes: [:image, :id, :_destroy]
       ).merge( seller_id: current_user.id)
+  end
+
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 
 end

@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   devise_for :users, controllers: {
     registrations: 'users/registrations',
   }
-
   devise_scope :user do
     get  'addresses', to: 'users/registrations#new_address'
     post 'addresses', to: 'users/registrations#create_address'
@@ -12,7 +11,7 @@ Rails.application.routes.draw do
   resources :users, only: [:show] do
     get 'logout', to: 'users#logout'
     get 'items', to: 'users#items'
-    resources :cards, only: [:new, :index] do
+    resources :cards, only: [:new, :index, :show] do
       collection do
       # クレジットカード登録
         # post 'pay', to: 'cards#pay'
@@ -31,11 +30,17 @@ Rails.application.routes.draw do
     end
   end
 
+
   resources :brands, only: [:index], defaults: {format: 'json'}
 
-  resources :creditcards, only: [:new, :create] do
-    collection do
-      get "buy"
+  resources :items do
+    resource :creditcards do
+      member do
+        get "buy"
+        post "pay"
+      end
     end
   end
+  resources :creditcards, only: [:new, :create, :destroy, :show]
+
 end

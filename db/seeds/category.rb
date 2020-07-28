@@ -318,3 +318,4 @@ other_7.children.create([{name: "筆記用具"},{name: "ノート/メモ帳"},{n
 other_8 = other.children.create(name: "事務/店舗用品")
 other_8.children.create([{name: "オフィス用品一般"},{name: "オフィス家具"},{name: "店舗用品"},{name: "OA機器"},{name: "ラッピング/包装"},{name: "その他"}])
 other_9 = other.children.create(name: "その他")
+

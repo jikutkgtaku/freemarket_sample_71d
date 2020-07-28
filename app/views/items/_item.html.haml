@@ -1,0 +1,15 @@
+=link_to item_path(item.id) do
+  .main__pickup__contents__items__item
+    .main__pickup__contents__items__item__image
+      = image_tag item.images.first.image.url, class:"pickup-item"
+    .main__pickup__contents__items__item__info
+      %h3.name
+        = item.name
+      .main__pickup__contents__items__item__info__detail
+        %ul
+          %li
+            = item.price.to_s + "円"
+          %li
+            = icon('fa', 'star')
+            0
+        %p (税込)

@@ -1,4 +1,4 @@
-$(function(){
+$(document).on("turbolinks:load", function() {
 // 商品の説明の文字数カウント
   var count = $(".items--text__field").text().replace(/\n/g, "改行").length;
   var now_count = 1000 - count
