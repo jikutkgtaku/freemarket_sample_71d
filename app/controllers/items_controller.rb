@@ -23,11 +23,15 @@ class ItemsController < ApplicationController
 
   def edit
     @item = Item.find(params[:id])
-    @category = Category.where(ancestry: nil).order("id ASC")
-    if @item.brand_id.present?
-      @brand = @item.brand.name
+    if @item.seller_id == current_user.id
+      @category = Category.where(ancestry: nil).order("id ASC")
+      if @item.brand_id.present?
+        @brand = @item.brand.name
+      else
+        @brand = ""
+      end
     else
-      @brand = ""
+      redirect_to root_path, notice: "あなたが出品した商品ではないので編集できません"
     end
   end
   
