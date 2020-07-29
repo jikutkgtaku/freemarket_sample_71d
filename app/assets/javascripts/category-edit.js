@@ -77,7 +77,7 @@ $(function(){
   });
 
   // 子カテゴリーとやっていることは基本的に同じです 
-  $('.items-data--category--edit').on('change', '#child_category_edit', function(){
+  $(document).on('change', '#child_category_edit', function(){
     var childIdEdit = document.getElementById('child_category_edit').value;
     if (childIdEdit != '') {
       $.ajax({

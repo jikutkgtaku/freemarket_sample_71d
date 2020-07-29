@@ -40,7 +40,7 @@
           発送元・お届け先住所変更
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item
-        = link_to "#" do
+        = link_to creditcard_path(current_user.id) do
           支払い方法
           = icon('fas', 'chevron-right', class: "arrow-right")
       %li.content__side__nav__list__item

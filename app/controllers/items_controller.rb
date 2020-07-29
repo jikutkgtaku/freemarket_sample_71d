@@ -26,6 +26,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
+  binding.pry
     if @item.seller_id == current_user.id
       @category = Category.where(ancestry: nil).order("id ASC")
       if @item.brand_id.present?
@@ -39,6 +40,7 @@ class ItemsController < ApplicationController
   end
   
   def update
+  binding.pry
     if @item.update(item_params)
       redirect_to root_path
     else
