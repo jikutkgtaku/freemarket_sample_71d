@@ -5,7 +5,7 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", users_path
+  link "マイページ", user_path
 end
 
 # マイページ→ログアウトの画面
