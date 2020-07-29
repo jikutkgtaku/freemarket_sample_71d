@@ -14,7 +14,14 @@ $(document).on('turbolinks:load', () => {
     const html = `
     <div class="preview">
       <img data-index="${index}" src="${url}" width="105px" height="90px">
-      <div class="js-remove" id="delete-btn-${index}">削除</div>
+      <div class="js-btn">
+        <div class="edit-btn">
+          <label for= "item_images_attributes_${index}_image">
+            <span>編集</span>
+          </label>
+        </div>
+        <div class="js-remove" id="delete-btn-${index}">削除</div>
+      </div>
     </div>
     `;
     return html;
@@ -32,18 +39,19 @@ $(document).on('turbolinks:load', () => {
     const targetIndex = $(this).parent().data('index');
     const file = e.target.files[0];
     const blobUrl = window.URL.createObjectURL(file);
-    const countIMG = $(".preview").length;
+    const countIMG = $(".preview").length + 1;
+    console.log(countIMG)
     if (img = $(`img[data-index="${targetIndex}"]`)[0]) {
       img.setAttribute('src', blobUrl);
     } else {  // 新規画像追加の処理
       $('.previews').append(buildImg(targetIndex, blobUrl));
-      $(".photos--drops").append(buildFileField(fileIndex[0]));
+      $(".hidden-content").append(buildFileField(fileIndex[0]));
       $(".photos--drops").attr({ for: `item_images_attributes_${targetIndex + 1}_image` });
       fileIndex.shift();
       fileIndex.push(fileIndex[fileIndex.length - 1] + 1)
     }
-    // previewが10になったら、フォームを非表示にする
-    if (countIMG == 9) {
+    // formが10になったら、フォームを非表示にする
+    if (countIMG >= 10) {
       $(".photos--drops").toggle(false);
     }
   });
@@ -51,13 +59,13 @@ $(document).on('turbolinks:load', () => {
   $('.photos-box').on("click", '.js-remove', function () {
     // js-remove要素のidを取得し、数字の部分を抽出
     const targetIMG = $(this).attr("id").replace(/[^0-9]/g, '');
-    const countIMG = $(".preview").length;
-    $(this).parent().remove();
+    const countIMG = $(".preview").length - 1;
+    $(this).parent().parent().remove();
     // 削除した画像のフォームの中身を削除
     $(`#item_images_attributes_${targetIMG}_image`).remove();
-    
-    // previewが10未満になったら、フォームを表示する
-    if (countIMG < 11) {
+    $(`#item_images_attributes_${targetIMG}__destroy`).prop("checked", true);
+    // formが10未満になったら、フォームを表示する
+    if (countIMG < 10) {
       $(".photos--drops").toggle(true);
     }
   });

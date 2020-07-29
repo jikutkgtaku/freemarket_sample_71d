@@ -21,7 +21,6 @@ $(function(){
   // ブランド項目欄へ文字を入力する事でのイベント発火
   $(document).on("keyup", "#item_brand_id", function(){
     let input = $("#item_brand_id").val();
-    console.log(input)
     $.ajax({
       type: 'GET',
       url: '/brands',
@@ -46,5 +45,28 @@ $(function(){
     const brandId = $(this).attr("data-brand-id");
     const brandName = $(this).attr("data-brand-name");
     addBrand(brandId, brandName);
+  });
+
+ // editアクション用（デフォルトでブランド名称を画面に表示させるにあたりid情報を持てていない為、以下のコードが必要となる。）
+  $(window).on('turbolinks:load', function () {
+    // submitボタン押下時に入っていたvalue(ブランド名)を取得
+    const brandData = $("#item_brand_id").val();
+
+    // そのブランド名でインクリメンタルサーチを発火
+    if(brandData != ""){
+      $.ajax({
+        type: "GET",
+        url: '/brands',
+        data: { keyword: brandData },
+        dataType: 'json',
+      })
+
+      // 名称をキーワードに取得したブランドデータからbrand_idを取得。paramsにidを載せる為、input valueにbrand_idの情報を持たせる。
+      .done(function(brands){
+        const brand = brands[0]
+        let brand_data = `<input value="${brand.id}" name="item[brand_id]" type="hidden" />`;
+        $(`#item_brand_id`).append(brand_data);        
+      });
+    }
   });
 });

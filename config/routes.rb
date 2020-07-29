@@ -8,10 +8,9 @@ Rails.application.routes.draw do
   end
   root "items#index"
 
-
-
-  resource :users, only: [:show] do
+  resources :users, only: [:show] do
     get 'logout', to: 'users#logout'
+    get 'items', to: 'users#items'
     resources :cards, only: [:new, :index, :show] do
       collection do
       # クレジットカード登録
@@ -30,7 +29,10 @@ Rails.application.routes.draw do
       get "get_size", defauts: { format: 'json' }
     end
   end
-  
+
+
+  resources :brands, only: [:index], defaults: {format: 'json'}
+
   resources :items do
     resource :creditcards do
       member do

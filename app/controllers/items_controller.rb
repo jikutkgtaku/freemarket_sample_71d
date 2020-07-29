@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :destroy]
+  before_action :set_item, only: [:show, :destroy, :edit, :update]
 
   def index
     @items = Item.includes(:images).where(buyer_id: nil).order("id desc").first(4)
@@ -21,14 +21,29 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to root_path
     else
-      render 'new'
+      redirect_to new_item_path, notice: "出品できません。入力必須項目を確認してください"
     end
   end
 
   def edit
+    if @item.seller_id == current_user.id
+      @category = Category.where(ancestry: nil).order("id ASC")
+      if @item.brand_id.present?
+        @brand = @item.brand.name
+      else
+        @brand = ""
+      end
+    else
+      redirect_to root_path, notice: "あなたが出品した商品ではないので編集できません"
+    end
   end
-
+  
   def update
+    if @item.update(item_params)
+      redirect_to root_path
+    else
+      redirect_to edit_item_path, notice: "編集できません。入力必須項目を確認してください"
+    end
   end
 
   def show
@@ -50,11 +65,11 @@ class ItemsController < ApplicationController
   end
   
   def category_children
-    @category_children = Category.find(params[:productcategory]).children
+    @category_children = Category.find(params[:category_id]).children
   end
 
   def category_grandchildren 
-    @category_grandchildren = Category.find(params[:productcategory]).children
+    @category_grandchildren = Category.find(params[:child_id]).children
   end
 
   def get_size
@@ -89,10 +104,9 @@ class ItemsController < ApplicationController
       ).merge( seller_id: current_user.id)
   end
 
+
   def set_item
     @item = Item.find(params[:id])
   end
 
 end
-
-

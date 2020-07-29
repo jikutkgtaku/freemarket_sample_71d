@@ -59,11 +59,18 @@ h3 {
           margin-right: 15px;
         }
 
-        .js-remove {
-          width: 100%;
-          text-align: center;
+        .js-btn {
+          width: 105px;
+          display: flex;
+          justify-content: space-between;
           font-size: 14px;
-          padding-top: 5px;
+          padding: 5px 8px 0 10px;
+        }
+        .edit-btn {
+          color: blue;
+        }
+        .js-remove {
+          color: red;
         }
       }
       .js-file_group{
