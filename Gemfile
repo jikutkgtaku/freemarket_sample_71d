@@ -81,6 +81,10 @@ gem 'active_hash'
 gem 'pry-rails'
 gem 'devise'
 gem 'ancestry'
+ 
+gem 'gretel'
+
 gem 'jquery-rails'
+
 gem 'payjp'
 gem "rails-i18n"

@@ -1,11 +1,13 @@
 -# ヘッダー
 %header
   = render 'items/header'
+  - breadcrumb :mypage
+  
 
 -# パンくずリスト
 %nav.bread-crumbs 
   %ul
-    %li パンくずリスト
+    = render "layouts/breadcrumbs"
 
 -# メイン部
 .main
