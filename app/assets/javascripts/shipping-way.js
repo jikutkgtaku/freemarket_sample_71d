@@ -46,26 +46,3 @@ $(function() {
     };
   });
 });
-// render用
-// $(window).load(function () {
-//   var selected_fee = $("#shipping-fee_select").val();
-//   if(selected_fee != ""){
-//     $.ajax({
-//       url: '/items/get_shipping_way',
-//       type: "GET",
-//       data: { selected_fee: selected_fee},
-//       dataType: 'json',
-//     })
-//     .done(function(shipping_ways){
-//       var insertHtml = '';
-//       console.log(shipping_ways);
-//       shipping_ways.forEach(function(shipping_way){
-//        insertHtml += appendOption(shipping_way);
-//       });
-//       $('.delivery--way').append(selectShippingWayHtml(insertHtml));
-//     })
-//     .fail(function(){
-//       alert('配送料の負担の取得エラー');
-//     })
-//   };
-// });

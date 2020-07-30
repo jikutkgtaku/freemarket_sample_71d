@@ -7,7 +7,7 @@
     %h1.item-box__name
       = @item.name
     .item-box__image
-      %ul.item-box__image__main.owl-carousel.owl-theme
+      %ul.item-box__image__main
         %li.item-box__image__main__pict.item
           = image_tag @item.images.first.image.url, class:"resize"
       %ul.item-box__image__sub
