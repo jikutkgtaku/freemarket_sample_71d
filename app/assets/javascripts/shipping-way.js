@@ -12,8 +12,7 @@ function selectShippingWayHtml(insertHtml){
                 </h3>
                 <div class='items-data--shipping-way' >
                   <select class="select-box" id="shipping-way" name="item[shipping_way_id]">
-                    <option value="---">選択してください</option>
-                      ${insertHtml}
+                    ${insertHtml}
                   </select>
                 </div>
               </div>`;

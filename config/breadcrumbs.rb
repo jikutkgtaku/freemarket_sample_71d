@@ -5,24 +5,24 @@ end
 
 # マイページ
 crumb :mypage do
-  link "マイページ", user_path
+  link "マイページ", user_path(current_user.id)
 end
 
 # マイページ→ログアウトの画面
 crumb :logout do
-  link "ログアウト", logout_users_path
+  link "ログアウト", user_logout_path(current_user.id)
   parent :mypage
 end
 
 # マイページ→支払い方法の画面
 crumb :card do
-  link "支払い方法", users_cards_path
+  link "支払い方法", creditcard_path(current_user.id)
   parent :mypage
 end
 
 # マイページ→支払い方法の画面→クレジットカード情報入力
 crumb :cardadd do
-  link "クレジットカード情報入力", new_users_card_path
+  link "クレジットカード情報入力", "#"
   parent :card
 end
 
