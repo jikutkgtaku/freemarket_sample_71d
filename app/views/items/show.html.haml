@@ -8,9 +8,8 @@
       = @item.name
     .item-box__image
       %ul.item-box__image__main.owl-carousel.owl-theme
-        - @item.images.each do |image|
-          %li.item-box__image__main__pict.item
-            = image_tag image.image.url, class:"resize"
+        %li.item-box__image__main__pict.item
+          = image_tag @item.images.first.image.url, class:"resize"
       %ul.item-box__image__sub
         - @item.images.each do |image|
           %li.item-box__image__sub__pict

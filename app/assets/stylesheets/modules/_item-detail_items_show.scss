@@ -41,6 +41,9 @@ $show-box-width: 700px;
   &__image {
     width: 80%;
     margin: 0 auto;
+    &__main{
+      @include item-place;
+    }
     &__sub {
       @include item-place;
       display: flex;
