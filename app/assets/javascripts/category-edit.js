@@ -1,7 +1,7 @@
 function buildEmptySizeHidden() {
   $(".delete_size").remove();
   let html = `
-    <input type="hidden" class="delete_size" id="size" name="item[size_id]" value = "111">
+    <input type="hidden" class="delete_size" id="size" name="item[size_id]" value = "87">
     </input>
     `;
   $('.items-data--category').append(html);
