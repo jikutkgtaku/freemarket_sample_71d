@@ -128,3 +128,5 @@ helmed_shield_5 = helmed_shield.children.create(name: "XLサイズ")
 helmed_shield_6 = helmed_shield.children.create(name: "XLLサイズ以上")
 helmed_shield_7 = helmed_shield.children.create(name: "フリーサイズ")
 helmed_shield_8 = helmed_shield.children.create(name: "子ども用")
+
+null = Size.create(name: "")

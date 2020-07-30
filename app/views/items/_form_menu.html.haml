@@ -62,15 +62,16 @@
             .items-data--category--edit
               .items-data--category__select
                 = f.collection_select :category, @category, :id, :name, { prompt: "選択してください", selected: @item.category.parent.parent_id }, {class: "select-box", id: "parent_category_edit"}
-              .items-data--category__child
+              .items-data--category__child#children_wrapper_edit
                 = f.collection_select :category, @item.category.parent.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.parent_id }, {class: "select-box", id: "child_category_edit"}
-              .items-data--category__grandchild
+              .items-data--category__grandchild#grandchildren_wrapper_edit
                 = f.collection_select :category, @item.category.parent.children, :id, :name, { prompt: "選択してください", selected: @item.category.id }, {class: "select-box", id: "grandchild_category_edit", name: "product[category_id]" }
-            .items-data--category__size_wrapper
-              %label.items-data--size
-                サイズ
-                %span.form-required 必須
-              = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size_id }, {class: "select-box", id: "size_wrapper_edit"}  
+            -if @item.size.name != ""
+              .items-data--category__size_wrapper
+                %label.items-data--size
+                  サイズ
+                  %span.form-required 必須
+                = f.collection_select :size, @item.size.parent.children, :id, :name, { prompt: "選択してください", selected: @item.size_id }, {class: "select-box", id: "size_wrapper_edit"}  
           - else
             .items-data--category__select
               = f.collection_select :category, @category, :id, :name, { prompt: "選択してください"}, {class: "select-box", id: "category_select" }

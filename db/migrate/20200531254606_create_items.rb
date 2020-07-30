@@ -8,7 +8,7 @@ class CreateItems < ActiveRecord::Migration[5.2]
       t.integer     :brand_id                
       t.references  :seller               , null: false, foreign_key: { to_table: :users }
       t.integer     :condition_id            , null: false
-      t.integer     :size_id                 , null: false, default: 99
+      t.integer     :size_id                 , null: false, default: 111
       t.integer     :shipping_fee_id         , null: false
       t.integer     :prefecture_id           , null: false
       t.integer     :shipping_period_id      , null: false
